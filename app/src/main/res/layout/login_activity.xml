@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_margin="30dp">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_logo_login"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="50dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_bi_person_badge_fill"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:paddingLeft="3dp"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edtIdKaryawan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tulis ID anda"
+        android:layout_marginTop="5dp"
+        android:textSize="15sp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="20dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_key1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kata Sandi"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:paddingLeft="5dp"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edtKataSandiKaryawan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tulis ID anda"
+        android:layout_marginTop="5dp"
+        android:textSize="15sp"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/color_base"
+        android:layout_marginTop="50dp"
+        android:text="Masuk"
+        android:textSize="15sp"
+        android:textColor="@color/white"/>
+
+
+</LinearLayout>
