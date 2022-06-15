@@ -16,8 +16,10 @@ class ListTokoActivityPresenter(val contract: ListTokoActivityContract){
                     call: Call<ResponseListToko>, response: Response<ResponseListToko>) {
 
                     if (response.isSuccessful){
-                        val data = response.body()
-                        contract.onSuccessGetList(data)
+                        val data = response.body()?.responseListToko
+                        if (data != null) {
+                            contract.onSuccessGetList(data)
+                        }
                     }else{
                         contract.onErrorGetList("Error")
                     }
@@ -30,4 +32,9 @@ class ListTokoActivityPresenter(val contract: ListTokoActivityContract){
                 }
             })
     }
+
+
+    //TambahToko
+
+
 }

@@ -21,7 +21,7 @@ object ApiClient {
 
     fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://192.168.1.13/server_udacoding/index.php/ServerApi/")
+            .baseUrl("http://192.168.110.202/mjs/mjs-api-ri/")
             .client(getInterceptor())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
