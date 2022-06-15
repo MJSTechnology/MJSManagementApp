@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MJSManagementApp</string>
+
+    <string-array name="statusToko">
+        <item>Kontrak/Milik Sendiri</item>
+        <item>Kontrak</item>
+        <item>Milik Sendiri</item>
+    </string-array>
 </resources>
