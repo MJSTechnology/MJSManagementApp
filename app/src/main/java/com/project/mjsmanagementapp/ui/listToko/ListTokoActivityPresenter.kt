@@ -1,5 +1,6 @@
 package com.project.mjsmanagementapp.ui.listToko
 
+import android.util.Log
 import com.project.mjsmanagementapp.data.ApiClient
 import com.project.mjsmanagementapp.model.getListToko.ResponseListToko
 import retrofit2.Call
@@ -24,7 +25,8 @@ class ListTokoActivityPresenter(val contract: ListTokoActivityContract){
                 }
 
                 override fun onFailure(call: Call<ResponseListToko>, t: Throwable) {
-
+                    contract.onErrorGetList(t.localizedMessage)
+                    Log.d("Error", "Error Data")
                 }
             })
     }
