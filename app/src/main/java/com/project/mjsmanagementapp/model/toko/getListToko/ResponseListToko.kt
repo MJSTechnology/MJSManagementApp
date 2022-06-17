@@ -1,4 +1,4 @@
-package com.project.mjsmanagementapp.model.Toko.getListToko
+package com.project.mjsmanagementapp.model.toko.getListToko
 
 import com.google.gson.annotations.SerializedName
 

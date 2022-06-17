@@ -1,12 +1,12 @@
-package com.project.mjsmanagementapp.ui.Toko.listToko
+package com.project.mjsmanagementapp.ui.toko.listToko
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.mjsmanagementapp.R
-import com.project.mjsmanagementapp.adapter.Toko.ListToko.ListTokoAdapter
-import com.project.mjsmanagementapp.model.Toko.getListToko.ResponseListTokoItem
-import com.project.mjsmanagementapp.ui.Toko.detailToko.DetailTokoActivity
+import com.project.mjsmanagementapp.adapter.toko.listToko.ListTokoAdapter
+import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
+import com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity
 import kotlinx.android.synthetic.main.tokolist_activity.*
 import org.jetbrains.anko.startActivity
 

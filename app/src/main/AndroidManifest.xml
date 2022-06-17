@@ -20,13 +20,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.project.mjsmanagementapp.ui.Toko.listToko.ListTokoActivity"
+            android:name="com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity"
             android:exported="false"/>
         <activity android:name=".MainActivity"
             android:exported="false">
         </activity>
         <activity
-            android:name="com.project.mjsmanagementapp.ui.Toko.detailToko.DetailTokoActivity"
+            android:name="com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity"
             android:exported="false"/>
     </application>
 

@@ -1,4 +1,4 @@
-package com.project.mjsmanagementapp.ui.Toko.detailToko
+package com.project.mjsmanagementapp.ui.toko.detailToko
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
