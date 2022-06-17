@@ -8,9 +8,9 @@ import java.util.*
 interface ApiInterface {
 
     //GET LIST TOKO
-    @GET("getListToko")
+    @GET("toko/getListToko")
     fun getListToko() : Call<ResponseListToko>
-
+    fun getToko() : Call<List<ResponseListToko>>
 
 
 }

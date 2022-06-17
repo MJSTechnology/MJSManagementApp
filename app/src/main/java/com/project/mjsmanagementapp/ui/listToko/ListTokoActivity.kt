@@ -21,6 +21,12 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
         presenter = ListTokoActivityPresenter(this)
         presenter.getListToko()
 
+
+        val linearLayoutManager: LinearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+        rvListToko.layoutManager = linearLayoutManager
+
+
     }
 
     override fun onSuccessGetList(data: List<ResponseListTokoItem>?) {

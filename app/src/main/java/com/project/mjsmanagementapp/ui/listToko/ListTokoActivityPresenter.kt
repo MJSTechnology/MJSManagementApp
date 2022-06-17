@@ -13,8 +13,7 @@ class ListTokoActivityPresenter(val contract: ListTokoActivityContract){
         ApiClient.getService().getListToko()
             .enqueue(object : retrofit2.Callback<ResponseListToko> {
                 override fun onResponse(
-                    call: Call<ResponseListToko>, response: Response<ResponseListToko>
-                ) {
+                    call: Call<ResponseListToko>, response: Response<ResponseListToko>) {
 
                     if (response.isSuccessful) {
                         val data = response.body()?.responseListToko
@@ -35,6 +34,23 @@ class ListTokoActivityPresenter(val contract: ListTokoActivityContract){
     }
 
 
+    /*fun getTokoList(){
+        ApiClient.getService().getToko()
+            .enqueue(object : retrofit2.Callback<List<ResponseListToko>>{
+                override fun onResponse(
+                    call: Call<List<ResponseListToko>>, response: Response<List<ResponseListToko>>) {
+                    if(response.isSuccessful){
+
+                    }
+                }
+
+                override fun onFailure(call: Call<List<ResponseListToko>>, t: Throwable) {
+
+                }
+
+            })
+    }
+*/
     //TambahToko
 
 
