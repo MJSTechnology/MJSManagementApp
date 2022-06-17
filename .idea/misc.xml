@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/ic_arrowright.xml" value="0.1415" />
+        <entry key="app/src/main/res/layout/detailtoko_activity.xml" value="0.13179347826086957" />
+        <entry key="app/src/main/res/layout/homepage_activity.xml" value="0.24510493624037594" />
+        <entry key="app/src/main/res/layout/itemlistsuplier.xml" value="0.13179347826086957" />
+        <entry key="app/src/main/res/layout/itemlisttoko.xml" value="0.24523773193359383" />
+        <entry key="app/src/main/res/layout/listtoko_activity.xml" value="0.1913622648819633" />
+        <entry key="app/src/main/res/layout/login_activity.xml" value="0.13179347826086957" />
+        <entry key="app/src/main/res/layout/tambahtoko_activity.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/tokolist_activity.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
