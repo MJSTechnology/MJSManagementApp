@@ -1,8 +1,8 @@
-package com.project.mjsmanagementapp.ui.listToko
+package com.project.mjsmanagementapp.ui.Toko.listToko
 
 import android.util.Log
 import com.project.mjsmanagementapp.data.ApiClient
-import com.project.mjsmanagementapp.model.getListToko.ResponseListToko
+import com.project.mjsmanagementapp.model.Toko.getListToko.ResponseListToko
 import retrofit2.Call
 import retrofit2.Response
 

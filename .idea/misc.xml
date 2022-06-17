@@ -10,8 +10,10 @@
         <entry key="app/src/main/res/layout/itemlisttoko.xml" value="0.24523773193359383" />
         <entry key="app/src/main/res/layout/listtoko_activity.xml" value="0.1913622648819633" />
         <entry key="app/src/main/res/layout/login_activity.xml" value="0.13179347826086957" />
+        <entry key="app/src/main/res/layout/splashscreen_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/tambahtoko_activity.xml" value="0.1" />
         <entry key="app/src/main/res/layout/tokolist_activity.xml" value="0.1" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1415" />
       </map>
     </option>
   </component>

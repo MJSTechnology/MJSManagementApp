@@ -1,12 +1,11 @@
-package com.project.mjsmanagementapp.adapter.ListToko
+package com.project.mjsmanagementapp.adapter.Toko.ListToko
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.project.mjsmanagementapp.R
-import com.project.mjsmanagementapp.model.getListToko.ResponseListToko
-import com.project.mjsmanagementapp.model.getListToko.ResponseListTokoItem
+import com.project.mjsmanagementapp.model.Toko.getListToko.ResponseListTokoItem
 import kotlinx.android.synthetic.main.itemlisttoko.view.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
