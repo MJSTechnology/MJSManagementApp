@@ -9,18 +9,19 @@ import retrofit2.Response
 class ListTokoActivityPresenter(val contract: ListTokoActivityContract){
 
     //GetData
-    fun getListToko(){
+    fun getListToko() {
         ApiClient.getService().getListToko()
-            .enqueue(object : retrofit2.Callback<ResponseListToko>{
+            .enqueue(object : retrofit2.Callback<ResponseListToko> {
                 override fun onResponse(
-                    call: Call<ResponseListToko>, response: Response<ResponseListToko>) {
+                    call: Call<ResponseListToko>, response: Response<ResponseListToko>
+                ) {
 
-                    if (response.isSuccessful){
+                    if (response.isSuccessful) {
                         val data = response.body()?.responseListToko
                         if (data != null) {
                             contract.onSuccessGetList(data)
                         }
-                    }else{
+                    } else {
                         contract.onErrorGetList("Error")
                     }
 

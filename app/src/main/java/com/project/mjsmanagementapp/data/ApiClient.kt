@@ -18,10 +18,9 @@ object ApiClient {
     }
 
     //Retrofit
-
     fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://192.168.110.202/mjs/mjs-api-ri/")
+            .baseUrl("http://192.168.1.13/mjs/mjs-api-ri/")
             .client(getInterceptor())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
