@@ -1,7 +1,6 @@
-package com.project.mjsmanagementapp.ui.listToko
+package com.project.mjsmanagementapp.ui.Toko.listToko
 
-import com.project.mjsmanagementapp.model.getListToko.ResponseListToko
-import com.project.mjsmanagementapp.model.getListToko.ResponseListTokoItem
+import com.project.mjsmanagementapp.model.Toko.getListToko.ResponseListTokoItem
 
 interface ListTokoActivityContract {
 

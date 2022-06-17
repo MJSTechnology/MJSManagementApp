@@ -1,16 +1,15 @@
 package com.project.mjsmanagementapp.data
 
-import com.project.mjsmanagementapp.model.getListToko.ResponseListToko
+import com.project.mjsmanagementapp.model.Toko.getListToko.ResponseListToko
 import retrofit2.Call
 import retrofit2.http.GET
-import java.util.*
 
 interface ApiInterface {
 
     //GET LIST TOKO
-    @GET("getListToko")
+    @GET("toko/getListToko")
     fun getListToko() : Call<ResponseListToko>
-
+    fun getToko() : Call<List<ResponseListToko>>
 
 
 }
