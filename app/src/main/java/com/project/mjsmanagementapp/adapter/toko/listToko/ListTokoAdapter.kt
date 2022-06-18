@@ -9,7 +9,7 @@ import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
 import kotlinx.android.synthetic.main.itemlisttoko.view.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
-class ListTokoAdapter(val data: List<ResponseListTokoItem>?, private val click: onClickItem) : RecyclerView.Adapter<ListTokoAdapter.ViewHolder>() {
+class ListTokoAdapter (val data: List<ResponseListTokoItem>?, private val click: onClickItem) : RecyclerView.Adapter<ListTokoAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.itemlisttoko, parent, false)
