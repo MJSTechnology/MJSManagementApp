@@ -1,16 +1,19 @@
-package com.project.mjsmanagementapp.ui.listToko
+package com.project.mjsmanagementapp.ui.toko.listToko
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.project.mjsmanagementapp.MainActivity
 import com.project.mjsmanagementapp.R
-import com.project.mjsmanagementapp.adapter.ListToko.ListTokoAdapter
-import com.project.mjsmanagementapp.model.getListToko.ResponseListToko
-import com.project.mjsmanagementapp.model.getListToko.ResponseListTokoItem
-import com.project.mjsmanagementapp.ui.detailToko.DetailTokoActivity
+import com.project.mjsmanagementapp.adapter.toko.listToko.ListTokoAdapter
+import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
+import com.project.mjsmanagementapp.ui.Toko.listToko.ListTokoActivityPresenter
+import com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity
 import kotlinx.android.synthetic.main.tokolist_activity.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
+
 
 class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
@@ -19,12 +22,16 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tokolist_activity)
         presenter = ListTokoActivityPresenter(this)
-        presenter.getListToko()
+        presenter.getTokoList()
 
-
-        val linearLayoutManager: LinearLayoutManager = LinearLayoutManager(this)
+        val linearLayoutManager:LinearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
         rvListToko.layoutManager = linearLayoutManager
+
+        btnimgBack.onClick {
+            startActivity<MainActivity>()
+            finish()
+        }
 
 
     }
@@ -39,6 +46,7 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
     }
 
     override fun onErrorGetList(msg: String?) {
+        Toast.makeText(applicationContext, "Error Ya", Toast.LENGTH_SHORT).show()
 
     }
 

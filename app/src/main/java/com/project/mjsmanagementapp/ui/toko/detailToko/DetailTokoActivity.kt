@@ -1,20 +1,23 @@
-package com.project.mjsmanagementapp
+package com.project.mjsmanagementapp.ui.toko.detailToko
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
-import kotlinx.android.synthetic.main.homepage_activity.*
+import kotlinx.android.synthetic.main.detailtoko_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
 
-class MainActivity : AppCompatActivity() {
+
+class DetailTokoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.homepage_activity)
+        setContentView(R.layout.detailtoko_activity)
 
-        tokobtn.onClick {
+        imgbtnBack.onClick {
             startActivity<ListTokoActivity>()
             finish()
         }
+
     }
 }

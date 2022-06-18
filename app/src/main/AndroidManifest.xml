@@ -12,19 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MJSManagementApp">
-        <activity
-            android:name=".ui.listToko.ListTokoActivity"
-            android:exported="false"/>
-        <activity android:name=".MainActivity"
+        <activity android:name=".ui.splashScreen.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.detailToko.DetailTokoActivity"
+            android:name="com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity"
+            android:exported="false"/>
+        <activity android:name=".MainActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name="com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity"
             android:exported="false"/>
     </application>
 
