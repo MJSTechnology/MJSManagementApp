@@ -1,7 +1,6 @@
 package com.project.mjsmanagementapp.data
 
-import com.project.mjsmanagementapp.model.Toko.getListToko.ResponseListToko
-import com.project.mjsmanagementapp.model.Toko.getListToko.ResponseListTokoItem
+import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
 import retrofit2.Call
 import retrofit2.http.GET
 
