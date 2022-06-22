@@ -34,6 +34,24 @@ class ListTokoActivityPresenter(val contract: ListTokoActivityContract){
             })
     }
 
+    //GetSearch
+    fun getSearchToko(){
+        ApiClient.getService().getSearchToko()
+            .enqueue(object : retrofit2.Callback<List<ResponseListTokoItem>>{
+                override fun onResponse(
+                    call: Call<List<ResponseListTokoItem>>, response: Response<List<ResponseListTokoItem>>) {
+                    if (response.isSuccessful) {
+                        contract.onSuccessSearch(response.body())
+                    }
+                }
+
+                override fun onFailure(call: Call<List<ResponseListTokoItem>>, t: Throwable) {
+                    contract.onErrorSearch(t.localizedMessage)
+                    Log.d("Error", "Error Data")
+                }
+            })
+    }
+
 
 
 }

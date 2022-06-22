@@ -30,8 +30,9 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
         setContentView(R.layout.tokolist_activity)
         presenter = ListTokoActivityPresenter(this)
         presenter.getTokoList()
+        presenter.getSearchToko()
 
-        showDataSearch()
+        //showDataSearch()
 
 
         val linearLayoutManager:LinearLayoutManager = LinearLayoutManager(this)
@@ -50,64 +51,6 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
     }
 
-    private fun showDataSearch() {
-        ApiClient.getService().getSearchToko()
-            .enqueue(object : retrofit2.Callback<List<ResponseListTokoItem>>{
-                override fun onResponse(call: Call<List<ResponseListTokoItem>>, response: Response<List<ResponseListTokoItem>>) {
-                    val dataList = response.body()
-                    listTokoAdapter = ListTokoAdapter(dataList, object : ListTokoAdapter.onClickItem{
-                        override fun clicked(item: ResponseListTokoItem?) {
-                            startActivity<DetailTokoActivity>()
-                        }
-                    })
-
-                    rvListToko1.adapter = listTokoAdapter
-                    svListToko.imeOptions = EditorInfo.IME_ACTION_SEARCH
-                    svListToko.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-                        override fun onQueryTextSubmit(query: String?): Boolean = false
-
-                        override fun onQueryTextChange(action: String?): Boolean {
-                           if(action != null){
-
-
-                               if(action.isEmpty()){
-                                   rvListToko1.visibility = View.VISIBLE
-                                   rvListToko2.visibility = View.GONE
-
-                               }else if (action.length > 2){
-                                   val filter = dataList?.filter { it.tokoNama!!.contains("$action", true) }
-                                   listTokoAdapter = ListTokoAdapter(filter as List<ResponseListTokoItem>, object : ListTokoAdapter.onClickItem{
-                                       override fun clicked(item: ResponseListTokoItem?) {
-                                           startActivity<DetailTokoActivity>()
-                                       }
-                                   })
-
-                                   if(action.isNotEmpty()){
-                                       rvListToko2.visibility = View.VISIBLE
-                                       rvListToko2.adapter = listTokoAdapter
-                                       rvListToko1.visibility = View.GONE
-                                   }else{
-                                       rvListToko1.visibility = View.VISIBLE
-                                       rvListToko2.visibility = View.GONE
-
-                                   }
-
-                               }
-                           }
-
-
-                            return false
-                        }
-                    })
-                }
-
-                override fun onFailure(call: Call<List<ResponseListTokoItem>>, t: Throwable) {
-                    Toast.makeText(applicationContext, "Error Search", Toast.LENGTH_SHORT).show()
-                }
-            })
-    }
-
-
     override fun onSuccessGetList(data: List<ResponseListTokoItem>?) {
 
         rvListToko1.adapter = ListTokoAdapter(data, object : ListTokoAdapter.onClickItem{
@@ -121,6 +64,56 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
     override fun onErrorGetList(msg: String?) {
         Toast.makeText(applicationContext, "Error Ya", Toast.LENGTH_SHORT).show()
 
+    }
+
+    override fun onSuccessSearch(data: List<ResponseListTokoItem>?) {
+        listTokoAdapter = ListTokoAdapter(data, object : ListTokoAdapter.onClickItem{
+            override fun clicked(item: ResponseListTokoItem?) {
+                startActivity<DetailTokoActivity>()
+            }
+        })
+
+        rvListToko1.visibility = View.VISIBLE
+        svListToko.imeOptions = EditorInfo.IME_ACTION_SEARCH
+        svListToko.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean = false
+
+            override fun onQueryTextChange(action: String?): Boolean {
+
+                if(action != null){
+
+                    if(action.isEmpty()) {
+
+                        rvListToko1.visibility = View.VISIBLE
+                        rvListToko2.visibility = View.GONE
+
+                    } else if(action.length > 2){
+                        val filter = data?.filter { it.tokoNama!!.contains("$action", true) }
+                        listTokoAdapter = ListTokoAdapter(filter as List<ResponseListTokoItem>, object : ListTokoAdapter.onClickItem{
+                            override fun clicked(item: ResponseListTokoItem?) {
+                                startActivity<DetailTokoActivity>()
+                            }
+                        })
+
+                        if (action.isNotEmpty()){
+                            rvListToko2.visibility = View.VISIBLE
+                            rvListToko2.adapter = listTokoAdapter
+                            rvListToko1.visibility = View.GONE
+                        }else{
+                            rvListToko1.visibility = View.VISIBLE
+                            rvListToko2.visibility = View.GONE
+                        }
+
+                    }
+                }
+
+                return false
+            }
+        })
+    }
+
+    override fun onErrorSearch(msg: String?) {
+        TODO("Not yet implemented")
     }
 
 
