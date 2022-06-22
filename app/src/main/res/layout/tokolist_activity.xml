@@ -77,12 +77,20 @@
                     android:id="@+id/svListToko"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    app:queryHint="Cari Toko"/>
+                    app:queryHint="Cari Toko" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvListToko"
+                    android:id="@+id/rvListToko1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    tools:listitem="@layout/itemlisttoko"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvListToko2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:paddingTop="20dp"
                     tools:listitem="@layout/itemlisttoko"/>
 

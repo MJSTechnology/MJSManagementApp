@@ -1,13 +1,20 @@
 package com.project.mjsmanagementapp.ui.Toko.listToko
 
 import android.util.Log
+import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.SearchView
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.project.mjsmanagementapp.adapter.Toko.ListToko.ListTokoAdapter
 import com.project.mjsmanagementapp.data.ApiClient
 import com.project.mjsmanagementapp.model.Toko.getListToko.ResponseListToko
 import com.project.mjsmanagementapp.model.Toko.getListToko.ResponseListTokoItem
+import kotlinx.android.synthetic.main.tokolist_activity.*
 import retrofit2.Call
 import retrofit2.Response
 
 class ListTokoActivityPresenter(val contract: ListTokoActivityContract){
+
 
     //GetData
     fun getTokoList(){
@@ -27,7 +34,6 @@ class ListTokoActivityPresenter(val contract: ListTokoActivityContract){
             })
     }
 
-    //TambahToko
 
 
 }
