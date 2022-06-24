@@ -56,6 +56,9 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
         txtNamaKontakPerson.setText(response.tokoPicName)
         txtNomorKontakPerson.setText(response.tokoPicPhone)
 
+
+
+
         Glide.with(this)
             .load(ApiClient.BASE_URL + response.tokoPicKTP)
             .into(findViewById(R.id.imgKtpToko))
@@ -81,10 +84,11 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
             dialog.setCancelable(true)
 
             view.btn_confirm.setOnClickListener {
-                if (edtKonfirm.getText().toString() == "Saya Yakin") {
-                    Toast.makeText(applicationContext, "Error Yah", Toast.LENGTH_SHORT).show()
+                if (view.edtKonfirm.getText().toString() == "Saya Yakin") {
+                    presenter.deleteToko(response.tokoID.toString())
+
                 }else {
-                    Toast.makeText(applicationContext, "Error Ya", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Delete Failed", Toast.LENGTH_SHORT).show()
                 }
 
                 }
@@ -92,14 +96,14 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
         }
     
     override fun onErrorGetDetail(msg: String) {
-        TODO("Not yet implemented")
+        Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
     }
 
     override fun onSuccessDelete(response: String) {
-        TODO("Not yet implemented")
+        Toast.makeText(applicationContext, response, Toast.LENGTH_SHORT).show()
     }
 
     override fun onErrorDelete(response: String) {
-        TODO("Not yet implemented")
+        Toast.makeText(applicationContext, response, Toast.LENGTH_SHORT).show()
     }
 }
