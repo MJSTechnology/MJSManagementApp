@@ -34,7 +34,6 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
         //showDataSearch()
 
-
         val linearLayoutManager:LinearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
         rvListToko1.layoutManager = linearLayoutManager
