@@ -8,7 +8,6 @@ import com.project.mjsmanagementapp.MainActivity
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.adapter.toko.listToko.ListTokoAdapter
 import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
-import com.project.mjsmanagementapp.ui.Toko.listToko.ListTokoActivityPresenter
 import com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity
 import kotlinx.android.synthetic.main.tokolist_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -39,8 +38,7 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
     override fun onSuccessGetList(data: List<ResponseListTokoItem>?) {
         rvListToko.adapter = ListTokoAdapter(data, object : ListTokoAdapter.onClickItem{
             override fun clicked(item: ResponseListTokoItem?) {
-                startActivity<DetailTokoActivity>()
-                finish()
+                startActivity<DetailTokoActivity>("detailItem" to item)
             }
         })
     }

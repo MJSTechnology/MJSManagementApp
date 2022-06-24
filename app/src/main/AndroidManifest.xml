@@ -28,6 +28,9 @@
         <activity
             android:name="com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity"
             android:exported="false"/>
+        <activity
+            android:name="com.project.mjsmanagementapp.ui.toko.editToko.EditTokoActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

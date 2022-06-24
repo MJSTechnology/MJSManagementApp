@@ -2,6 +2,7 @@ package com.project.mjsmanagementapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
 import kotlinx.android.synthetic.main.homepage_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -14,7 +15,6 @@ class MainActivity : AppCompatActivity() {
 
         tokobtn.onClick {
             startActivity<ListTokoActivity>()
-            finish()
         }
     }
 }

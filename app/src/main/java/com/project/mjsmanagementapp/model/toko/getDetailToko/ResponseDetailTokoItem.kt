@@ -2,7 +2,7 @@ package com.project.mjsmanagementapp.model.toko.getDetailToko
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseDetailTokoItem(
+data class ResponseDetailTokoItem (
 
 	@field:SerializedName("tokoPicKTP")
 	val tokoPicKTP: String? = null,

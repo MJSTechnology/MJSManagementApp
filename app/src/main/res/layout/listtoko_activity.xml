@@ -85,7 +85,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_addplus" />
 
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+
