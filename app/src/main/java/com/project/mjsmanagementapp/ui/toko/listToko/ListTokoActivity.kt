@@ -9,6 +9,7 @@ import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.adapter.toko.listToko.ListTokoAdapter
 import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
 import com.project.mjsmanagementapp.ui.Toko.listToko.ListTokoActivityPresenter
+import com.project.mjsmanagementapp.ui.toko.addToko.AddTokoActivity
 import com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity
 import kotlinx.android.synthetic.main.tokolist_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -27,6 +28,11 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
         val linearLayoutManager:LinearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
         rvListToko.layoutManager = linearLayoutManager
+
+        btnTambahToko.onClick {
+            startActivity<AddTokoActivity>()
+            finish()
+        }
 
         btnimgBack.onClick {
             startActivity<MainActivity>()

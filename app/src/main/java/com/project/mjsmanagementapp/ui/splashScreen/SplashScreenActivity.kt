@@ -7,6 +7,9 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.project.mjsmanagementapp.MainActivity
 import com.project.mjsmanagementapp.R
+import com.project.mjsmanagementapp.data.UserToken
+import com.project.mjsmanagementapp.ui.login.LoginActivity
+import org.jetbrains.anko.startActivity
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -18,9 +21,13 @@ class SplashScreenActivity : AppCompatActivity() {
 
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            if (!UserToken.adminEmail.isNullOrEmpty()){
+                startActivity<MainActivity>()
+                finish()
+            }else{
+                startActivity<LoginActivity>()
+                finish()
+            }
         }, 1000)
 
 

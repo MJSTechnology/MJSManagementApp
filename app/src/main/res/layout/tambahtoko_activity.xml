@@ -156,11 +156,13 @@
             <EditText
                 android:id="@+id/edtNomorKontakPerson"
                 android:layout_width="match_parent"
+
                 android:layout_height="wrap_content"
                 android:hint="No. Telp"
                 android:textSize="15sp"/>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardFotoKtp"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 app:cardElevation="0dp"
@@ -202,6 +204,7 @@
             android:paddingTop="20dp"/>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardFotoToko"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 app:cardElevation="0dp"

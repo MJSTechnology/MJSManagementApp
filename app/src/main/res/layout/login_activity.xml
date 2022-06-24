@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ID"
+            android:text="Email"
             android:textStyle="bold"
             android:textSize="15sp"
             android:paddingLeft="3dp"/>
@@ -37,7 +37,7 @@
         android:id="@+id/edtIdKaryawan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tulis ID anda"
+        android:hint="Masukkan Email Anda"
         android:layout_marginTop="5dp"
         android:textSize="15sp"/>
 
@@ -67,7 +67,7 @@
         android:id="@+id/edtKataSandiKaryawan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tulis ID anda"
+        android:hint="Masukkan Password Anda"
         android:layout_marginTop="5dp"
         android:textSize="15sp"/>
 
