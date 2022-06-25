@@ -41,12 +41,10 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
         rvListToko1.layoutManager = LinearLayoutManager(this)
         rvListToko2.layoutManager = LinearLayoutManager(this)
 
-
         btnimgBack.onClick {
             startActivity<MainActivity>()
             finish()
         }
-
 
     }
 

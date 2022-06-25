@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_add_square.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_arrowright.xml" value="0.1415" />
+        <entry key="app/src/main/res/layout/detailsuplier_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/detailtoko_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/edittoko_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/homepage_activity.xml" value="0.24510493624037594" />
@@ -13,7 +15,7 @@
         <entry key="app/src/main/res/layout/login_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/splashscreen_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/tambahtoko_activity.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/tokolist_activity.xml" value="0.2277481079101562" />
+        <entry key="app/src/main/res/layout/tokolist_activity.xml" value="0.14741784037558686" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1415" />
       </map>
     </option>
