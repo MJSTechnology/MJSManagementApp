@@ -32,7 +32,7 @@ data class ResponseDetailTokoItem (
 	val tokoPicPhone: String? = null,
 
 	@field:SerializedName("tokoID")
-	val tokoID: Int? = null,
+	val tokoID: String? = null,
 
 	@field:SerializedName("tokoWilayah")
 	val tokoWilayah: String? = null,

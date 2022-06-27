@@ -1,13 +1,10 @@
 package com.project.mjsmanagementapp.ui.toko.detailToko
 
+import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextUtils
-import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -56,9 +53,6 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
         txtNamaKontakPerson.setText(response.tokoPicName)
         txtNomorKontakPerson.setText(response.tokoPicPhone)
 
-
-
-
         Glide.with(this)
             .load(ApiClient.BASE_URL + response.tokoPicKTP)
             .into(findViewById(R.id.imgKtpToko))
@@ -69,7 +63,17 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
 
 
         btnEditToko.onClick {
-            startActivity<EditTokoActivity>()
+            val intent = Intent(this@DetailTokoActivity, EditTokoActivity::class.java)
+            intent.putExtra("tokoID", response.tokoID)
+            intent.putExtra("tokoNama", response.tokoNama)
+            intent.putExtra("tokoWilayah", response.tokoWilayah)
+            intent.putExtra("tokoAlamat", response.tokoAlamat)
+            intent.putExtra("tokoStatus", response.tokoStatus)
+            intent.putExtra("tokoPicName", response.tokoPicName)
+            intent.putExtra("tokoPicPhone", response.tokoPicPhone)
+            intent.putExtra("tokoPicKTP", response.tokoPicKTP)
+            intent.putExtra("tokoPhoto", response.tokoPhoto)
+            startActivity(intent)
         }
 
         btnHapusToko.onClick {
@@ -86,9 +90,10 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
             view.btn_confirm.setOnClickListener {
                 if (view.edtKonfirm.getText().toString() == "Saya Yakin") {
                     presenter.deleteToko(response.tokoID.toString())
+                    startActivity<ListTokoActivity>()
 
                 }else {
-                    Toast.makeText(applicationContext, "Delete Failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Ketik 'Saya Yakin' untuk menghapus!", Toast.LENGTH_SHORT).show()
                 }
 
                 }
