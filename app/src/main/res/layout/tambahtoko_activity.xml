@@ -246,6 +246,7 @@
                 android:paddingTop="20dp"/>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/btnTambahMapsToko"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 app:cardElevation="0dp"

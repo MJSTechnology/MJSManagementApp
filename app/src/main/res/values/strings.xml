@@ -7,4 +7,5 @@
         <item>Kontrak</item>
         <item>Milik Sendiri</item>
     </string-array>
+    <string name="title_activity_maps_add_toko">Map</string>
 </resources>

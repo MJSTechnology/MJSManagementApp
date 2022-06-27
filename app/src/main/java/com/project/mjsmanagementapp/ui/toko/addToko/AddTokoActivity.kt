@@ -43,6 +43,11 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
             selectedImageToko()
         }
 
+        btnTambahMapsToko.onClick {
+            startActivity<AddMapsTokoActivity>()
+            finish()
+        }
+
         cardFotoKtp.onClick {
             selectedImageKtp()
         }
