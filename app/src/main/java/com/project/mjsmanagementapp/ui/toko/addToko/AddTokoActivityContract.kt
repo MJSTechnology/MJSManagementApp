@@ -6,6 +6,8 @@ import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
 interface AddTokoActivityContract {
 
     // addToko
-    fun onSuccessAddToko(data : ResponseAddToko?)
+    fun onSuccessAddToko(response : String?)
     fun onErrorAddToko(msg: String?)
+
+
 }
