@@ -1,5 +1,6 @@
 package com.project.mjsmanagementapp.ui.toko.addToko
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,10 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.project.mjsmanagementapp.R
+import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
+import kotlinx.android.synthetic.main.activity_add_maps_toko.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.startActivity
 
 class AddMapsTokoActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -25,6 +30,8 @@ class AddMapsTokoActivity : AppCompatActivity(), OnMapReadyCallback {
 
         fusedLocationProvider = LocationServices.getFusedLocationProviderClient(this)
         fetchLocation()
+
+
     }
 
     private fun fetchLocation() {
@@ -44,7 +51,15 @@ class AddMapsTokoActivity : AppCompatActivity(), OnMapReadyCallback {
         task.addOnSuccessListener { location ->
             if(location != null){
                 currentLocation = location
-                Toast.makeText(this, currentLocation.latitude.toString() + "" + currentLocation.longitude.toString(), Toast.LENGTH_SHORT).show()
+
+                btnTambahMapsToko.onClick {
+                    val intent = Intent(this@AddMapsTokoActivity, AddTokoActivity::class.java)
+                    intent.putExtra("tokoMapLat", currentLocation.latitude.toString())
+                    intent.putExtra("tokoMapLong", currentLocation.longitude.toString())
+                    startActivity(intent)
+                    finish()
+                }
+
 
                 val supportMapFragment = (supportFragmentManager.findFragmentById(R.id.myMap) as
                         SupportMapFragment?)!!

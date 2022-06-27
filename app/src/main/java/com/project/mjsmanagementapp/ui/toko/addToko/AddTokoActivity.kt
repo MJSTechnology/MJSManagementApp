@@ -29,8 +29,8 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
     var statusResponseToko : String? = null
 
 
-
-
+    var tokoMapLat :String? = null
+    var tokoMapLong :String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +38,19 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
         setContentView(R.layout.tambahtoko_activity)
 
         presenter = AddTokoActivityPresenter(this)
+
+        val intent = intent
+        tokoMapLat = intent.getStringExtra("tokoMapLat")
+        tokoMapLong = intent.getStringExtra("tokoMapLong")
+
+        if (tokoMapLat == null && tokoMapLong == null){
+            imgLokasiToko2.visibility = View.GONE
+            imgLokasiToko1.visibility = View.VISIBLE
+        }else{
+            imgLokasiToko2.visibility = View.VISIBLE
+            imgLokasiToko1.visibility = View.GONE
+
+        }
 
         cardFotoToko.onClick {
             selectedImageToko()
@@ -84,8 +97,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
             val tokoStatus: String? = statusResponseToko
             val tokoPicName: String = edtNamaKontakPerson.getText().toString().trim { it <= ' ' }
             val tokoPicPhone: String = edtNomorKontakPerson.getText().toString().trim { it <= ' ' }
-            val lat = "00000"
-            val long = "2222"
+
 
 
             var photoKtp: String
@@ -105,7 +117,8 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
 
 
             presenter.addToko(photoToko, photoKtp, tokoNama, tokoWilayah, tokoAlamat,
-                tokoStatus.toString(), tokoPicName, tokoPicPhone, lat, long)
+                tokoStatus.toString(), tokoPicName, tokoPicPhone, tokoMapLat.toString(), tokoMapLong.toString()
+            )
         }
 
 
