@@ -1,6 +1,7 @@
 package com.project.mjsmanagementapp.data
 
-import com.project.mjsmanagementapp.model.login.ResponseLogin
+
+import com.project.mjsmanagementapp.model.toko.Login.ResponseLogin
 import com.project.mjsmanagementapp.model.toko.addToko.ResponseAddToko
 import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
 import okhttp3.MultipartBody

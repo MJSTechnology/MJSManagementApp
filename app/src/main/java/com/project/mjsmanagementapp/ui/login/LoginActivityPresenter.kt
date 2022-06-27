@@ -2,7 +2,8 @@ package com.project.mjsmanagementapp.ui.login
 
 import android.util.Log
 import com.project.mjsmanagementapp.data.ApiClient
-import com.project.mjsmanagementapp.model.login.ResponseLogin
+import com.project.mjsmanagementapp.model.toko.Login.ResponseLogin
+
 import retrofit2.Call
 import retrofit2.Response
 
