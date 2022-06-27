@@ -1,6 +1,7 @@
 package com.project.mjsmanagementapp.ui.login
 
-import com.project.mjsmanagementapp.model.login.ResponseLogin
+
+import com.project.mjsmanagementapp.model.toko.Login.ResponseLogin
 import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
 
 interface LoginActivtyContract {

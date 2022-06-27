@@ -8,7 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.project.mjsmanagementapp.MainActivity
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.data.UserToken
-import com.project.mjsmanagementapp.model.login.ResponseLogin
+import com.project.mjsmanagementapp.model.toko.Login.ResponseLogin
+
 import kotlinx.android.synthetic.main.login_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
