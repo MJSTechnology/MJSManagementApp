@@ -90,15 +90,15 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
         }
 
         btnDetailMapsToko.onClick {
-        if (response.tokoMapLat != null && response.tokoMapLong != null){
-            val intent = Intent(this@DetailTokoActivity, DetailMapsTokoActivity::class.java)
-            intent.putExtra("tokoMapLat", response.tokoMapLat)
-            intent.putExtra("tokoMapLong", response.tokoMapLong)
-            intent.putExtra("tokoNama", response.tokoNama)
-            startActivity(intent)
-        }else{
-            Toast.makeText(applicationContext, "Silahkan daftarkan lokasi toko terlebih dahulu!", Toast.LENGTH_SHORT).show()
-        }
+            if (response.tokoMapLat != null && response.tokoMapLong != null){
+                val intent = Intent(this@DetailTokoActivity, DetailMapsTokoActivity::class.java)
+                intent.putExtra("tokoMapLat", response.tokoMapLat)
+                intent.putExtra("tokoMapLong", response.tokoMapLong)
+                intent.putExtra("tokoNama", response.tokoNama)
+                startActivity(intent)
+            }else{
+                Toast.makeText(applicationContext, "Silahkan daftarkan lokasi toko terlebih dahulu!", Toast.LENGTH_SHORT).show()
+            }
 
         }
 
@@ -140,10 +140,10 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
                     Toast.makeText(applicationContext, "Ketik 'Saya Yakin' untuk menghapus!", Toast.LENGTH_SHORT).show()
                 }
 
-                }
             }
         }
-    
+    }
+
     override fun onErrorGetDetail(msg: String) {
         Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
     }

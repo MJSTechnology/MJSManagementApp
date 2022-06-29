@@ -46,6 +46,8 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
     private var tokoNewMapLong: String? = null
     var statusResponseToko : String? = null
 
+    var tokoID : String? = null
+
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.edittoko_activity)
@@ -62,7 +64,7 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
         }
 
         val intent = intent
-        val tokoID = intent.getStringExtra("tokoID")
+        tokoID = intent.getStringExtra("tokoID")
         val tokoOldMapLat = intent.getStringExtra("tokoMapLat")
         val tokoOldMapLong = intent.getStringExtra("tokoMapLong")
 
@@ -105,13 +107,9 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
                 photoKtp = getStringImageKtp(bitmapKtp!!)
             }
 
-            if (tokoID != null) {
-                presenter.editToko(photoToko, photoKtp, tokoID, tokoNama,tokoWilayah,tokoAlamat,statusResponseToko.toString(),tokoPicName,tokoPicPhone,tokoMapLat,tokoMapLong)
-                val intent = Intent(this@EditTokoActivity, DetailTokoActivity::class.java)
-                intent.putExtra("tokoID", tokoID)
-                startActivity(intent)
-                finish()
-            }
+                presenter.editToko(photoToko, photoKtp,
+                    tokoID.toString(), tokoNama,tokoWilayah,tokoAlamat,statusResponseToko.toString(),tokoPicName,tokoPicPhone,tokoMapLat,tokoMapLong)
+
 
         }
 
@@ -142,7 +140,7 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
             spinnerStatusToko.adapter = adapterStatus
 
             spinnerStatusToko.onItemSelectedListener = object :
-            AdapterView.OnItemSelectedListener{
+                AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                     Log.d("Error", getString(R.string.selected_item) + " " + "" + spinnerTokoStatus[p2])
                     statusResponseToko = spinnerTokoStatus[p2]
@@ -232,6 +230,11 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
 
     override fun onSuccessEdit(response: String) {
         Toast.makeText(applicationContext, response, Toast.LENGTH_SHORT).show()
+        val intent = Intent(this@EditTokoActivity, DetailTokoActivity::class.java)
+        intent.putExtra("tokoID", tokoID)
+        startActivity(intent)
+        finish()
+
     }
 
     override fun onErrorEdit(response: String) {

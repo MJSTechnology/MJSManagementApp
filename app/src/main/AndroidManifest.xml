@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.project.mjsmanagementapp">
-
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -9,6 +13,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".data.UserApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,16 +22,31 @@
         android:theme="@style/Theme.MJSManagementApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.toko.editToko.EditTokoActivity"
+            android:exported="false"></activity>
+        <activity
             android:name=".ui.toko.editToko.EditMapsTokoActivity"
             android:exported="false" />
         <activity
             android:name=".ui.toko.detailToko.DetailMapsTokoActivity"
             android:exported="false" />
-
+        <activity android:name=".ui.toko.addToko.AddMapsTokoActivity" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <activity
+            android:name=".ui.toko.addToko.MapsAddTokoActivity"
+            android:label="@string/title_activity_maps_add_toko" />
+        <activity android:name=".ui.toko.addToko.AddTokoActivity" />
         <activity
             android:name=".ui.splashScreen.SplashScreenActivity"
             android:exported="true">
@@ -37,16 +57,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity"
+            android:name=".ui.toko.listToko.ListTokoActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
+        <activity android:name=".ui.login.LoginActivity" />
         <activity
             android:name=".ui.toko.detailToko.DetailTokoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.toko.editToko.EditTokoActivity"
             android:exported="false" />
     </application>
 

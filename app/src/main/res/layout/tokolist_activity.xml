@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,19 +20,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_back"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="20dp"/>
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"/>
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
-                app:cardBackgroundColor="@color/color_base"
                 app:cardCornerRadius="8dp"
-                android:elevation="0dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="10dp">
-
+                android:backgroundTint="@color/color_base"
+                app:cardElevation="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -48,11 +43,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="List Toko"
-                        android:textSize="20dp"
-                        android:textColor="@color/white"
                         android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="20dp"
                         android:paddingTop="9dp"
                         android:paddingLeft="20dp"/>
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
@@ -60,48 +56,58 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardElevation="10dp"
-            app:cardCornerRadius="10dp"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_margin="20dp">
+                android:layout_margin="15dp">
 
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/svListToko"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    app:queryHint="Cari Toko"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/svListToko"
+                        android:layout_width="match_parent"
+                        android:layout_height="37dp"
+                        app:queryHint="Cari Toko" />
+
+                    <ImageView
+                        android:id="@+id/btnTambahToko"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_add_square"
+                        android:layout_alignParentRight="true"/>
+                </RelativeLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvListToko"
+                    android:id="@+id/rvListToko1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
                     tools:listitem="@layout/itemlisttoko"/>
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvListToko2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:paddingTop="20dp"
+                    tools:listitem="@layout/itemlisttoko"/>
+
 
             </LinearLayout>
+
+
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnTambahToko"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/color_base"
-            android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="30dp"
-            android:layout_marginRight="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_addplus" />
-</androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

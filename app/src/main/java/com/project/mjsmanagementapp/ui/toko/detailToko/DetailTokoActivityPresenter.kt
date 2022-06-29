@@ -48,8 +48,8 @@ class DetailTokoActivityPresenter(val contract: DetailTokoActivityContract) {
                 }
 
                 override fun onFailure(call: Call<ResponseDeleteToko>, t: Throwable) {
-                        contract.onErrorDelete(t.localizedMessage)
-                        Log.d("Error", "Error Delete")
+                    contract.onErrorDelete(t.localizedMessage)
+                    Log.d("Error", "Error Delete")
                 }
 
             })

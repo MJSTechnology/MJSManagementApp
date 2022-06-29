@@ -5,9 +5,9 @@ import java.io.Serializable
 
 data class ResponseEditToko(
 
-	@field:SerializedName("message")
-	val message: String? = null,
+    @field:SerializedName("message")
+    val message: String? = null,
 
-	@field:SerializedName("status")
-	val status: Int? = null
+    @field:SerializedName("status")
+    val status: Int? = null
 )

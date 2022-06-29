@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class ResponseDeleteToko(
 
-	@field:SerializedName("message")
-	val message: String? = null,
+    @field:SerializedName("message")
+    val message: String? = null,
 
-	@field:SerializedName("status")
-	val status: Int? = null
+    @field:SerializedName("status")
+    val status: Int? = null
 )
