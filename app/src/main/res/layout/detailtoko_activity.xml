@@ -102,7 +102,7 @@
                         android:id="@+id/txtNamaToko"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Toko Jaya Abadi"
+                        android:text="Nama toko"
                         android:textSize="15sp"
                         android:paddingTop="5dp"
                         android:paddingLeft="5dp"/>
@@ -136,7 +136,7 @@
                         android:id="@+id/txtDomisiliToko"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bekasi"
+                        android:text="Domisili toko"
                         android:textSize="15sp"
                         android:paddingTop="5dp"
                         android:paddingLeft="5dp"/>
@@ -170,7 +170,7 @@
                         android:id="@+id/txtAlamatToko"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum"
+                        android:text="Alamat lengkap toko"
                         android:textSize="15sp"
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
@@ -205,7 +205,7 @@
                         android:id="@+id/txtStatusToko"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Milik Sendiri"
+                        android:text="Status toko"
                         android:textSize="15sp"
                         android:paddingTop="5dp"
                         android:paddingLeft="5dp"/>
@@ -216,7 +216,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nomor Pelanggan"
+                android:text="Nomor pelanggan"
                 android:paddingTop="10dp"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -280,7 +280,7 @@
                         android:id="@+id/txtNamaKontakPerson"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Budi Setiawan"
+                        android:text="Contact person"
                         android:textSize="15sp"
                         android:paddingTop="5dp"
                         android:paddingLeft="5dp"/>
@@ -305,18 +305,19 @@
                         android:id="@+id/txtNomorKontakPerson"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="081234567891"
+                        android:text="Contact person phone"
                         android:textSize="15sp"
                         android:paddingTop="5dp"
                         android:paddingLeft="5dp"/>
 
                     <ImageView
+                        android:id="@+id/imgNomorKontakPerson"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_whatsapplogo"
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
-                        android:paddingLeft="190dp"/>
+                        android:paddingLeft="130dp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -388,10 +389,60 @@
                 android:textStyle="bold"
                 android:textColor="#000"/>
 
-            <com.google.android.gms.maps.MapView
-                android:id="@+id/mapsToko"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnDetailMapsToko"
                 android:layout_width="match_parent"
-                android:layout_height="150dp" />
+                android:layout_height="150dp"
+                app:cardElevation="0dp"
+                app:cardCornerRadius="8dp"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="#EEEEEE">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <ImageView
+                        android:id="@+id/imgLokasiToko2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:src="@drawable/maps"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <ImageView
+                        android:id="@+id/imgLokasiToko1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="35dp"
+                        android:visibility="visible"
+                        android:src="@drawable/ic_locatebg"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtLokasiToko"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Lokasi toko belum terdaftar"
+                        android:textStyle="bold"
+                        android:visibility="visible"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgLokasiToko1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
 
             //Edit
             <Button

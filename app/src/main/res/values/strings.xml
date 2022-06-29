@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">MJSManagementApp</string>
 
+    <string name="selected_item">Selected item:</string>
     <string-array name="statusToko">
         <item>Kontrak/Milik Sendiri</item>
         <item>Kontrak</item>
         <item>Milik Sendiri</item>
     </string-array>
+    <string name="title_activity_maps_add_toko">Map</string>
 </resources>

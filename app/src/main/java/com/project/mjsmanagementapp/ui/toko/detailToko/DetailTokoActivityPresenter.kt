@@ -20,13 +20,13 @@ class DetailTokoActivityPresenter(val contract: DetailTokoActivityContract) {
                     if (response.isSuccessful) {
                         response.body()?.let { contract.onSuccessGetDetail(it) }
                     }else{
-                        contract.onErrorGetDetail("Gagal get data")
+                        contract.onErrorGetDetail("Gagal memuat toko (Jaringan)")
                     }
                 }
 
                 override fun onFailure(call: Call<ResponseDetailTokoItem>, t: Throwable) {
                     contract.onErrorGetDetail(t.localizedMessage)
-                    Log.d("Error", "Error Detail")
+                    Log.d("Error", "Gagal memuat toko (Jaringan)")
                 }
 
             })

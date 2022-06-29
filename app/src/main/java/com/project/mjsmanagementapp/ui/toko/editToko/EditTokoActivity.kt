@@ -1,34 +1,50 @@
 package com.project.mjsmanagementapp.ui.toko.editToko
 
-import android.content.Context
-import android.content.ContextWrapper
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
 import android.util.Base64
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.data.ApiClient
+import com.project.mjsmanagementapp.ui.toko.detailToko.DetailMapsTokoActivity
 import com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
 import kotlinx.android.synthetic.main.edittoko_activity.*
+import kotlinx.android.synthetic.main.edittoko_activity.edtAlamatToko
+import kotlinx.android.synthetic.main.edittoko_activity.edtDomisiliToko
+import kotlinx.android.synthetic.main.edittoko_activity.edtNamaKontakPerson
+import kotlinx.android.synthetic.main.edittoko_activity.edtNamaToko
+import kotlinx.android.synthetic.main.edittoko_activity.edtNomorKontakPerson
+import kotlinx.android.synthetic.main.edittoko_activity.imgFotoToko
+import kotlinx.android.synthetic.main.edittoko_activity.imgKtpToko
+import kotlinx.android.synthetic.main.edittoko_activity.imgLokasiToko
+import kotlinx.android.synthetic.main.edittoko_activity.spinnerStatusToko
+import kotlinx.android.synthetic.main.edittoko_activity.txtLokasiToko
+import kotlinx.android.synthetic.main.tambahtoko_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
 import java.io.*
 import java.util.*
+
 
 class EditTokoActivity : AppCompatActivity(), EditTokoContract {
     private lateinit var presenter: EditTokoPresenter
     private var bitmapToko: Bitmap? = null
     private var bitmapKtp: Bitmap? = null
 
+    private var tokoNewMapLat: String? = null
+    private var tokoNewMapLong: String? = null
+    var statusResponseToko : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -40,23 +56,42 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
         imgKtpToko.setOnClickListener { chooseFileKtp() }
         imgFotoToko.setOnClickListener { chooseFileToko() }
 
-        btnSimpanToko.onClick{
+        imgLokasiToko.onClick {
+            val intent = Intent(this@EditTokoActivity, EditMapsTokoActivity::class.java)
+            startActivityForResult(intent, 3)
+        }
 
-            val intent = intent
-            val tokoID = intent.getStringExtra("tokoID")
+        val intent = intent
+        val tokoID = intent.getStringExtra("tokoID")
+        val tokoOldMapLat = intent.getStringExtra("tokoMapLat")
+        val tokoOldMapLong = intent.getStringExtra("tokoMapLong")
+
+        if (tokoOldMapLat != null && tokoOldMapLong != null){
+            txtLokasiToko.setText("Lokasi lama")
+        }else{
+            txtLokasiToko.setText("Tambahkan lokasi")
+        }
+
+        btnSimpanToko.onClick{
 
             val tokoNama: String = edtNamaToko.getText().toString().trim { it <= ' ' }
             val tokoWilayah: String = edtDomisiliToko.getText().toString().trim { it <= ' ' }
             val tokoAlamat: String = edtAlamatToko.getText().toString().trim { it <= ' ' }
-            val tokoStatus = "Sewa"
             val tokoPicName: String = edtNamaKontakPerson.getText().toString().trim { it <= ' ' }
             val tokoPicPhone: String = edtNomorKontakPerson.getText().toString().trim { it <= ' ' }
-            val lat = "00000"
-            val long = "2222"
-
 
             var photoKtp: String
             var photoToko: String
+            val tokoMapLat: String
+            val tokoMapLong: String
+
+            if (tokoNewMapLat != null && tokoNewMapLong != null){
+                tokoMapLat = tokoNewMapLat.toString()
+                tokoMapLong = tokoNewMapLong.toString()
+            }else{
+                tokoMapLat = tokoOldMapLat.toString()
+                tokoMapLong = tokoOldMapLong.toString()
+            }
 
             if (bitmapToko == null) {
                 photoToko = ""
@@ -71,8 +106,11 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
             }
 
             if (tokoID != null) {
-                presenter.editToko(photoToko, photoKtp, tokoID, tokoNama,tokoWilayah,tokoAlamat,tokoStatus,tokoPicName,tokoPicPhone,lat,long)
-                startActivity<ListTokoActivity>()
+                presenter.editToko(photoToko, photoKtp, tokoID, tokoNama,tokoWilayah,tokoAlamat,statusResponseToko.toString(),tokoPicName,tokoPicPhone,tokoMapLat,tokoMapLong)
+                val intent = Intent(this@EditTokoActivity, DetailTokoActivity::class.java)
+                intent.putExtra("tokoID", tokoID)
+                startActivity(intent)
+                finish()
             }
 
         }
@@ -98,12 +136,36 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
         edtNamaKontakPerson.setText(tokoPicName)
         edtNomorKontakPerson.setText(tokoPicPhone)
 
+        val spinnerTokoStatus = resources.getStringArray(R.array.statusToko)
+        if (spinnerStatusToko != null){
+            val adapterStatus = ArrayAdapter(this,android.R.layout.simple_spinner_item, spinnerTokoStatus)
+            spinnerStatusToko.adapter = adapterStatus
+
+            spinnerStatusToko.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    Log.d("Error", getString(R.string.selected_item) + " " + "" + spinnerTokoStatus[p2])
+                    statusResponseToko = spinnerTokoStatus[p2]
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+
+                }
+
+            }
+
+        }
+
         Glide.with(this)
             .load(ApiClient.BASE_URL + tokoPicKTP)
+            .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+            .apply(RequestOptions.skipMemoryCacheOf(true))
             .into(findViewById(R.id.imgKtpToko))
 
         Glide.with(this)
             .load(ApiClient.BASE_URL + tokoPhoto)
+            .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+            .apply(RequestOptions.skipMemoryCacheOf(true))
             .into(findViewById(R.id.imgFotoToko))
 
     }
@@ -156,6 +218,14 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
                 imgKtpToko.setImageBitmap(bitmapKtp)
             } catch (e: IOException) {
                 e.printStackTrace()
+            }
+        }
+        if (requestCode == 3) {
+            if (resultCode == RESULT_OK) {
+                tokoNewMapLat = data?.getStringExtra("tokoNewMapLat")
+                tokoNewMapLong = data?.getStringExtra("tokoNewMapLong")
+                txtLokasiToko.setText("Lokasi baru")
+                Toast.makeText(applicationContext, "Lokasi baru berhasil di set!", Toast.LENGTH_SHORT).show()
             }
         }
     }

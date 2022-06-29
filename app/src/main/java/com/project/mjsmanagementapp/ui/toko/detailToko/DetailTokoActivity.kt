@@ -1,6 +1,7 @@
 package com.project.mjsmanagementapp.ui.toko.detailToko
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -9,6 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.data.ApiClient
 import com.project.mjsmanagementapp.model.toko.getDetailToko.ResponseDetailTokoItem
@@ -35,7 +38,15 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
         presenter = DetailTokoActivityPresenter(this)
         val itemDetailItem = intent.getSerializableExtra("detailItem")
         val item = itemDetailItem as ResponseListTokoItem?
-        item?.tokoID?.let { presenter.getDetailToko(it) }
+
+        val intent = intent
+        val tokoID = intent.getStringExtra("tokoID")
+
+        if (item != null) {
+            item?.tokoID?.let { presenter.getDetailToko(it) }
+        }else{
+            tokoID.let { presenter.getDetailToko(it.toString()) }
+        }
 
         imgbtnBack.onClick {
             startActivity<ListTokoActivity>()
@@ -53,13 +64,43 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
         txtNamaKontakPerson.setText(response.tokoPicName)
         txtNomorKontakPerson.setText(response.tokoPicPhone)
 
+        imgNomorKontakPerson.onClick {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/+62"+response.tokoPicPhone)))
+        }
+
         Glide.with(this)
             .load(ApiClient.BASE_URL + response.tokoPicKTP)
+            .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+            .apply(RequestOptions.skipMemoryCacheOf(true))
             .into(findViewById(R.id.imgKtpToko))
 
         Glide.with(this)
             .load(ApiClient.BASE_URL + response.tokoPhoto)
+            .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+            .apply(RequestOptions.skipMemoryCacheOf(true))
             .into(findViewById(R.id.imgFotoToko))
+
+        if (response.tokoMapLat != null && response.tokoMapLong != null){
+            imgLokasiToko2.visibility = View.VISIBLE
+            imgLokasiToko1.visibility = View.GONE
+            txtLokasiToko.visibility = View.GONE
+        }else{
+            imgLokasiToko2.visibility = View.GONE
+            imgLokasiToko1.visibility = View.VISIBLE
+        }
+
+        btnDetailMapsToko.onClick {
+        if (response.tokoMapLat != null && response.tokoMapLong != null){
+            val intent = Intent(this@DetailTokoActivity, DetailMapsTokoActivity::class.java)
+            intent.putExtra("tokoMapLat", response.tokoMapLat)
+            intent.putExtra("tokoMapLong", response.tokoMapLong)
+            intent.putExtra("tokoNama", response.tokoNama)
+            startActivity(intent)
+        }else{
+            Toast.makeText(applicationContext, "Silahkan daftarkan lokasi toko terlebih dahulu!", Toast.LENGTH_SHORT).show()
+        }
+
+        }
 
 
         btnEditToko.onClick {
@@ -73,7 +114,10 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
             intent.putExtra("tokoPicPhone", response.tokoPicPhone)
             intent.putExtra("tokoPicKTP", response.tokoPicKTP)
             intent.putExtra("tokoPhoto", response.tokoPhoto)
+            intent.putExtra("tokoMapLat", response.tokoMapLat)
+            intent.putExtra("tokoMapLong", response.tokoMapLong)
             startActivity(intent)
+            finish()
         }
 
         btnHapusToko.onClick {
@@ -90,7 +134,7 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
             view.btn_confirm.setOnClickListener {
                 if (view.edtKonfirm.getText().toString() == "Saya Yakin") {
                     presenter.deleteToko(response.tokoID.toString())
-                    startActivity<ListTokoActivity>()
+                    finish()
 
                 }else {
                     Toast.makeText(applicationContext, "Ketik 'Saya Yakin' untuk menghapus!", Toast.LENGTH_SHORT).show()

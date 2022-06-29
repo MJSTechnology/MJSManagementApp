@@ -17,13 +17,13 @@ data class ResponseDetailTokoItem (
 	val tokoPhoto: String? = null,
 
 	@field:SerializedName("tokoMapLong")
-	val tokoMapLong: Double? = null,
+	val tokoMapLong: String? = null,
 
 	@field:SerializedName("tokoNama")
 	val tokoNama: String? = null,
 
 	@field:SerializedName("tokoMapLat")
-	val tokoMapLat: Double? = null,
+	val tokoMapLat: String? = null,
 
 	@field:SerializedName("tokoNoPelanggan")
 	val tokoNoPelanggan: String? = null,

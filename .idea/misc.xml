@@ -3,8 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../Documents/sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/drawable/ic_arrowright.xml" value="0.1415" />
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.155" />
+        <entry key="app/src/main/res/drawable/ic_ktpbg_addtoko.xml" value="0.155" />
+        <entry key="app/src/main/res/drawable/ic_locatebg.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_mapnull_detailtoko.xml" value="0.155" />
+        <entry key="app/src/main/res/layout/activity_detail_maps_toko.xml" value="0.14175724637681159" />
+        <entry key="app/src/main/res/layout/activity_edit_maps_toko.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14175724637681159" />
+        <entry key="app/src/main/res/layout/detailsuplier_activity.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/detailtoko_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/edittoko_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/homepage_activity.xml" value="0.24510493624037594" />
