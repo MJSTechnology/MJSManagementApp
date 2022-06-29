@@ -53,8 +53,7 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
         rvListToko1.adapter = ListTokoAdapter(data, object : ListTokoAdapter.onClickItem{
             override fun clicked(item: ResponseListTokoItem?) {
-                startActivity<DetailTokoActivity>()
-                finish()
+                startActivity<DetailTokoActivity>("detailItem" to item)
             }
         })
     }
@@ -67,7 +66,7 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
     override fun onSuccessSearch(data: List<ResponseListTokoItem>?) {
         listTokoAdapter = ListTokoAdapter(data, object : ListTokoAdapter.onClickItem{
             override fun clicked(item: ResponseListTokoItem?) {
-                startActivity<DetailTokoActivity>()
+                startActivity<DetailTokoActivity>("detailItem" to item)
             }
         })
 
@@ -89,7 +88,7 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
                         val filter = data?.filter { it.tokoNama!!.contains("$action", true) }
                         listTokoAdapter = ListTokoAdapter(filter as List<ResponseListTokoItem>, object : ListTokoAdapter.onClickItem{
                             override fun clicked(item: ResponseListTokoItem?) {
-                                startActivity<DetailTokoActivity>()
+                                startActivity<DetailTokoActivity>("detailItem" to item)
                             }
                         })
 

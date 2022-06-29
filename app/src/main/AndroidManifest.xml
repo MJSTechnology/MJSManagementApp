@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.project.mjsmanagementapp.data.UserApp"
+        android:name=".data.UserApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,7 +21,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MJSManagementApp"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.toko.addToko.AddMapsTokoActivity"></activity>
+        <activity
+            android:name=".ui.toko.editToko.EditTokoActivity"
+            android:exported="false"></activity>
+        <activity
+            android:name=".ui.toko.editToko.EditMapsTokoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.toko.detailToko.DetailMapsTokoActivity"
+            android:exported="false" />
+        <activity android:name=".ui.toko.addToko.AddMapsTokoActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
