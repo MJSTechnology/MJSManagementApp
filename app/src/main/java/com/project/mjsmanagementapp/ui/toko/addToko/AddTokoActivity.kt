@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
+
 import kotlinx.android.synthetic.main.tambahtoko_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity

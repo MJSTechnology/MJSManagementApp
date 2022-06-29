@@ -1,4 +1,4 @@
-package com.project.mjsmanagementapp.ui.Toko.listToko
+package com.project.mjsmanagementapp.ui.toko.listToko
 
 import android.util.Log
 import com.project.mjsmanagementapp.data.ApiClient

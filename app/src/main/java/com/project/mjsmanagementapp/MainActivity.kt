@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.project.mjsmanagementapp.data.UserToken
-import com.project.mjsmanagementapp.ui.login.LoginActivity
-import com.project.mjsmanagementapp.ui.splashScreen.SplashScreenActivity
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
+import com.project.mjsmanagementapp.ui.login.LoginActivity
+
 import kotlinx.android.synthetic.main.homepage_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity

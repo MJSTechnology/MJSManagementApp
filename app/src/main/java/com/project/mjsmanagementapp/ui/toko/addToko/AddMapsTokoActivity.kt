@@ -14,7 +14,7 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.project.mjsmanagementapp.R
-import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
+
 import kotlinx.android.synthetic.main.activity_add_maps_toko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
