@@ -39,9 +39,10 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
 
         presenter = AddTokoActivityPresenter(this)
 
-
-
-
+        imgbtnback.onClick {
+            startActivity<ListTokoActivity>()
+            finish()
+        }
 
         cardFotoToko.onClick {
             selectedImageToko()

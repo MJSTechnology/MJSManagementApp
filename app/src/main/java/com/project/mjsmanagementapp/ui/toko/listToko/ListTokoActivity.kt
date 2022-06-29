@@ -11,6 +11,7 @@ import com.project.mjsmanagementapp.MainActivity
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.adapter.toko.listToko.ListTokoAdapter
 import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
+import com.project.mjsmanagementapp.ui.toko.addToko.AddTokoActivity
 import com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivityContract
 import kotlinx.android.synthetic.main.tokolist_activity.*
@@ -43,6 +44,11 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
         btnimgBack.onClick {
             startActivity<MainActivity>()
+            finish()
+        }
+
+        btnTambahToko.onClick {
+            startActivity<AddTokoActivity>()
             finish()
         }
 
