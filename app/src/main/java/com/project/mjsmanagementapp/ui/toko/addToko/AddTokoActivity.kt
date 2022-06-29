@@ -28,9 +28,8 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
 
     var statusResponseToko : String? = null
 
-
-    var tokoMapLat :String? = null
-    var tokoMapLong :String? = null
+    private var tokoMapLat :String? = null
+    private var tokoMapLong :String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,26 +38,17 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
 
         presenter = AddTokoActivityPresenter(this)
 
-        val intent = intent
-        tokoMapLat = intent.getStringExtra("tokoMapLat")
-        tokoMapLong = intent.getStringExtra("tokoMapLong")
 
-        if (tokoMapLat == null && tokoMapLong == null){
-            imgLokasiToko2.visibility = View.GONE
-            imgLokasiToko1.visibility = View.VISIBLE
-        }else{
-            imgLokasiToko2.visibility = View.VISIBLE
-            imgLokasiToko1.visibility = View.GONE
 
-        }
+
 
         cardFotoToko.onClick {
             selectedImageToko()
         }
 
         btnTambahMapsToko.onClick {
-            startActivity<AddMapsTokoActivity>()
-            finish()
+            val intent = Intent(this@AddTokoActivity, AddMapsTokoActivity::class.java)
+            startActivityForResult(intent,3)
         }
 
         cardFotoKtp.onClick {
@@ -87,9 +77,6 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
 
 
         btnTambahToko.onClick {
-
-
-
 
             val tokoNama: String = edtNamaToko.getText().toString().trim { it <= ' ' }
             val tokoWilayah: String = edtDomisiliToko.getText().toString().trim { it <= ' ' }
@@ -147,6 +134,20 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
             } catch (e: IOException) {
                 e.printStackTrace()
             }
+        }
+
+        if (requestCode == 3 && resultCode == RESULT_OK){
+            tokoMapLat = data?.getStringExtra("tokoMapLat")
+            tokoMapLong = data?.getStringExtra("tokoMapLong")
+            if (tokoMapLat == null && tokoMapLong == null){
+                imgLokasiToko2.visibility = View.GONE
+                imgLokasiToko1.visibility = View.VISIBLE
+            }else{
+                imgLokasiToko2.visibility = View.VISIBLE
+                imgLokasiToko1.visibility = View.GONE
+
+            }
+            Toast.makeText(applicationContext,"Lokasi Baru Berhasil Di Set",Toast.LENGTH_SHORT).show()
         }
 
     }
