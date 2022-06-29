@@ -8,8 +8,7 @@ interface ListTokoActivityContract {
     fun onSuccessGetList(data : List<ResponseListTokoItem>?)
     fun onErrorGetList(msg: String?)
 
-
-    //addToko
-    /*fun onSuccessAdd(msg: String)
-    fun onErrorAdd(msg: String)*/
+    //searchToko
+    fun onSuccessSearch(data : List<ResponseListTokoItem>?)
+    fun onErrorSearch(msg: String?)
 }
