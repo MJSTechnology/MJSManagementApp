@@ -134,7 +134,6 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
             view.btn_confirm.setOnClickListener {
                 if (view.edtKonfirm.getText().toString() == "Saya Yakin") {
                     presenter.deleteToko(response.tokoID.toString())
-                    finish()
 
                 }else {
                     Toast.makeText(applicationContext, "Ketik 'Saya Yakin' untuk menghapus!", Toast.LENGTH_SHORT).show()
@@ -150,6 +149,10 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
 
     override fun onSuccessDelete(response: String) {
         Toast.makeText(applicationContext, response, Toast.LENGTH_SHORT).show()
+        val intent = Intent(this@DetailTokoActivity, ListTokoActivity::class.java)
+        startActivity(intent)
+        finish()
+
     }
 
     override fun onErrorDelete(response: String) {

@@ -23,7 +23,7 @@ class LoginActivityPresenter(val contract: LoginActivtyContract) {
                         currentUser = response.body()
                         contract.onSuccessLogin(currentUser)
                     }else{
-                        contract.onErrorLogin("Username and Password Can't Found!")
+                        contract.onErrorLogin("Email atau password salah!")
                     }
                 }
 

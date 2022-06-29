@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity(), LoginActivtyContract {
 
         Log.d("Data_Error",data?.adminName.toString())
         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-        Toast.makeText(this@LoginActivity, "Login Successfully", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@LoginActivity, "Login sukses", Toast.LENGTH_LONG).show()
         finish()
 
 //        val splitResponse = data.toString().split(",")

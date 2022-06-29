@@ -90,7 +90,7 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
                         rvListToko1.visibility = View.VISIBLE
                         rvListToko2.visibility = View.GONE
 
-                    } else if(action.length > 2){
+                    } else if(action.length > 0){
                         val filter = data?.filter { it.tokoNama!!.contains("$action", true) }
                         listTokoAdapter = ListTokoAdapter(filter as List<ResponseListTokoItem>, object : ListTokoAdapter.onClickItem{
                             override fun clicked(item: ResponseListTokoItem?) {

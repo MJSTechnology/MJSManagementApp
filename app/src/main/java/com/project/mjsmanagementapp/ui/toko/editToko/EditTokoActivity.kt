@@ -63,6 +63,10 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
             startActivityForResult(intent, 3)
         }
 
+        imgbtnBack.onClick {
+            finish()
+        }
+
         val intent = intent
         tokoID = intent.getStringExtra("tokoID")
         val tokoOldMapLat = intent.getStringExtra("tokoMapLat")
