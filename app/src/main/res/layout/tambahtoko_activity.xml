@@ -156,7 +156,6 @@
             <EditText
                 android:id="@+id/edtNomorKontakPerson"
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
                 android:hint="No. Telp"
                 android:textSize="15sp"/>
@@ -302,11 +301,20 @@
 
             </androidx.cardview.widget.CardView>
 
+            <ProgressBar
+                android:id="@+id/loadingAddToko"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="invisible"
+                android:layout_marginTop="10dp"
+                />
+
             <Button
                 android:id="@+id/btnTambahToko"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="#4F9FC2"
                 android:textColor="#fff"
                 android:text="Tambah"

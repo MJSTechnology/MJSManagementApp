@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -16,9 +17,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.data.ApiClient
-import com.project.mjsmanagementapp.ui.toko.detailToko.DetailMapsTokoActivity
 import com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity
-import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
 import kotlinx.android.synthetic.main.edittoko_activity.*
 import kotlinx.android.synthetic.main.edittoko_activity.edtAlamatToko
 import kotlinx.android.synthetic.main.edittoko_activity.edtDomisiliToko
@@ -32,7 +31,6 @@ import kotlinx.android.synthetic.main.edittoko_activity.spinnerStatusToko
 import kotlinx.android.synthetic.main.edittoko_activity.txtLokasiToko
 import kotlinx.android.synthetic.main.tambahtoko_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.startActivity
 import java.io.*
 import java.util.*
 
@@ -45,6 +43,7 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
     private var tokoNewMapLat: String? = null
     private var tokoNewMapLong: String? = null
     var statusResponseToko : String? = null
+
 
     var tokoID : String? = null
 
@@ -111,8 +110,8 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
                 photoKtp = getStringImageKtp(bitmapKtp!!)
             }
 
-                presenter.editToko(photoToko, photoKtp,
-                    tokoID.toString(), tokoNama,tokoWilayah,tokoAlamat,statusResponseToko.toString(),tokoPicName,tokoPicPhone,tokoMapLat,tokoMapLong)
+            val progressBar = findViewById<ProgressBar>(R.id.loadingEditToko)
+                presenter.editToko(photoToko, photoKtp, tokoID.toString(), tokoNama,tokoWilayah,tokoAlamat,statusResponseToko.toString(),tokoPicName,tokoPicPhone,tokoMapLat,tokoMapLong,progressBar)
 
 
         }
@@ -174,14 +173,14 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
 
     fun getStringImageToko(bmp: Bitmap): String {
         val baos = ByteArrayOutputStream()
-        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        bmp.compress(Bitmap.CompressFormat.JPEG, 50, baos)
         val imageBytes = baos.toByteArray()
         return Base64.encodeToString(imageBytes, Base64.DEFAULT)
     }
 
     fun getStringImageKtp(bmp: Bitmap): String {
         val baos = ByteArrayOutputStream()
-        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        bmp.compress(Bitmap.CompressFormat.JPEG, 50, baos)
         val imageBytes = baos.toByteArray()
         return Base64.encodeToString(imageBytes, Base64.DEFAULT)
     }

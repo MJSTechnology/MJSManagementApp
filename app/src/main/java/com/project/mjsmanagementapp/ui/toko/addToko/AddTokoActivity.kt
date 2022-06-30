@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.project.mjsmanagementapp.R
@@ -86,6 +87,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
             val tokoStatus: String? = statusResponseToko
             val tokoPicName: String = edtNamaKontakPerson.getText().toString().trim { it <= ' ' }
             val tokoPicPhone: String = edtNomorKontakPerson.getText().toString().trim { it <= ' ' }
+            val progressBar = findViewById<ProgressBar>(R.id.loadingAddToko)
 
 
 
@@ -104,10 +106,32 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
                 photoKtp = getStringImageKtp(bitmapKtp!!)
             }
 
+            if (tokoNama.isEmpty()){
+                Toast.makeText(this@AddTokoActivity,"Tolong Isi Toko Nama!",Toast.LENGTH_SHORT).show()
 
-            presenter.addToko(photoToko, photoKtp, tokoNama, tokoWilayah, tokoAlamat,
-                tokoStatus.toString(), tokoPicName, tokoPicPhone, tokoMapLat.toString(), tokoMapLong.toString()
-            )
+            } else if (tokoWilayah.isEmpty()){
+                Toast.makeText(this@AddTokoActivity,"Tolong Isi Toko Domisili!",Toast.LENGTH_SHORT).show()
+
+            } else if (tokoAlamat.isEmpty()){
+                Toast.makeText(this@AddTokoActivity,"Tolong Isi Toko Alamat!",Toast.LENGTH_SHORT).show()
+
+            } else if (tokoStatus.equals("Kontrak/Milik Sendiri")){
+                Toast.makeText(this@AddTokoActivity,"Tolong Isi Toko Status!",Toast.LENGTH_SHORT).show()
+
+            } else if (bitmapToko == null){
+                Toast.makeText(this@AddTokoActivity,"Tolong Isi Foto Toko!",Toast.LENGTH_SHORT).show()
+
+            } else if (bitmapKtp == null){
+                Toast.makeText(this@AddTokoActivity,"Tolong Isi Foto Ktp!",Toast.LENGTH_SHORT).show()
+
+            } else if (tokoMapLat == null && tokoMapLong == null){
+                Toast.makeText(this@AddTokoActivity,"Tolong Set Lokasi Maps!",Toast.LENGTH_SHORT).show()
+
+            } else {
+                presenter.addToko(photoToko, photoKtp, tokoNama, tokoWilayah, tokoAlamat, tokoStatus.toString(), tokoPicName, tokoPicPhone, tokoMapLat.toString(), tokoMapLong.toString(),progressBar)
+            }
+
+
         }
 
 
@@ -179,14 +203,14 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
 
     fun getStringImageToko(bmp: Bitmap): String {
         val baos = ByteArrayOutputStream()
-        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        bmp.compress(Bitmap.CompressFormat.JPEG, 50, baos)
         val imageBytes = baos.toByteArray()
         return Base64.encodeToString(imageBytes, Base64.DEFAULT)
     }
 
     fun getStringImageKtp(bmp: Bitmap): String {
         val baos = ByteArrayOutputStream()
-        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        bmp.compress(Bitmap.CompressFormat.JPEG, 50, baos)
         val imageBytes = baos.toByteArray()
         return Base64.encodeToString(imageBytes, Base64.DEFAULT)
     }

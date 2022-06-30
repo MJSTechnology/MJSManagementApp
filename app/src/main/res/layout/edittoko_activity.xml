@@ -276,11 +276,20 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <ProgressBar
+                    android:id="@+id/loadingEditToko"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:visibility="invisible"
+                    />
+
                 <Button
                     android:id="@+id/btnSimpanToko"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
                     android:backgroundTint="#4F9FC2"
                     android:textColor="#fff"
                     android:text="Simpan"
