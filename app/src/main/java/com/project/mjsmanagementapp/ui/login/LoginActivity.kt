@@ -28,7 +28,6 @@ class LoginActivity : AppCompatActivity(), LoginActivtyContract {
 
 
         btnLogin.onClick {
-
             presenter.LoginAdmin(edtIdKaryawan.text.toString(), edtKataSandiKaryawan.text.toString())
 
         }
