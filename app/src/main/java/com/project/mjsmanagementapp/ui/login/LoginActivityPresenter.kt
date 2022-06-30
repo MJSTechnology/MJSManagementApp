@@ -25,16 +25,16 @@ class LoginActivityPresenter(val contract: LoginActivtyContract) {
                     if (user?.error_msg == null) {
                         currentUser = response.body()
                         contract.onSuccessLogin(currentUser)
-                        progressBar.visibility = View.VISIBLE
+                        progressBar.visibility = View.INVISIBLE
                     }else{
                         contract.onErrorLogin("Email atau password salah!")
-                        progressBar.visibility = View.VISIBLE
+                        progressBar.visibility = View.INVISIBLE
                     }
                 }
 
                 override fun onFailure(call: Call<ResponseLogin>, t: Throwable) {
                     contract.onErrorLogin("" + t.message)
-                    progressBar.visibility = View.VISIBLE
+                    progressBar.visibility = View.INVISIBLE
                     t.message?.let { Log.d("Error_Data", it) }
                 }
 

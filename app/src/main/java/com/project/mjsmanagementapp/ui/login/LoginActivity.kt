@@ -29,8 +29,8 @@ class LoginActivity : AppCompatActivity(), LoginActivtyContract {
 
 
         btnLogin.onClick {
-
-            presenter.LoginAdmin(edtIdKaryawan.text.toString(), edtKataSandiKaryawan.text.toString())
+            val progressBar = findViewById<ProgressBar>(R.id.loadingLogin)
+            presenter.LoginAdmin(edtIdKaryawan.text.toString(), edtKataSandiKaryawan.text.toString(),progressBar)
 
         }
 
@@ -51,15 +51,6 @@ class LoginActivity : AppCompatActivity(), LoginActivtyContract {
         Toast.makeText(this@LoginActivity, "Login Successfully", Toast.LENGTH_LONG).show()
         finish()
 
-//        val splitResponse = data.toString().split(",")
-//        UserToken.apply {
-//            adminName = splitResponse[0]
-//            adminPhone = splitResponse[1]
-//            adminID = splitResponse[2]
-//            adminPhoto = splitResponse[3]
-//            adminEmail = splitResponse[4]
-//
-//        }
 
 
 

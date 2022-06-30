@@ -32,6 +32,7 @@ import kotlinx.android.synthetic.main.edittoko_activity.spinnerStatusToko
 import kotlinx.android.synthetic.main.edittoko_activity.txtLokasiToko
 import kotlinx.android.synthetic.main.tambahtoko_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.startActivity
 import java.io.*
 import java.util.*
 
