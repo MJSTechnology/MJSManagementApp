@@ -28,7 +28,13 @@ class MainActivity : AppCompatActivity() {
             usertxt.setText(UserToken.adminName)
         }
 
-        suplierbtn.onClick {
+        /*suplierbtn.onClick {
+            UserToken.clearToken()
+            startActivity<LoginActivity>()
+            finish()
+        }*/
+
+        btnLogout.onClick {
             UserToken.clearToken()
             startActivity<LoginActivity>()
             finish()
@@ -36,7 +42,6 @@ class MainActivity : AppCompatActivity() {
 
         tokobtn.onClick {
             startActivity<ListTokoActivity>()
-            finish()
         }
     }
 }

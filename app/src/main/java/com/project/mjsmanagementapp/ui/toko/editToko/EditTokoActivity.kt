@@ -26,7 +26,8 @@ import kotlinx.android.synthetic.main.edittoko_activity.edtNamaToko
 import kotlinx.android.synthetic.main.edittoko_activity.edtNomorKontakPerson
 import kotlinx.android.synthetic.main.edittoko_activity.imgFotoToko
 import kotlinx.android.synthetic.main.edittoko_activity.imgKtpToko
-import kotlinx.android.synthetic.main.edittoko_activity.imgLokasiToko
+import kotlinx.android.synthetic.main.edittoko_activity.imgLokasiToko1
+import kotlinx.android.synthetic.main.edittoko_activity.imgLokasiToko2
 import kotlinx.android.synthetic.main.edittoko_activity.spinnerStatusToko
 import kotlinx.android.synthetic.main.edittoko_activity.txtLokasiToko
 import kotlinx.android.synthetic.main.tambahtoko_activity.*
@@ -57,7 +58,7 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
         imgKtpToko.setOnClickListener { chooseFileKtp() }
         imgFotoToko.setOnClickListener { chooseFileToko() }
 
-        imgLokasiToko.onClick {
+        btnEditMapsToko.onClick {
             val intent = Intent(this@EditTokoActivity, EditMapsTokoActivity::class.java)
             startActivityForResult(intent, 3)
         }
@@ -71,10 +72,15 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
         val tokoOldMapLat = intent.getStringExtra("tokoMapLat")
         val tokoOldMapLong = intent.getStringExtra("tokoMapLong")
 
-        if (tokoOldMapLat != null && tokoOldMapLong != null){
+        /*if (tokoOldMapLat != null && tokoOldMapLong != null){
             txtLokasiToko.setText("Lokasi lama")
         }else{
             txtLokasiToko.setText("Tambahkan lokasi")
+        }*/
+
+        imgbtnBack.onClick {
+            startActivity<DetailTokoActivity>()
+            finish()
         }
 
         btnSimpanToko.onClick{
@@ -225,7 +231,16 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
             if (resultCode == RESULT_OK) {
                 tokoNewMapLat = data?.getStringExtra("tokoNewMapLat")
                 tokoNewMapLong = data?.getStringExtra("tokoNewMapLong")
-                txtLokasiToko.setText("Lokasi baru")
+                //txtLokasiToko.setText("Lokasi baru")
+                if(tokoNewMapLat == null && tokoNewMapLong == null){
+                    imgLokasiToko2.visibility = View.GONE
+                    imgLokasiToko1.visibility = View.VISIBLE
+                    txtLokasiToko.setText("Lokasi Lama")
+                }else{
+                    imgLokasiToko2.visibility = View.VISIBLE
+                    imgLokasiToko1.visibility = View.GONE
+                    txtLokasiToko.setText("Lokasi Baru")
+                }
                 Toast.makeText(applicationContext, "Lokasi baru berhasil di set!", Toast.LENGTH_SHORT).show()
             }
         }

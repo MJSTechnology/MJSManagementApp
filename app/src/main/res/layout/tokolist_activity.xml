@@ -69,7 +69,7 @@
                 android:orientation="vertical"
                 android:layout_margin="15dp">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -78,15 +78,17 @@
                         android:id="@+id/svListToko"
                         android:layout_width="match_parent"
                         android:layout_height="37dp"
+                        android:layout_marginRight="40dp"
                         app:queryHint="Cari Toko" />
 
                     <ImageView
                         android:id="@+id/btnTambahToko"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="-40dp"
                         android:src="@drawable/ic_add_square"
                         android:layout_alignParentRight="true"/>
-                </RelativeLayout>
+                </LinearLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvListToko1"

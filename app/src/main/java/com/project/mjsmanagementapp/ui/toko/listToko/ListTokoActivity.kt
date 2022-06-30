@@ -49,7 +49,6 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
         btnTambahToko.onClick {
             startActivity<AddTokoActivity>()
-            finish()
         }
 
 

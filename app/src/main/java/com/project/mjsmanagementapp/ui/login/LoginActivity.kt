@@ -30,8 +30,7 @@ class LoginActivity : AppCompatActivity(), LoginActivtyContract {
 
         btnLogin.onClick {
 
-            val progressBar = findViewById<ProgressBar>(R.id.loadingAddToko)
-            presenter.LoginAdmin(edtIdKaryawan.text.toString(), edtKataSandiKaryawan.text.toString(),progressBar)
+            presenter.LoginAdmin(edtIdKaryawan.text.toString(), edtKataSandiKaryawan.text.toString())
 
         }
 
@@ -49,9 +48,18 @@ class LoginActivity : AppCompatActivity(), LoginActivtyContract {
 
         Log.d("Data_Error",data?.adminName.toString())
         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-        Toast.makeText(this@LoginActivity, "Login sukses", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@LoginActivity, "Login Successfully", Toast.LENGTH_LONG).show()
         finish()
 
+//        val splitResponse = data.toString().split(",")
+//        UserToken.apply {
+//            adminName = splitResponse[0]
+//            adminPhone = splitResponse[1]
+//            adminID = splitResponse[2]
+//            adminPhoto = splitResponse[3]
+//            adminEmail = splitResponse[4]
+//
+//        }
 
 
 
