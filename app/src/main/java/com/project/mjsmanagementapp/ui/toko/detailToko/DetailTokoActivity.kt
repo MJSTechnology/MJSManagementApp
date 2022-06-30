@@ -117,7 +117,6 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
             intent.putExtra("tokoMapLat", response.tokoMapLat)
             intent.putExtra("tokoMapLong", response.tokoMapLong)
             startActivity(intent)
-            finish()
         }
 
         btnHapusToko.onClick {
