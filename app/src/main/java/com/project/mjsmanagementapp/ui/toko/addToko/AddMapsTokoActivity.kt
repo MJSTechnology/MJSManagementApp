@@ -3,6 +3,7 @@ package com.project.mjsmanagementapp.ui.toko.addToko
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +19,8 @@ import com.project.mjsmanagementapp.R
 import kotlinx.android.synthetic.main.activity_add_maps_toko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
+import java.io.IOException
+import java.util.*
 
 class AddMapsTokoActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -71,10 +74,24 @@ class AddMapsTokoActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         val latLng = LatLng(currentLocation.latitude, currentLocation.longitude)
-        val makerOptions = MarkerOptions().position(latLng).title("Hello, I'm here")
+        val makerOptions = MarkerOptions().position(latLng).title("Lokasi anda saat ini")
+            .snippet(getTheAddress(currentLocation.latitude, currentLocation.longitude))
         googleMap?.animateCamera(CameraUpdateFactory.newLatLng(latLng))
         googleMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 20f))
         googleMap?.addMarker(makerOptions)
+    }
+
+    private fun getTheAddress(latitude: Double, longitude: Double): String? {
+        var retVal = ""
+        val geocoder = Geocoder(this, Locale.getDefault())
+        try {
+            val addresses = geocoder.getFromLocation(latitude, longitude, 1)
+            retVal = addresses[0].getAddressLine(0)
+
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return retVal
     }
 
     override fun onRequestPermissionsResult(

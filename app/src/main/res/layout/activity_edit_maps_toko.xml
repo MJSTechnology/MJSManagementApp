@@ -19,9 +19,15 @@
     <Button
         android:id="@+id/btnSimpanMapsToko"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginBottom="48dp"
         android:text="Simpan Lokasi"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:elevation="0dp"
+
+        android:backgroundTint="@color/color_base"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/myMap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -30,8 +36,13 @@
     <Button
         android:id="@+id/btnKembaliMapsToko"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="Kembali"
+        android:elevation="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="@color/color_base"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/myMap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

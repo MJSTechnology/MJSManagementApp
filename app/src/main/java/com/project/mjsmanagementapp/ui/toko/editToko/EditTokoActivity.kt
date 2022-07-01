@@ -180,14 +180,14 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
 
     fun getStringImageToko(bmp: Bitmap): String {
         val baos = ByteArrayOutputStream()
-        bmp.compress(Bitmap.CompressFormat.JPEG, 50, baos)
+        bmp.compress(Bitmap.CompressFormat.JPEG, 10, baos)
         val imageBytes = baos.toByteArray()
         return Base64.encodeToString(imageBytes, Base64.DEFAULT)
     }
 
     fun getStringImageKtp(bmp: Bitmap): String {
         val baos = ByteArrayOutputStream()
-        bmp.compress(Bitmap.CompressFormat.JPEG, 50, baos)
+        bmp.compress(Bitmap.CompressFormat.JPEG, 10, baos)
         val imageBytes = baos.toByteArray()
         return Base64.encodeToString(imageBytes, Base64.DEFAULT)
     }
