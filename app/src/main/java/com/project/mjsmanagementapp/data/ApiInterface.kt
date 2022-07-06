@@ -7,6 +7,7 @@ import com.project.mjsmanagementapp.model.toko.deleteToko.ResponseDeleteToko
 import com.project.mjsmanagementapp.model.toko.editToko.ResponseEditToko
 import com.project.mjsmanagementapp.model.toko.getDetailToko.ResponseDetailTokoItem
 import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
+import com.project.mjsmanagementapp.model.toko.totalToko.ResponseTotalToko
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -72,5 +73,9 @@ interface ApiInterface {
                 @Field("tokoMapLong") tokoMapLong: String
     ) : Call<ResponseAddToko>
 
+    // GET TOTAL TOKO
+    @FormUrlEncoded
+    @POST("toko/getTotalTokoBySales.php")
+    fun getTotalToko(@Field("tokoPicSales") tokoPicSales : String) : Call<ResponseTotalToko>
 
 }
