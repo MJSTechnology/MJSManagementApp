@@ -13,8 +13,8 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.project.mjsmanagementapp.R
+import com.project.mjsmanagementapp.model.toko.picSales.ResultItem
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
-
 import kotlinx.android.synthetic.main.tambahtoko_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
@@ -25,14 +25,22 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
 
     private lateinit var presenter: AddTokoActivityPresenter
 
+
+    var listSpinnerSales: MutableList<String> = ArrayList()
+    var listSpinnerIdSales: MutableList<String> = ArrayList()
+
     private var bitmapToko: Bitmap? = null
     private var bitmapKtp: Bitmap? = null
 
     var statusResponseToko : String? = null
+    var kabupatenResponseToko : String? = null
+    var kecatamanResponseToko : String? = null
+    var desaResponseToko : String? = null
+    var salesResponseToko : String? = null
+    var salesResponseId : String? = null
 
     private var tokoMapLat :String? = null
     private var tokoMapLong :String? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +67,79 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
         }
 
         val statusToko = resources.getStringArray(R.array.statusToko)
+        val kabupatenToko = resources.getStringArray(R.array.kabupatenToko)
+        val kecamatanToko = resources.getStringArray(R.array.kecamatanToko)
+        val desaToko = resources.getStringArray(R.array.desaToko)
+
+        if (spinnerNamaSales != null){
+
+            presenter.getPicSales()
+
+            spinnerNamaSales.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    Log.d("Error", getString(R.string.selected_item) + "" + "" + listSpinnerSales[position])
+                    salesResponseToko = listSpinnerSales[position]
+                    salesResponseId = listSpinnerIdSales[position]
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                }
+            }
+
+        }
+
+        if (spinnerDesaToko != null){
+            val adapterDesa = ArrayAdapter(this, android.R.layout.simple_spinner_item, desaToko)
+            spinnerDesaToko.adapter = adapterDesa
+
+            spinnerDesaToko.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    Log.d("Error", getString(R.string.selected_item) + "" + "" + desaToko[p2])
+                    desaResponseToko = desaToko[p2]
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    TODO("Not yet implemented")
+                }
+            }
+        }
+
+
+        if (spinnerKecamatanToko != null){
+            val adapterKecamatan = ArrayAdapter(this, android.R.layout.simple_spinner_item, kecamatanToko)
+            spinnerKecamatanToko.adapter = adapterKecamatan
+
+            spinnerKecamatanToko.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    Log.d("Error", getString(R.string.selected_item) + "" + "" + kecamatanToko[p2])
+                    kecatamanResponseToko = kecamatanToko[p2]
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    TODO("Not yet implemented")
+                }
+            }
+        }
+
+
+        if (spinnerKabupatenToko != null){
+            val adapterKabupaten = ArrayAdapter(this, android.R.layout.simple_spinner_item, kabupatenToko)
+            spinnerKabupatenToko.adapter = adapterKabupaten
+
+            spinnerKabupatenToko.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    Log.d("Error", getString(R.string.selected_item) + "" + "" + kabupatenToko[p2])
+                    kabupatenResponseToko = kabupatenToko[p2]
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    TODO("Not yet implemented")
+                }
+            }
+        }
+
         if (spinnerStatusToko != null){
             val adapterStatus = ArrayAdapter(this,android.R.layout.simple_spinner_item, statusToko)
             spinnerStatusToko.adapter = adapterStatus
@@ -66,6 +147,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
             spinnerStatusToko.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+
                     Log.d("Error", getString(R.string.selected_item) + " " + "" + statusToko[p2])
                     statusResponseToko = statusToko[p2]
 
@@ -82,13 +164,15 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
         btnTambahToko.onClick {
 
             val tokoNama: String = edtNamaToko.getText().toString().trim { it <= ' ' }
-            val tokoWilayah: String = edtDomisiliToko.getText().toString().trim { it <= ' ' }
+            val tokoKabupaten: String? = kabupatenResponseToko
+            val tokoKecamatan: String? = kecatamanResponseToko
+            val tokoDesa: String? = desaResponseToko
+            val tokoSales: String? = salesResponseId
             val tokoAlamat: String = edtAlamatToko.getText().toString().trim { it <= ' ' }
             val tokoStatus: String? = statusResponseToko
             val tokoPicName: String = edtNamaKontakPerson.getText().toString().trim { it <= ' ' }
             val tokoPicPhone: String = edtNomorKontakPerson.getText().toString().trim { it <= ' ' }
             val progressBar = findViewById<ProgressBar>(R.id.loadingAddToko)
-
 
 
             var photoKtp: String
@@ -109,8 +193,8 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
             if (tokoNama.isEmpty()){
                 Toast.makeText(this@AddTokoActivity,"Tolong Isi Toko Nama!",Toast.LENGTH_SHORT).show()
 
-            } else if (tokoWilayah.isEmpty()){
-                Toast.makeText(this@AddTokoActivity,"Tolong Isi Toko Domisili!",Toast.LENGTH_SHORT).show()
+            } else if (tokoKabupaten.equals("Kabupaten Toko")){
+                Toast.makeText(this@AddTokoActivity,"Tolong Isi Kabupaten Toko!",Toast.LENGTH_SHORT).show()
 
             } else if (tokoAlamat.isEmpty()){
                 Toast.makeText(this@AddTokoActivity,"Tolong Isi Toko Alamat!",Toast.LENGTH_SHORT).show()
@@ -128,7 +212,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
                 Toast.makeText(this@AddTokoActivity,"Tolong Set Lokasi Maps!",Toast.LENGTH_SHORT).show()
 
             } else {
-                presenter.addToko(photoToko, photoKtp, tokoNama, tokoWilayah, tokoAlamat, tokoStatus.toString(), tokoPicName, tokoPicPhone, tokoMapLat.toString(), tokoMapLong.toString(),progressBar)
+                presenter.addToko(photoToko, photoKtp, tokoSales.toString(), tokoNama, tokoKabupaten.toString(), tokoKecamatan.toString(), tokoDesa.toString(), tokoAlamat, tokoStatus.toString(), tokoPicName, tokoPicPhone, tokoMapLat.toString(), tokoMapLong.toString(),progressBar)
             }
 
 
@@ -136,7 +220,6 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
 
 
     }
-
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -228,4 +311,24 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
     override fun onErrorAddToko(msg: String?) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
     }
+
+    override fun onSuccesGetPicSales(response: List<ResultItem>?) {
+
+        listSpinnerSales = ArrayList()
+        for (i in 0 until response?.size!!) {
+            listSpinnerSales.add(response.get(i)?.adminName.toString())
+            listSpinnerIdSales.add(response.get(i)?.adminID.toString())
+        }
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listSpinnerSales)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerNamaSales.setAdapter(adapter)
+    }
+
+    override fun onErrorGetListPicSales(msg: String?) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        Log.d("Error Data", msg.toString())
+    }
+
+
 }

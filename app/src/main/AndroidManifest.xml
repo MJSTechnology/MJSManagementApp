@@ -15,9 +15,9 @@
     <application
         android:name=".data.UserApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logoicon2"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logoicon2"
         android:supportsRtl="true"
         android:theme="@style/Theme.MJSManagementApp"
         android:usesCleartextTraffic="true">
@@ -43,9 +43,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".ui.toko.addToko.MapsAddTokoActivity"
-            android:label="@string/title_activity_maps_add_toko" />
+
         <activity android:name=".ui.toko.addToko.AddTokoActivity" />
         <activity
             android:name=".ui.splashScreen.SplashScreenActivity"

@@ -17,6 +17,7 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 class LoginActivity : AppCompatActivity(), LoginActivtyContract {
 
     private lateinit var presenter: LoginActivityPresenter
+    var emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,8 +30,16 @@ class LoginActivity : AppCompatActivity(), LoginActivtyContract {
 
 
         btnLogin.onClick {
-            val progressBar = findViewById<ProgressBar>(R.id.loadingLogin)
-            presenter.LoginAdmin(edtIdKaryawan.text.toString(), edtKataSandiKaryawan.text.toString(),progressBar)
+
+            if (edtIdKaryawan.text.toString().isEmpty()) {
+                Toast.makeText(applicationContext, "Masukkan Email!", Toast.LENGTH_SHORT).show()
+            }
+            else if (edtKataSandiKaryawan.text.toString().isEmpty()) {
+                Toast.makeText(applicationContext, "Masukkan Kata Sandi!", Toast.LENGTH_SHORT).show()
+            } else {
+                val progressBar = findViewById<ProgressBar>(R.id.loadingLogin)
+                presenter.LoginAdmin(edtIdKaryawan.text.toString(), edtKataSandiKaryawan.text.toString(),progressBar)
+            }
 
         }
 

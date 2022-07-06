@@ -74,12 +74,47 @@
                 android:orientation="vertical"
                 android:layout_margin="20dp">
 
+                //Nama Sales
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sales"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardBackgroundColor="#EEEE">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_margin="5dp">
+
+                        <TextView
+                            android:id="@+id/txtNamaSales"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nama Sales"
+                            android:textSize="15sp"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="5dp"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
                 //Nama Toko
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama Toko"
                     android:textSize="18sp"
+                    android:paddingTop="10dp"
                     android:textStyle="bold"
                     android:textColor="#000"/>
                 <androidx.cardview.widget.CardView
@@ -107,11 +142,11 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                //Domisili Toko
+                //Kabupaten Toko
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Domisili Toko"
+                    android:text="Kabupaten Toko"
                     android:paddingTop="10dp"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -131,10 +166,80 @@
                         android:layout_margin="5dp">
 
                         <TextView
-                            android:id="@+id/txtDomisiliToko"
+                            android:id="@+id/txtKabupatenToko"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Domisili toko"
+                            android:text="Kabupaten toko"
+                            android:textSize="15sp"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="5dp"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                //Kecamatan Toko
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kecamatan Toko"
+                    android:paddingTop="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardBackgroundColor="#EEEE">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_margin="5dp">
+
+                        <TextView
+                            android:id="@+id/txtKecamatanToko"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kecamatan toko"
+                            android:textSize="15sp"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="5dp"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                //Desa/Kelurahan Toko
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Desa/Kelurahan Toko"
+                    android:paddingTop="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardBackgroundColor="#EEEE">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_margin="5dp">
+
+                        <TextView
+                            android:id="@+id/txtDesaToko"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Desa/Kelurahan toko"
                             android:textSize="15sp"
                             android:paddingTop="5dp"
                             android:paddingLeft="5dp"/>
@@ -318,6 +423,17 @@
                             android:paddingLeft="130dp"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
+                //Foto KTP
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Foto KTP"
+                    android:paddingTop="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"/>
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
