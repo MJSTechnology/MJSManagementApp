@@ -28,16 +28,28 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
 
     var listSpinnerSales: MutableList<String> = ArrayList()
     var listSpinnerIdSales: MutableList<String> = ArrayList()
+    var listNameSpinnerProvincies: MutableList<String> = ArrayList()
+    var listIdSpinnerProvincies: MutableList<String> = ArrayList()
+    var listNameSpinnerKabupaten: MutableList<String> = ArrayList()
+    var listIdSpinnerKabupaten: MutableList<String> = ArrayList()
+    var listNameSpinnerKecamatan: MutableList<String> = ArrayList()
+    var listIdSpinnerKecamatan: MutableList<String> = ArrayList()
+
 
     private var bitmapToko: Bitmap? = null
     private var bitmapKtp: Bitmap? = null
 
     var statusResponseToko : String? = null
-    var kabupatenResponseToko : String? = null
-    var kecatamanResponseToko : String? = null
+    var provincieNamesResponseToko : String? = null
+    var provinciesIdResponseToko : String? = null
+    var kabupatenNameResponseToko : String? = null
+    var kabupatenIdResponseToko : String? = null
+    var kecamatanNameResponseToko : String? = null
+    var kecamatanIdResponseToko : String? = null
     var desaResponseToko : String? = null
     var salesResponseToko : String? = null
     var salesResponseId : String? = null
+
 
     private var tokoMapLat :String? = null
     private var tokoMapLong :String? = null
@@ -67,7 +79,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
         }
 
         val statusToko = resources.getStringArray(R.array.statusToko)
-        val kabupatenToko = resources.getStringArray(R.array.kabupatenToko)
+
         val kecamatanToko = resources.getStringArray(R.array.kecamatanToko)
         val desaToko = resources.getStringArray(R.array.desaToko)
 
@@ -88,6 +100,61 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
             }
 
         }
+        if (spinnerProvinsiToko != null){
+            presenter.getProvincies()
+
+            spinnerProvinsiToko.onItemSelectedListener = object :
+                AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    Log.d("Error", getString(R.string.selected_item) + "" + "" + listIdSpinnerProvincies[p2])
+                    Log.d("Error", getString(R.string.selected_item) + "" + "" + listNameSpinnerProvincies[p2])
+                    provincieNamesResponseToko = listNameSpinnerProvincies[p2]
+                    provinciesIdResponseToko = listIdSpinnerProvincies[p2]
+                    presenter.getKabupaten(provinciesIdResponseToko)
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    TODO("Not yet implemented")
+                }
+            }
+        }
+
+        if (spinnerKabupatenToko != null){
+
+            spinnerKabupatenToko.onItemSelectedListener = object :
+                AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    Log.d("Error", getString(R.string.selected_item) + "" + "" + listIdSpinnerKabupaten[p2])
+                    Log.d("Error", getString(R.string.selected_item) + "" + "" + listNameSpinnerKabupaten[p2])
+                    kabupatenNameResponseToko = listNameSpinnerKabupaten[p2]
+                    kabupatenIdResponseToko = listIdSpinnerKabupaten[p2]
+                    presenter.getKecamatan(kabupatenIdResponseToko)
+
+
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    TODO("Not yet implemented")
+                }
+            }
+        }
+
+        if (spinnerKecamatanToko != null){
+
+
+            spinnerKecamatanToko.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    Log.d("Error", getString(R.string.selected_item) + "" + "" + listNameSpinnerKecamatan[p2])
+                    Log.d("Error", getString(R.string.selected_item) + "" + "" + listIdSpinnerKecamatan[p2])
+                    kecamatanNameResponseToko = listNameSpinnerKecamatan[p2]
+                    kecamatanIdResponseToko = listIdSpinnerKecamatan[p2]
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    TODO("Not yet implemented")
+                }
+            }
+        }
 
         if (spinnerDesaToko != null){
             val adapterDesa = ArrayAdapter(this, android.R.layout.simple_spinner_item, desaToko)
@@ -106,39 +173,12 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
         }
 
 
-        if (spinnerKecamatanToko != null){
-            val adapterKecamatan = ArrayAdapter(this, android.R.layout.simple_spinner_item, kecamatanToko)
-            spinnerKecamatanToko.adapter = adapterKecamatan
-
-            spinnerKecamatanToko.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                    Log.d("Error", getString(R.string.selected_item) + "" + "" + kecamatanToko[p2])
-                    kecatamanResponseToko = kecamatanToko[p2]
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO("Not yet implemented")
-                }
-            }
-        }
 
 
-        if (spinnerKabupatenToko != null){
-            val adapterKabupaten = ArrayAdapter(this, android.R.layout.simple_spinner_item, kabupatenToko)
-            spinnerKabupatenToko.adapter = adapterKabupaten
 
-            spinnerKabupatenToko.onItemSelectedListener = object :
-            AdapterView.OnItemSelectedListener{
-                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                    Log.d("Error", getString(R.string.selected_item) + "" + "" + kabupatenToko[p2])
-                    kabupatenResponseToko = kabupatenToko[p2]
-                }
 
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO("Not yet implemented")
-                }
-            }
-        }
+
+
 
         if (spinnerStatusToko != null){
             val adapterStatus = ArrayAdapter(this,android.R.layout.simple_spinner_item, statusToko)
@@ -164,8 +204,9 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
         btnTambahToko.onClick {
 
             val tokoNama: String = edtNamaToko.getText().toString().trim { it <= ' ' }
-            val tokoKabupaten: String? = kabupatenResponseToko
-            val tokoKecamatan: String? = kecatamanResponseToko
+            val tokoProvnsi: String? = provincieNamesResponseToko
+            val tokoKabupaten: String? = kabupatenNameResponseToko
+            val tokoKecamatan: String? = kecamatanNameResponseToko
             val tokoDesa: String? = desaResponseToko
             val tokoSales: String? = salesResponseId
             val tokoAlamat: String = edtAlamatToko.getText().toString().trim { it <= ' ' }
@@ -212,7 +253,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
                 Toast.makeText(this@AddTokoActivity,"Tolong Set Lokasi Maps!",Toast.LENGTH_SHORT).show()
 
             } else {
-                presenter.addToko(photoToko, photoKtp, tokoSales.toString(), tokoNama, tokoKabupaten.toString(), tokoKecamatan.toString(), tokoDesa.toString(), tokoAlamat, tokoStatus.toString(), tokoPicName, tokoPicPhone, tokoMapLat.toString(), tokoMapLong.toString(),progressBar)
+                presenter.addToko(photoToko, photoKtp, tokoSales.toString(), tokoNama, tokoProvnsi.toString(),tokoKabupaten.toString(), tokoKecamatan.toString(), tokoDesa.toString(), tokoAlamat, tokoStatus.toString(), tokoPicName, tokoPicPhone, tokoMapLat.toString(), tokoMapLong.toString(),progressBar)
             }
 
 
@@ -326,6 +367,56 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
     }
 
     override fun onErrorGetListPicSales(msg: String?) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        Log.d("Error Data", msg.toString())
+    }
+
+    override fun onSuccesGetProvincies(response: List<com.project.mjsmanagementapp.model.toko.provincies.ResultItem>?) {
+        listNameSpinnerProvincies = ArrayList()
+        for (i in 0 until response?.size!!) {
+            listNameSpinnerProvincies.add(response.get(i)?.name.toString())
+            listIdSpinnerProvincies.add(response.get(i)?.id.toString())
+        }
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listNameSpinnerProvincies)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerProvinsiToko.setAdapter(adapter)
+    }
+
+    override fun onErrorGetProvincies(msg: String?) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        Log.d("Error Data", msg.toString())
+    }
+
+    override fun onSuccesGetKabupaten(response: List<com.project.mjsmanagementapp.model.toko.kabupaten.ResultItem>?) {
+        listNameSpinnerKabupaten = ArrayList()
+        for (i in 0 until response?.size!!) {
+            listNameSpinnerKabupaten.add(response.get(i)?.name.toString())
+            listIdSpinnerKabupaten.add(response.get(i)?.id.toString())
+        }
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listNameSpinnerKabupaten)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerKabupatenToko.setAdapter(adapter)
+    }
+
+    override fun onErrorGetKabupaten(msg: String?) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        Log.d("Error Data", msg.toString())
+    }
+
+    override fun onSuccesGetKecamatan(response: List<com.project.mjsmanagementapp.model.toko.kecamatan.ResultItem>?) {
+        listNameSpinnerKecamatan = ArrayList()
+        for (i in 0 until response?.size!!) {
+            listNameSpinnerKecamatan.add(response.get(i)?.name.toString())
+            listIdSpinnerKecamatan.add(response.get(i)?.id.toString())
+        }
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listNameSpinnerKecamatan)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerKecamatanToko.setAdapter(adapter)
+    }
+
+    override fun onErrorGetKecamatan(msg: String?) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         Log.d("Error Data", msg.toString())
     }

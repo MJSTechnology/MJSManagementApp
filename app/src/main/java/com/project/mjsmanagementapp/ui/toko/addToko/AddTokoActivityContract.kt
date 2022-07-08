@@ -12,5 +12,12 @@ interface AddTokoActivityContract {
     fun onSuccesGetPicSales(response: List<ResultItem>?)
     fun onErrorGetListPicSales(msg: String?)
 
+    fun onSuccesGetProvincies(response: List<com.project.mjsmanagementapp.model.toko.provincies.ResultItem>?)
+    fun onErrorGetProvincies(msg: String?)
 
+    fun onSuccesGetKabupaten(response: List<com.project.mjsmanagementapp.model.toko.kabupaten.ResultItem>?)
+    fun onErrorGetKabupaten(msg: String?)
+
+    fun onSuccesGetKecamatan(response: List<com.project.mjsmanagementapp.model.toko.kecamatan.ResultItem>?)
+    fun onErrorGetKecamatan(msg: String?)
 }
