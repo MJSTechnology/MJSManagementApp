@@ -102,6 +102,22 @@
                 android:hint="Nama toko"
                 android:textSize="15sp"/>
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Provinsi Toko"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:paddingTop="10dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerProvinsiToko"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
