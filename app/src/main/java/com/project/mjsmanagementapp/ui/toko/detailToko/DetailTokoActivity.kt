@@ -57,7 +57,11 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
 
     override fun onSuccessGetDetail(response: ResponseDetailTokoItem) {
         txtNamaToko.setText(response.tokoNama)
-        txtDomisiliToko.setText(response.tokoWilayah)
+        //txtDomisiliToko.setText(response.tokoWilayah)
+        txtKabupatenToko.setText(response.tokoKabupaten)
+        txtKecamatanToko.setText(response.tokoKecamatan)
+        txtDesaToko.setText(response.tokoDesa)
+        txtNamaSales.setText(response.tokoSales)
         txtAlamatToko.setText(response.tokoAlamat)
         txtStatusToko.setText(response.tokoStatus)
         txtNomorPelangganToko.setText(response.tokoNoPelanggan)
@@ -108,6 +112,10 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
             intent.putExtra("tokoID", response.tokoID)
             intent.putExtra("tokoNama", response.tokoNama)
             intent.putExtra("tokoWilayah", response.tokoWilayah)
+            intent.putExtra("tokoKabupaten", response.tokoKabupaten)
+            intent.putExtra("tokoKecamatan", response.tokoKecamatan)
+            intent.putExtra("tokoDesa", response.tokoDesa)
+            intent.putExtra("tokoSales", response.tokoSales)
             intent.putExtra("tokoAlamat", response.tokoAlamat)
             intent.putExtra("tokoStatus", response.tokoStatus)
             intent.putExtra("tokoPicName", response.tokoPicName)

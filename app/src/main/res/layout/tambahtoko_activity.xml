@@ -76,6 +76,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Sales"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <Spinner
+                android:id="@+id/spinnerNamaSales"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Nama Toko"
                 android:textColor="#000"
                 android:textSize="18sp"
@@ -88,21 +102,65 @@
                 android:hint="Nama toko"
                 android:textSize="15sp"/>
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Domisili Toko"
+                android:text="Provinsi Toko"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="#000"
                 android:paddingTop="10dp"/>
 
-            <EditText
-                android:id="@+id/edtDomisiliToko"
+            <Spinner
+                android:id="@+id/spinnerProvinsiToko"
                 android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Domisili toko"
-                android:textSize="15sp"/>
+                android:text="Kabupaten Toko"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:paddingTop="10dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerKabupatenToko"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="Kecamatan Toko"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerKecamatanToko"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="Desa/Kelurahan Toko"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerDesaToko"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="10dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -132,7 +190,7 @@
             <Spinner
                 android:id="@+id/spinnerStatusToko"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 />
 
             <TextView
@@ -157,6 +215,15 @@
                 android:layout_height="wrap_content"
                 android:hint="No. Telp"
                 android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Foto KTP"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:paddingTop="10dp"/>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardFotoKtp"

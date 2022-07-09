@@ -37,6 +37,18 @@ data class ResponseDetailTokoItem (
 	@field:SerializedName("tokoWilayah")
 	val tokoWilayah: String? = null,
 
+	@field:SerializedName("tokoKabupaten")
+	val tokoKabupaten: String? = null,
+
+	@field:SerializedName("tokoKecamatan")
+	val tokoKecamatan: String? = null,
+
+	@field:SerializedName("tokoDesa")
+	val tokoDesa: String? = null,
+
+	@field:SerializedName("tokoSales")
+	val tokoSales: String? = null,
+
 	@field:SerializedName("tokoPicName")
 	val tokoPicName: String? = null,
 

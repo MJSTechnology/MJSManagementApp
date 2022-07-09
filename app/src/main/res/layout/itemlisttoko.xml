@@ -18,30 +18,14 @@
         android:orientation="vertical"
         android:layout_margin="10dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/txtDomisiliToko"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/txtDomisiliToko"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="Domisili"
-                android:textColor="@color/color_base"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/txtPICToko"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="Budi Cahyono"
-                android:textColor="@color/color_base"
-                android:textSize="18sp" />
-
-        </RelativeLayout>
+            android:layout_alignParentLeft="true"
+            android:text="Domisili"
+            android:textColor="@color/color_base"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txtNamaToko"
@@ -53,7 +37,18 @@
             android:textStyle="bold"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="25dp"/>
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/txtPICToko"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Budi Cahyono"
+            android:textColor="@color/color_base"
+            android:textSize="18sp" />
+
+
 
     </LinearLayout>
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MJS Apps</string>
+    <string name="app_name">MJSManagementApp</string>
 
     <string name="selected_item">Selected item:</string>
     <string-array name="statusToko">
@@ -7,5 +7,36 @@
         <item>Kontrak</item>
         <item>Milik Sendiri</item>
     </string-array>
+
+    <string-array name="namaSales">
+        <item>Nama Sales</item>
+        <item>Nasum</item>
+        <item>Cecep</item>
+    </string-array>
+
+    <string-array name="kabupatenToko">
+        <item>Kabupaten Toko</item>
+        <item>Jakarta</item>
+        <item>Bogor</item>
+        <item>Depok</item>
+        <item>Tanggerang</item>
+        <item>Bekasi</item>
+        <item>Karawang</item>
+    </string-array>
+
+    <string-array name="kecamatanToko">
+        <item>Kecamatan Toko</item>
+        <item>Karawang Barat</item>
+        <item>Karawang Timur</item>
+    </string-array>
+
+    <string-array name="desaToko">
+        <item>Desa/Kelurahan Toko</item>
+        <item>Adiarsa Barat</item>
+        <item>Tanjung Pura</item>
+        <item>Tunggakjati</item>
+        <item>Mekarjati</item>
+    </string-array>
+
     <string name="title_activity_maps_add_toko">Map</string>
 </resources>

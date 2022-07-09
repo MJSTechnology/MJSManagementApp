@@ -69,6 +69,7 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
     }
 
     override fun onSuccessSearch(data: List<ResponseListTokoItem>?) {
+
         listTokoAdapter = ListTokoAdapter(data, object : ListTokoAdapter.onClickItem{
             override fun clicked(item: ResponseListTokoItem?) {
                 startActivity<DetailTokoActivity>("detailItem" to item)
