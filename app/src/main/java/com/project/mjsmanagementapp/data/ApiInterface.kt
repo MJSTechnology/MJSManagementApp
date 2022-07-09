@@ -4,6 +4,7 @@ package com.project.mjsmanagementapp.data
 import com.project.mjsmanagementapp.model.toko.Login.ResponseLogin
 import com.project.mjsmanagementapp.model.toko.addToko.ResponseAddToko
 import com.project.mjsmanagementapp.model.toko.deleteToko.ResponseDeleteToko
+import com.project.mjsmanagementapp.model.toko.desa.ResponseDesa
 import com.project.mjsmanagementapp.model.toko.editToko.ResponseEditToko
 import com.project.mjsmanagementapp.model.toko.getDetailToko.ResponseDetailTokoItem
 import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
@@ -105,5 +106,12 @@ interface ApiInterface {
     fun getKecamatan(
         @Field("regency_id") regency_id: String?
     ): Call<ResponseKecamatan>
+
+    @FormUrlEncoded
+    @POST("area_address/getListVillages.php")
+    fun getDesa(
+        @Field("district_id") district_id: String?
+    ): Call<ResponseDesa>
+
 
 }

@@ -20,4 +20,8 @@ interface AddTokoActivityContract {
 
     fun onSuccesGetKecamatan(response: List<com.project.mjsmanagementapp.model.toko.kecamatan.ResultItem>?)
     fun onErrorGetKecamatan(msg: String?)
+
+    fun onSuccesGetDesa(response: List<com.project.mjsmanagementapp.model.toko.desa.ResultItem>?)
+    fun onErrorGetDesa(msg: String?)
+
 }

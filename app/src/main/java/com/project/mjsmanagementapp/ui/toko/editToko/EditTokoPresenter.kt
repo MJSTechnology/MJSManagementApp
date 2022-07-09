@@ -53,6 +53,8 @@ class EditTokoPresenter(val contract: EditTokoContract) {
                     if (response.isSuccessful && response.body()?.status == 200) {
                         contract.onSuccessEdit(response.body()?.message ?: "")
                         progressBar.visibility = View.INVISIBLE
+                        val errorData = response.body()?.message
+                        Log.d("TAG_ERROR_EDIT_TOKO", errorData.toString())
                     } else {
                         contract.onErrorEdit(response.body()?.message ?: "")
                         progressBar.visibility = View.INVISIBLE

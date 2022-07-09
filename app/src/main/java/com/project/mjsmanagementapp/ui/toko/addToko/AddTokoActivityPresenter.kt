@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ProgressBar
 import com.project.mjsmanagementapp.data.ApiClient
 import com.project.mjsmanagementapp.model.toko.addToko.ResponseAddToko
+import com.project.mjsmanagementapp.model.toko.desa.ResponseDesa
 import com.project.mjsmanagementapp.model.toko.kabupaten.ResponseKabupaten
 import com.project.mjsmanagementapp.model.toko.kecamatan.ResponseKecamatan
 import com.project.mjsmanagementapp.model.toko.picSales.ResponsePicSales
@@ -82,6 +83,7 @@ class  AddTokoActivityPresenter(val contract: AddTokoActivityContract) {
 
             })
     }
+
     fun getProvincies(){
         ApiClient.getService().getProvincies()
             .enqueue(object : retrofit2.Callback<ResponseProvincies>{
@@ -156,6 +158,30 @@ class  AddTokoActivityPresenter(val contract: AddTokoActivityContract) {
                     Log.d("Error Data",t.localizedMessage)
                 }
 
+            })
+    }
+
+    fun getDesa(district_id : String?){
+        ApiClient.getService().getDesa(district_id)
+            .enqueue(object : retrofit2.Callback<ResponseDesa>{
+                override fun onResponse(
+                    call: Call<ResponseDesa>,
+                    response: Response<ResponseDesa>
+                ) {
+                    if (response.isSuccessful){
+                    val listDesa : List<com.project.mjsmanagementapp.model.toko.desa.ResultItem>
+                        = response.body()?.result as List<com.project.mjsmanagementapp.model.toko.desa.ResultItem>
+                        contract.onSuccesGetDesa(listDesa)
+                    }else{
+                        contract.onErrorGetDesa(response.body()?.pesan)
+                        Log.d("Error Data", response.message())
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseDesa>, t: Throwable) {
+                    contract.onErrorGetDesa(t.localizedMessage)
+                    Log.d("Error Data",t.localizedMessage)
+                }
             })
     }
 
