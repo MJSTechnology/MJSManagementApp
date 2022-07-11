@@ -35,23 +35,29 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.detailtoko_activity)
 
+        getDetailToko()
+
+        imgbtnBack.onClick {
+            finish()
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getDetailToko()
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    fun getDetailToko() {
         presenter = DetailTokoActivityPresenter(this)
         val itemDetailItem = intent.getSerializableExtra("detailItem")
         val item = itemDetailItem as ResponseListTokoItem?
-
-        val intent = intent
-        val tokoID = intent.getStringExtra("tokoID")
-
-        if (item != null) {
-            item?.tokoID?.let { presenter.getDetailToko(it) }
-        }else{
-            tokoID.let { presenter.getDetailToko(it.toString()) }
-        }
-
-        imgbtnBack.onClick {
-            startActivity<ListTokoActivity>()
-            finish()
-        }
+        item?.tokoID?.let { presenter.getDetailToko(it) }
 
     }
 
@@ -156,8 +162,6 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
 
     override fun onSuccessDelete(response: String) {
         Toast.makeText(applicationContext, response, Toast.LENGTH_SHORT).show()
-        val intent = Intent(this@DetailTokoActivity, ListTokoActivity::class.java)
-        startActivity(intent)
         finish()
 
     }

@@ -98,12 +98,6 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
         val tokoOldMapLat = intent.getStringExtra("tokoMapLat")
         val tokoOldMapLong = intent.getStringExtra("tokoMapLong")
 
-
-        imgbtnBack.onClick {
-            startActivity<DetailTokoActivity>()
-            finish()
-        }
-
         btnSimpanToko.onClick{
 
             val tokoNama: String = edtNamaToko.getText().toString().trim { it <= ' ' }
@@ -374,11 +368,7 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
 
     override fun onSuccessEdit(response: String) {
         Toast.makeText(applicationContext, response, Toast.LENGTH_SHORT).show()
-        val intent = Intent(this@EditTokoActivity, DetailTokoActivity::class.java)
-        intent.putExtra("tokoID", tokoID)
-        startActivity(intent)
         finish()
-
     }
 
     override fun onErrorEdit(response: String) {

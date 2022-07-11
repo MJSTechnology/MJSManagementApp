@@ -30,7 +30,6 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
         getListToko()
 
         btnimgBack.onClick {
-            startActivity<MainActivity>()
             finish()
         }
 

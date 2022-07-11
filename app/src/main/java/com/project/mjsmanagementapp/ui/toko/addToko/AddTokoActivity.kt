@@ -65,7 +65,6 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
         presenter = AddTokoActivityPresenter(this)
 
         imgbtnback.onClick {
-            startActivity<ListTokoActivity>()
             finish()
         }
 
@@ -337,9 +336,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
     override fun onSuccessAddToko(response: String?) {
         Log.d("RETRO", "onResponse: " + response.toString())
         Toast.makeText(this, response, Toast.LENGTH_SHORT).show()
-        startActivity<ListTokoActivity>()
         finish()
-
 
     }
 
