@@ -60,6 +60,7 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
         rvListToko1.layoutManager = LinearLayoutManager(this)
         rvListToko2.layoutManager = LinearLayoutManager(this)
+        rvListToko3.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onSuccessGetList(data: List<ResponseListTokoItem>?, totalToko: Int) {
@@ -103,6 +104,7 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
                         rvListToko1.visibility = View.VISIBLE
                         rvListToko2.visibility = View.GONE
+                        rvListToko3.visibility = View.GONE
 
                     } else if(action.length > 0){
                         val filterNama = data?.filter { it.tokoNama!!.contains("$action", true) }
@@ -121,12 +123,14 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
                         if (action.isNotEmpty()){
                             rvListToko2.visibility = View.VISIBLE
+                            rvListToko3.visibility = View.VISIBLE
                             rvListToko2.adapter = listTokoAdapterName
-                            rvListToko2.adapter = listTokoAdapterNoPelanggan
+                            rvListToko3.adapter = listTokoAdapterNoPelanggan
                             rvListToko1.visibility = View.GONE
                         }else{
                             rvListToko1.visibility = View.VISIBLE
                             rvListToko2.visibility = View.GONE
+                            rvListToko3.visibility = View.GONE
                         }
 
                     }
