@@ -102,6 +102,7 @@
                         android:text="Total Toko : "
                         android:textStyle="bold"
                         android:textSize="18dp"
+                        android:layout_marginLeft="10dp"
                         android:textColor="@color/color_base"/>
 
                     <TextView
