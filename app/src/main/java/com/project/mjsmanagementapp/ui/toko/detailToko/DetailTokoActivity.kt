@@ -84,11 +84,43 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
             .apply(RequestOptions.skipMemoryCacheOf(true))
             .into(findViewById(R.id.imgKtpToko))
 
+        imgKtpToko.onClick {
+            val view = View.inflate(this@DetailTokoActivity, R.layout.itemfoto_toko, null)
+
+            val builder = AlertDialog.Builder(this@DetailTokoActivity)
+            builder.setView(view)
+
+            val dialog = builder.create()
+            dialog.show()
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog.setCancelable(true)
+
+            Glide.with(this@DetailTokoActivity)
+                .load(ApiClient.BASE_URL + response.tokoPicKTP)
+                .into(view.findViewById(R.id.detailFotoToko))
+        }
+
         Glide.with(this)
             .load(ApiClient.BASE_URL + response.tokoPhoto)
             .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
             .apply(RequestOptions.skipMemoryCacheOf(true))
             .into(findViewById(R.id.imgFotoToko))
+
+        imgFotoToko.onClick {
+            val view = View.inflate(this@DetailTokoActivity, R.layout.itemfoto_toko, null)
+
+            val builder = AlertDialog.Builder(this@DetailTokoActivity)
+            builder.setView(view)
+
+            val dialog = builder.create()
+            dialog.show()
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog.setCancelable(true)
+
+            Glide.with(this@DetailTokoActivity)
+                .load(ApiClient.BASE_URL + response.tokoPhoto)
+                .into(view.findViewById(R.id.detailFotoToko))
+        }
 
         if (response.tokoMapLat != null && response.tokoMapLong != null){
             imgLokasiToko2.visibility = View.VISIBLE
