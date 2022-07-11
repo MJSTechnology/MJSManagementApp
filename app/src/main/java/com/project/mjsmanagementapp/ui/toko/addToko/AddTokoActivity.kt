@@ -246,7 +246,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
                 Toast.makeText(this@AddTokoActivity,"Tolong Set Lokasi Maps!",Toast.LENGTH_SHORT).show()
 
             } else {
-                presenter.addToko(photoToko, photoKtp, tokoSales.toString(), tokoNama, tokoProvnsi.toString(),tokoKabupaten.toString(), tokoKecamatan.toString(), tokoDesa.toString(), tokoAlamat, tokoStatus.toString(), tokoPicName, tokoPicPhone, tokoMapLat.toString(), tokoMapLong.toString(),progressBar)
+                presenter.addToko(photoToko, photoKtp, tokoSales.toString(), tokoNama.capitalizeWords(), tokoProvnsi.toString(),tokoKabupaten.toString(), tokoKecamatan.toString(), tokoDesa.toString(), tokoAlamat.capitalizeWords(), tokoStatus.toString(), tokoPicName.capitalizeWords(), tokoPicPhone, tokoMapLat.toString(), tokoMapLong.toString(),progressBar)
             }
 
 
@@ -255,6 +255,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
 
     }
 
+    fun String.capitalizeWords(): String = split(" ").joinToString(" ") { it.capitalize() }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
