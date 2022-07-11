@@ -84,6 +84,12 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
             .apply(RequestOptions.skipMemoryCacheOf(true))
             .into(findViewById(R.id.imgKtpToko))
 
+        Glide.with(this)
+            .load(ApiClient.BASE_URL + response.tokoPhoto)
+            .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+            .apply(RequestOptions.skipMemoryCacheOf(true))
+            .into(findViewById(R.id.imgFotoToko))
+
         imgKtpToko.onClick {
             val view = View.inflate(this@DetailTokoActivity, R.layout.itemfoto_toko, null)
 
@@ -99,12 +105,6 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
                 .load(ApiClient.BASE_URL + response.tokoPicKTP)
                 .into(view.findViewById(R.id.detailFotoToko))
         }
-
-        Glide.with(this)
-            .load(ApiClient.BASE_URL + response.tokoPhoto)
-            .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
-            .apply(RequestOptions.skipMemoryCacheOf(true))
-            .into(findViewById(R.id.imgFotoToko))
 
         imgFotoToko.onClick {
             val view = View.inflate(this@DetailTokoActivity, R.layout.itemfoto_toko, null)
