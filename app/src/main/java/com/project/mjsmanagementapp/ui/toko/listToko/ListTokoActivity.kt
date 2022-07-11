@@ -24,7 +24,8 @@ import retrofit2.Response
 
 class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
-    private var listTokoAdapter : ListTokoAdapter? = null
+    private var listTokoAdapterName : ListTokoAdapter? = null
+    private var listTokoAdapterNoPelanggan : ListTokoAdapter? = null
     private lateinit var presenter: ListTokoActivityPresenter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,7 +83,12 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
     override fun onSuccessSearch(data: List<ResponseListTokoItem>?) {
 
-        listTokoAdapter = ListTokoAdapter(data, object : ListTokoAdapter.onClickItem{
+        listTokoAdapterName = ListTokoAdapter(data, object : ListTokoAdapter.onClickItem{
+            override fun clicked(item: ResponseListTokoItem?) {
+                startActivity<DetailTokoActivity>("detailItem" to item)
+            }
+        })
+        listTokoAdapterNoPelanggan = ListTokoAdapter(data, object : ListTokoAdapter.onClickItem{
             override fun clicked(item: ResponseListTokoItem?) {
                 startActivity<DetailTokoActivity>("detailItem" to item)
             }
@@ -103,8 +109,15 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
                         rvListToko2.visibility = View.GONE
 
                     } else if(action.length > 0){
-                        val filter = data?.filter { it.tokoNama!!.contains("$action", true) }
-                        listTokoAdapter = ListTokoAdapter(filter as List<ResponseListTokoItem>, object : ListTokoAdapter.onClickItem{
+                        val filterNama = data?.filter { it.tokoNama!!.contains("$action", true) }
+                        val filterKodePelanggan = data?.filter { it.tokoNoPelanggan!!.contains("$action", true) }
+                        listTokoAdapterName = ListTokoAdapter(filterNama as List<ResponseListTokoItem>, object : ListTokoAdapter.onClickItem{
+                            override fun clicked(item: ResponseListTokoItem?) {
+                                startActivity<DetailTokoActivity>("detailItem" to item)
+                            }
+                        })
+
+                        listTokoAdapterNoPelanggan = ListTokoAdapter(filterKodePelanggan as List<ResponseListTokoItem>, object : ListTokoAdapter.onClickItem{
                             override fun clicked(item: ResponseListTokoItem?) {
                                 startActivity<DetailTokoActivity>("detailItem" to item)
                             }
@@ -112,7 +125,8 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
                         if (action.isNotEmpty()){
                             rvListToko2.visibility = View.VISIBLE
-                            rvListToko2.adapter = listTokoAdapter
+                            rvListToko2.adapter = listTokoAdapterName
+                            rvListToko2.adapter = listTokoAdapterNoPelanggan
                             rvListToko1.visibility = View.GONE
                         }else{
                             rvListToko1.visibility = View.VISIBLE
