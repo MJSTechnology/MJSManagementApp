@@ -13,13 +13,9 @@ import com.project.mjsmanagementapp.adapter.toko.listToko.ListTokoAdapter
 import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
 import com.project.mjsmanagementapp.ui.toko.addToko.AddTokoActivity
 import com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity
-import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivityContract
 import kotlinx.android.synthetic.main.tokolist_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
-import retrofit2.Call
-import retrofit2.Response
-
 
 
 class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
@@ -67,7 +63,8 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
         rvListToko2.layoutManager = LinearLayoutManager(this)
     }
 
-    override fun onSuccessGetList(data: List<ResponseListTokoItem>?) {
+    override fun onSuccessGetList(data: List<ResponseListTokoItem>?, totalToko: Int) {
+        txtTokoTotal.setText(totalToko.toString())
 
         rvListToko1.adapter = ListTokoAdapter(data, object : ListTokoAdapter.onClickItem{
             override fun clicked(item: ResponseListTokoItem?) {

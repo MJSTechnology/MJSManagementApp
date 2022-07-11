@@ -23,7 +23,7 @@ class ListTokoActivityPresenter(val contract: ListTokoActivityContract){
                 override fun onResponse(
                     call: Call<List<ResponseListTokoItem>>, response: Response<List<ResponseListTokoItem>>) {
                     if (response.isSuccessful){
-                        contract.onSuccessGetList(response.body())
+                        contract.onSuccessGetList(response.body(), response.body()?.size!!)
                         progressBar.visibility = View.GONE
                     }else{
                         contract.onErrorGetList(response.message())
@@ -62,6 +62,7 @@ class ListTokoActivityPresenter(val contract: ListTokoActivityContract){
                 }
             })
     }
+
 
 
 
