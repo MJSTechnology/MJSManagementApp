@@ -34,7 +34,6 @@ import kotlinx.android.synthetic.main.edittoko_activity.spinnerKecamatanToko
 import kotlinx.android.synthetic.main.edittoko_activity.spinnerProvinsiToko
 import kotlinx.android.synthetic.main.edittoko_activity.spinnerDesaToko
 import kotlinx.android.synthetic.main.edittoko_activity.txtLokasiToko
-import kotlinx.android.synthetic.main.tambahtoko_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
 import java.io.*
@@ -82,8 +81,8 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
 
         setDataFromIntentExtra()
 
-        imgKtpToko.setOnClickListener { chooseFileKtp() }
-        imgFotoToko.setOnClickListener { chooseFileToko() }
+        cardFotoKtp.setOnClickListener { chooseFileKtp() }
+        cardFotoToko.setOnClickListener { chooseFileToko() }
 
         btnEditMapsToko.onClick {
             val intent = Intent(this@EditTokoActivity, EditMapsTokoActivity::class.java)
@@ -108,8 +107,8 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
         btnSimpanToko.onClick{
 
             val tokoNama: String = edtNamaToko.getText().toString().trim { it <= ' ' }
-            //val tokoWilayah: String = edtDomisiliToko.getText().toString().trim { it <= ' ' }
-            val tokoSales: Int? = 2
+            val tokoProvinsi: String = "Hello Mommy"
+            val tokoSales: Int? = 3
             val tokoAlamat: String = edtAlamatToko.getText().toString().trim { it <= ' ' }
             val tokoPicName: String = edtNamaKontakPerson.getText().toString().trim { it <= ' ' }
             val tokoPicPhone: String = edtNomorKontakPerson.getText().toString().trim { it <= ' ' }
@@ -140,7 +139,7 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
             }
 
             val progressBar = findViewById<ProgressBar>(R.id.loadingEditToko)
-                presenter.editToko( photoToko, photoKtp,tokoID.toString(), tokoSales.toString(), tokoNama,kabupatenResponseToko.toString(), kecamatanResponseToko.toString(), desaResponseToko.toString(),tokoAlamat,statusResponseToko.toString(),tokoPicName,tokoPicPhone,tokoMapLat,tokoMapLong,progressBar)
+                presenter.editToko( photoToko, photoKtp,tokoID.toString(), tokoSales.toString(), tokoNama, tokoProvinsi,kabupatenResponseToko.toString(), kecamatanResponseToko.toString(), desaResponseToko.toString(),tokoAlamat,statusResponseToko.toString(),tokoPicName,tokoPicPhone,tokoMapLat,tokoMapLong,progressBar)
 
 
         }

@@ -173,14 +173,6 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
             }
         }
 
-
-
-
-
-
-
-
-
         if (spinnerStatusToko != null){
             val adapterStatus = ArrayAdapter(this,android.R.layout.simple_spinner_item, statusToko)
             spinnerStatusToko.adapter = adapterStatus
