@@ -149,12 +149,7 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
 
         val intent = intent
         val tokoNama = intent.getStringExtra("tokoNama")
-        val tokoKabupaten = intent.getStringExtra("tokoKabupaten")
-        val tokoKecamatan = intent.getStringExtra("tokoKecamatan")
-        val tokoDesa = intent.getStringExtra("tokoDesa")
-        val tokoSales = intent.getStringExtra("tokoSales")
         val tokoAlamat = intent.getStringExtra("tokoAlamat")
-        val tokoStatus = intent.getStringExtra("tokoStatus")
         val tokoPicName = intent.getStringExtra("tokoPicName")
         val tokoPicPhone = intent.getStringExtra("tokoPicPhone")
         val tokoPicKTP = intent.getStringExtra("tokoPicKTP")
