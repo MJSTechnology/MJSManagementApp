@@ -29,18 +29,8 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tokolist_activity)
-        presenter = ListTokoActivityPresenter(this)
-        presenter.getTokoList()
-        presenter.getSearchToko()
 
-        //showDataSearch()
-
-        val linearLayoutManager:LinearLayoutManager = LinearLayoutManager(this)
-        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
-        rvListToko1.layoutManager = linearLayoutManager
-
-        rvListToko1.layoutManager = LinearLayoutManager(this)
-        rvListToko2.layoutManager = LinearLayoutManager(this)
+        getListToko()
 
         btnimgBack.onClick {
             startActivity<MainActivity>()
@@ -52,6 +42,28 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
         }
 
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getListToko()
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    fun getListToko(){
+        presenter = ListTokoActivityPresenter(this)
+        presenter.getTokoList()
+        presenter.getSearchToko()
+
+        val linearLayoutManager:LinearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+        rvListToko1.layoutManager = linearLayoutManager
+
+        rvListToko1.layoutManager = LinearLayoutManager(this)
+        rvListToko2.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onSuccessGetList(data: List<ResponseListTokoItem>?) {

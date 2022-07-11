@@ -34,8 +34,8 @@ data class ResponseDetailTokoItem (
 	@field:SerializedName("tokoID")
 	val tokoID: String? = null,
 
-	@field:SerializedName("tokoWilayah")
-	val tokoWilayah: String? = null,
+	@field:SerializedName("tokoProvinsi")
+	val tokoProvinsi: String? = null,
 
 	@field:SerializedName("tokoKabupaten")
 	val tokoKabupaten: String? = null,
@@ -46,8 +46,8 @@ data class ResponseDetailTokoItem (
 	@field:SerializedName("tokoDesa")
 	val tokoDesa: String? = null,
 
-	@field:SerializedName("tokoSales")
-	val tokoSales: String? = null,
+	@field:SerializedName("tokoPicSales")
+	val tokoPicSales: String? = null,
 
 	@field:SerializedName("tokoPicName")
 	val tokoPicName: String? = null,
