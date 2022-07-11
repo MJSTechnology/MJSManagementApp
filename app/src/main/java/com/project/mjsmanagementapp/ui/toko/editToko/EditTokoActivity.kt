@@ -107,8 +107,6 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
         btnSimpanToko.onClick{
 
             val tokoNama: String = edtNamaToko.getText().toString().trim { it <= ' ' }
-            val tokoProvinsi: String = "Hello Mommy"
-            val tokoSales: Int? = 3
             val tokoAlamat: String = edtAlamatToko.getText().toString().trim { it <= ' ' }
             val tokoPicName: String = edtNamaKontakPerson.getText().toString().trim { it <= ' ' }
             val tokoPicPhone: String = edtNomorKontakPerson.getText().toString().trim { it <= ' ' }
@@ -139,7 +137,7 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
             }
 
             val progressBar = findViewById<ProgressBar>(R.id.loadingEditToko)
-                presenter.editToko( photoToko, photoKtp,tokoID.toString(), tokoSales.toString(), tokoNama, tokoProvinsi,kabupatenResponseToko.toString(), kecamatanResponseToko.toString(), desaResponseToko.toString(),tokoAlamat,statusResponseToko.toString(),tokoPicName,tokoPicPhone,tokoMapLat,tokoMapLong,progressBar)
+                presenter.editToko( photoToko, photoKtp,tokoID.toString(), salesIdResponseToko.toString(), tokoNama, provinceResponseToko.toString(),kabupatenResponseToko.toString(), kecamatanResponseToko.toString(), desaResponseToko.toString(),tokoAlamat,statusResponseToko.toString(),tokoPicName,tokoPicPhone,tokoMapLat,tokoMapLong,progressBar)
 
 
         }
@@ -163,7 +161,6 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
         val tokoPhoto = intent.getStringExtra("tokoPhoto")
 
         edtNamaToko.setText(tokoNama)
-        //edtDomisiliToko.setText(tokoWilayah)
         edtAlamatToko.setText(tokoAlamat)
         edtNamaKontakPerson.setText(tokoPicName)
         edtNomorKontakPerson.setText(tokoPicPhone)

@@ -68,7 +68,7 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
         txtNamaKontakPerson.setText(response.tokoPicName)
         txtNomorKontakPerson.setText(response.tokoPicPhone)
 
-        imgNomorKontakPerson.onClick {
+        cardNoTelepon.onClick {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/+62"+response.tokoPicPhone)))
         }
 

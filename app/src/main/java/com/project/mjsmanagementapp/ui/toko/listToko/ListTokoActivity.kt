@@ -55,8 +55,8 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
     fun getListToko(){
         presenter = ListTokoActivityPresenter(this)
-        presenter.getTokoList()
-        presenter.getSearchToko()
+        presenter.getTokoList(loadingListToko)
+        presenter.getSearchToko(loadingListToko)
 
         val linearLayoutManager:LinearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
