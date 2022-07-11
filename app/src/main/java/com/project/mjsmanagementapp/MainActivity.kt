@@ -27,16 +27,7 @@ class MainActivity : AppCompatActivity(),MainActivityContract {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.homepage_activity)
 
-        presenter = MainActivityPresenter(this)
-        if (UserToken.adminID == null){
-            UserToken.clearToken()
-            startActivity<LoginActivity>()
-            finish()
-        }else{
-            usertxt.setText(UserToken.adminName)
-        }
-
-        UserToken.adminID?.let { presenter.getTotalToko(it) }
+        getAttributeHome()
 
         btnLogout.onClick {
             UserToken.clearToken()
@@ -49,6 +40,27 @@ class MainActivity : AppCompatActivity(),MainActivityContract {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        getAttributeHome()
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    fun getAttributeHome(){
+        presenter = MainActivityPresenter(this)
+        if (UserToken.adminID == null){
+            UserToken.clearToken()
+            startActivity<LoginActivity>()
+            finish()
+        }else{
+            usertxt.setText(UserToken.adminName)
+        }
+
+        UserToken.adminID?.let { presenter.getTotalToko(it) }
+    }
 
     override fun onSuccessTotalToko(data: ResponseTotalToko?) {
         txtTotalToko.text = data?.totalToko.toString()
