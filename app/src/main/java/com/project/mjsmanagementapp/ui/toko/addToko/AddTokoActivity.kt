@@ -50,7 +50,6 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
     var kecamatanIdResponseToko : String? = null
     var desaNameResponseToko : String? = null
     var desaIdResponseToko : String? = null
-    var desaResponseToko : String? = null
     var salesResponseToko : String? = null
     var salesResponseId : String? = null
 
