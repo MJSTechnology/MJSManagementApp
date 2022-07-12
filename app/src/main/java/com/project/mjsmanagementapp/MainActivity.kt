@@ -12,6 +12,7 @@ import com.project.mjsmanagementapp.ui.home.MainActivityContract
 import com.project.mjsmanagementapp.ui.home.MainActivityPresenter
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
 import com.project.mjsmanagementapp.ui.login.LoginActivity
+import com.project.mjsmanagementapp.ui.profile.ProfileActivity
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivityPresenter
 
 import kotlinx.android.synthetic.main.homepage_activity.*
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity(),MainActivityContract {
         }
 
         txtbtnprofile.onClick {
-            Toast.makeText(applicationContext, "Ini profile", Toast.LENGTH_SHORT).show()
+            startActivity<ProfileActivity>()
         }
     }
 
