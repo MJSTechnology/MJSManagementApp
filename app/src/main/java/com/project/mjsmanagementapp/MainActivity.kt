@@ -38,6 +38,10 @@ class MainActivity : AppCompatActivity(),MainActivityContract {
         tokobtn.onClick {
             startActivity<ListTokoActivity>()
         }
+
+        txtbtnprofile.onClick {
+            Toast.makeText(applicationContext, "Ini profile", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onResume() {

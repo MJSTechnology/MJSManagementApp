@@ -6,6 +6,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.ProgressBar
 import android.widget.SearchView
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivityContract
@@ -18,6 +19,7 @@ class ListTokoActivityPresenter(val contract: ListTokoActivityContract){
     //GetData
     fun getTokoList(progressBar: ProgressBar){
         progressBar.visibility = View.VISIBLE
+
         ApiClient.getService().getToko()
             .enqueue(object : retrofit2.Callback<List<ResponseListTokoItem>>{
                 override fun onResponse(

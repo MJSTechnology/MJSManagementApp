@@ -103,6 +103,8 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
 
             Glide.with(this@DetailTokoActivity)
                 .load(ApiClient.BASE_URL + response.tokoPicKTP)
+                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+                .apply(RequestOptions.skipMemoryCacheOf(true))
                 .into(view.findViewById(R.id.detailFotoToko))
         }
 
@@ -119,6 +121,8 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
 
             Glide.with(this@DetailTokoActivity)
                 .load(ApiClient.BASE_URL + response.tokoPhoto)
+                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+                .apply(RequestOptions.skipMemoryCacheOf(true))
                 .into(view.findViewById(R.id.detailFotoToko))
         }
 

@@ -1,6 +1,8 @@
 package com.project.mjsmanagementapp.ui.toko.detailToko
 
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import com.project.mjsmanagementapp.data.ApiClient
 import com.project.mjsmanagementapp.model.toko.deleteToko.ResponseDeleteToko
 import com.project.mjsmanagementapp.model.toko.getDetailToko.ResponseDetailTokoItem
@@ -10,6 +12,8 @@ import retrofit2.Response
 class DetailTokoActivityPresenter(val contract: DetailTokoActivityContract) {
 
     fun getDetailToko(tokoID: String){
+        //progressBar.visibility = View.VISIBLE
+
         ApiClient.getService()
             .getDetailToko(tokoID)
             .enqueue(object : retrofit2.Callback<ResponseDetailTokoItem>{
@@ -19,14 +23,17 @@ class DetailTokoActivityPresenter(val contract: DetailTokoActivityContract) {
                 ) {
                     if (response.isSuccessful) {
                         response.body()?.let { contract.onSuccessGetDetail(it) }
+                        //progressBar.visibility = View.GONE
                     }else{
                         contract.onErrorGetDetail("Gagal memuat toko (Jaringan)")
+                        //progressBar.visibility = View.GONE
                     }
                 }
 
                 override fun onFailure(call: Call<ResponseDetailTokoItem>, t: Throwable) {
                     contract.onErrorGetDetail(t.localizedMessage)
                     Log.d("Error", "Gagal memuat toko (Jaringan)")
+                    //progressBar.visibility = View.GONE
                 }
 
             })
