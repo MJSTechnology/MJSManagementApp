@@ -13,6 +13,7 @@ import com.project.mjsmanagementapp.ui.home.MainActivityPresenter
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
 import com.project.mjsmanagementapp.ui.login.LoginActivity
 import com.project.mjsmanagementapp.ui.profile.ProfileActivity
+import com.project.mjsmanagementapp.ui.toko.editToko.EditTokoActivity
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivityPresenter
 
 import kotlinx.android.synthetic.main.homepage_activity.*
@@ -30,18 +31,16 @@ class MainActivity : AppCompatActivity(),MainActivityContract {
 
         getAttributeHome()
 
-        btnLogout.onClick {
-            UserToken.clearToken()
-            startActivity<LoginActivity>()
-            finish()
-        }
-
         tokobtn.onClick {
             startActivity<ListTokoActivity>()
         }
 
         txtbtnprofile.onClick {
-            startActivity<ProfileActivity>()
+            val intent = Intent(this@MainActivity, ProfileActivity::class.java)
+            intent.putExtra("adminID", UserToken.adminID)
+            intent.putExtra("adminName", UserToken.adminName)
+            intent.putExtra("adminEmail", UserToken.adminEmail)
+            startActivity(intent)
         }
     }
 

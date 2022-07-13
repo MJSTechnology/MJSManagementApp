@@ -114,6 +114,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/txtNamaKaryawan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="15dp"
@@ -155,7 +156,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/txtIDKaryawan"
+                        android:id="@+id/txtEmailKaryawan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="15dp"
