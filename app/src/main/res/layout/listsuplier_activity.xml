@@ -149,15 +149,6 @@
                     android:paddingTop="20dp"
                     tools:listitem="@layout/itemlistsuplier"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvListSuplier3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:paddingTop="20dp"
-                    tools:listitem="@layout/itemlistsuplier"/>
-
-
             </LinearLayout>
 
 

@@ -127,4 +127,7 @@ interface ApiInterface {
     @GET("supplier/getListSupplier.php")
     fun getSuplier() : Call<List<ResponseListSuplierItem>>
 
+    @GET("supplier/getListSupplier.php")
+    fun getSearchSuplier() : Call<List<ResponseListSuplierItem>>
+
 }
