@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity(),MainActivityContract {
             intent.putExtra("adminID", UserToken.adminID)
             intent.putExtra("adminName", UserToken.adminName)
             intent.putExtra("adminEmail", UserToken.adminEmail)
+            intent.putExtra("adminPhoto", UserToken.adminPhoto)
+            intent.putExtra("adminRoles", UserToken.adminRoles)
             startActivity(intent)
         }
     }
@@ -64,6 +66,7 @@ class MainActivity : AppCompatActivity(),MainActivityContract {
         }
 
         UserToken.adminID?.let { presenter.getTotalToko(it) }
+
     }
 
     override fun onSuccessTotalToko(data: ResponseTotalToko?) {

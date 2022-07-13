@@ -10,7 +10,7 @@ object UserToken {
     private const val ADMIN_ID = "adminID"
     private const val ADMIN_PHOTO = "adminPhoto"
     private const val ADMIN_EMAIL = "adminEmail"
-
+    private const val ADMIN_ROLES = "adminRoles"
 
     var adminName: String?
         get() {
@@ -46,6 +46,13 @@ object UserToken {
         }
         set(value) {
             commitValue(ADMIN_EMAIL, value)
+        }
+    var adminRoles: String?
+        get() {
+            return getValue(ADMIN_ROLES)
+        }
+        set(value) {
+            commitValue(ADMIN_ROLES, value)
         }
 
 

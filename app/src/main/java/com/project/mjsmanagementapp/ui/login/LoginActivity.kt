@@ -53,6 +53,7 @@ class LoginActivity : AppCompatActivity(), LoginActivtyContract {
         UserToken.adminID = data?.adminID.toString()
         UserToken.adminPhone = data?.adminPhone
         UserToken.adminPhoto = data?.adminPhoto
+        UserToken.adminRoles = data?.adminRoles
 
 
         Log.d("Data_Error",data?.adminName.toString())
