@@ -13,6 +13,7 @@ import com.project.mjsmanagementapp.ui.home.MainActivityPresenter
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
 import com.project.mjsmanagementapp.ui.login.LoginActivity
 import com.project.mjsmanagementapp.ui.profile.ProfileActivity
+import com.project.mjsmanagementapp.ui.suplier.listSuplier.ListSuplierActivity
 import com.project.mjsmanagementapp.ui.toko.editToko.EditTokoActivity
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivityPresenter
 
@@ -30,6 +31,10 @@ class MainActivity : AppCompatActivity(),MainActivityContract {
         setContentView(R.layout.homepage_activity)
 
         getAttributeHome()
+
+        suplierbtn.onClick {
+            startActivity<ListSuplierActivity>()
+        }
 
         tokobtn.onClick {
             startActivity<ListTokoActivity>()

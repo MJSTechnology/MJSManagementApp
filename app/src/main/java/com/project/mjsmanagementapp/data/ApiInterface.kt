@@ -1,6 +1,7 @@
 package com.project.mjsmanagementapp.data
 
 
+import com.project.mjsmanagementapp.model.suplier.getListSuplier.ResponseListSuplierItem
 import com.project.mjsmanagementapp.model.toko.Login.ResponseLogin
 import com.project.mjsmanagementapp.model.toko.addToko.ResponseAddToko
 import com.project.mjsmanagementapp.model.toko.deleteToko.ResponseDeleteToko
@@ -119,5 +120,11 @@ interface ApiInterface {
     @FormUrlEncoded
     @POST("toko/getTotalTokoBySales.php")
     fun getTotalToko(@Field("tokoPicSales") tokoPicSales : String) : Call<ResponseTotalToko>
+
+
+
+    //GET LIST SUPLIER
+    @GET("supplier/getListSupplier.php")
+    fun getSuplier() : Call<List<ResponseListSuplierItem>>
 
 }

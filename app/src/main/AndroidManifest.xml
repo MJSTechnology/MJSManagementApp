@@ -22,6 +22,12 @@
         android:theme="@style/Theme.MJSManagementApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.suplier.listSuplier.ListSuplierActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ListSuplierActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.profile.ProfileActivity"
             android:exported="false" />
         <activity
