@@ -161,6 +161,7 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
         btnEditToko.onClick {
             val intent = Intent(this@DetailTokoActivity, EditTokoActivity::class.java)
             intent.putExtra("tokoID", response.tokoID)
+            intent.putExtra("tokoPicSales", response.tokoPicSales)
             intent.putExtra("tokoNama", response.tokoNama)
             intent.putExtra("tokoProvinsi", response.tokoProvinsi)
             intent.putExtra("tokoKabupaten", response.tokoKabupaten)

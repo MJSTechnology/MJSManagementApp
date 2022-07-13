@@ -14,10 +14,24 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.model.toko.picSales.ResultItem
-import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
+import kotlinx.android.synthetic.main.edittoko_activity.*
 import kotlinx.android.synthetic.main.tambahtoko_activity.*
+import kotlinx.android.synthetic.main.tambahtoko_activity.cardFotoKtp
+import kotlinx.android.synthetic.main.tambahtoko_activity.cardFotoToko
+import kotlinx.android.synthetic.main.tambahtoko_activity.edtAlamatToko
+import kotlinx.android.synthetic.main.tambahtoko_activity.edtNamaKontakPerson
+import kotlinx.android.synthetic.main.tambahtoko_activity.edtNamaToko
+import kotlinx.android.synthetic.main.tambahtoko_activity.edtNomorKontakPerson
+import kotlinx.android.synthetic.main.tambahtoko_activity.imgFotoToko
+import kotlinx.android.synthetic.main.tambahtoko_activity.imgKtpToko
+import kotlinx.android.synthetic.main.tambahtoko_activity.imgLokasiToko1
+import kotlinx.android.synthetic.main.tambahtoko_activity.imgLokasiToko2
+import kotlinx.android.synthetic.main.tambahtoko_activity.spinnerDesaToko
+import kotlinx.android.synthetic.main.tambahtoko_activity.spinnerKabupatenToko
+import kotlinx.android.synthetic.main.tambahtoko_activity.spinnerKecamatanToko
+import kotlinx.android.synthetic.main.tambahtoko_activity.spinnerProvinsiToko
+import kotlinx.android.synthetic.main.tambahtoko_activity.spinnerStatusToko
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.startActivity
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 
@@ -355,6 +369,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listSpinnerSales)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerNamaSales.setAdapter(adapter)
+
     }
 
     override fun onErrorGetListPicSales(msg: String?) {
