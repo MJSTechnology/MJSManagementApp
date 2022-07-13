@@ -131,12 +131,14 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
             }
 
             val progressBar = findViewById<ProgressBar>(R.id.loadingEditToko)
-                presenter.editToko( photoToko, photoKtp,tokoID.toString(), salesIdResponseToko.toString(), tokoNama, provinceResponseToko.toString(),kabupatenResponseToko.toString(), kecamatanResponseToko.toString(), desaResponseToko.toString(),tokoAlamat,statusResponseToko.toString(),tokoPicName,tokoPicPhone,tokoMapLat,tokoMapLong,progressBar)
+                presenter.editToko( photoToko, photoKtp,tokoID.toString(), salesIdResponseToko.toString(), tokoNama.capitalizeWords(), provinceResponseToko.toString(),kabupatenResponseToko.toString(), kecamatanResponseToko.toString(), desaResponseToko.toString(),tokoAlamat.capitalizeWords(),statusResponseToko.toString(),tokoPicName.capitalizeWords(),tokoPicPhone,tokoMapLat,tokoMapLong,progressBar)
 
 
         }
 
     }
+
+    fun String.capitalizeWords(): String = split(" ").joinToString(" ") { it.capitalize() }
 
 
     private fun setDataFromIntentExtra() {

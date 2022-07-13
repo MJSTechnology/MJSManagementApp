@@ -152,7 +152,7 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
                 intent.putExtra("tokoNama", response.tokoNama)
                 startActivity(intent)
             }else{
-                Toast.makeText(applicationContext, "Silahkan daftarkan lokasi toko terlebih dahulu!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Daftarkan lokasi toko terlebih dahulu!", Toast.LENGTH_SHORT).show()
             }
 
         }
