@@ -9,11 +9,14 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.data.ApiClient
+import com.project.mjsmanagementapp.data.UserToken
 import com.project.mjsmanagementapp.model.toko.getDetailToko.ResponseDetailTokoItem
 import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
 import com.project.mjsmanagementapp.ui.toko.editToko.EditTokoActivity
@@ -58,6 +61,12 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
         val itemDetailItem = intent.getSerializableExtra("detailItem")
         val item = itemDetailItem as ResponseListTokoItem?
         item?.tokoID?.let { presenter.getDetailToko(it) }
+
+        // Buat spesialisasi akun
+        /*if (UserToken.adminRoles == "Karyawan MJS Technology"){
+            btnEditToko.isVisible = false
+            btnHapusToko.isVisible = false
+        }*/
 
     }
 
