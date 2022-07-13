@@ -11,9 +11,12 @@ class ResponseListTokoItem : Serializable {
 	@field:SerializedName("tokoID")
 	val tokoID: String? = null
 
-	@field:SerializedName("tokoWilayah")
-	val tokoWilayah: String? = null
+	@field:SerializedName("tokoKecamatan")
+	val tokoKecamatan: String? = null
 
 	@field:SerializedName("tokoPicName")
 	val tokoPicName: String? = null
+
+	@field:SerializedName("tokoNoPelanggan")
+	val tokoNoPelanggan: String? = null
 }

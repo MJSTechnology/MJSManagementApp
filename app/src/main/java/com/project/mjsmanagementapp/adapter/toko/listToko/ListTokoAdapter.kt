@@ -30,9 +30,10 @@ class ListTokoAdapter (val data: List<ResponseListTokoItem>?, private val click:
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun onBind(get: ResponseListTokoItem?) {
-            itemView.txtDomisiliToko.text = get?.tokoWilayah
+            itemView.txtDomisiliToko.text = get?.tokoKecamatan
             itemView.txtNamaToko.text = get?.tokoNama
             itemView.txtPICToko.text = get?.tokoPicName
+            itemView.txtNoPelanggan.text = get?.tokoNoPelanggan
         }
     }
 

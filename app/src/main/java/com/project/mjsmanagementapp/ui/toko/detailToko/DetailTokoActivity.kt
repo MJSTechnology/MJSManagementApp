@@ -35,40 +35,46 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.detailtoko_activity)
 
-        presenter = DetailTokoActivityPresenter(this)
-        val itemDetailItem = intent.getSerializableExtra("detailItem")
-        val item = itemDetailItem as ResponseListTokoItem?
-
-        val intent = intent
-        val tokoID = intent.getStringExtra("tokoID")
-
-        if (item != null) {
-            item?.tokoID?.let { presenter.getDetailToko(it) }
-        }else{
-            tokoID.let { presenter.getDetailToko(it.toString()) }
-        }
+        getDetailToko()
 
         imgbtnBack.onClick {
-            startActivity<ListTokoActivity>()
             finish()
         }
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        getDetailToko()
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    fun getDetailToko() {
+        presenter = DetailTokoActivityPresenter(this)
+        val itemDetailItem = intent.getSerializableExtra("detailItem")
+        val item = itemDetailItem as ResponseListTokoItem?
+        item?.tokoID?.let { presenter.getDetailToko(it) }
+
+    }
+
     override fun onSuccessGetDetail(response: ResponseDetailTokoItem) {
         txtNamaToko.setText(response.tokoNama)
-        //txtDomisiliToko.setText(response.tokoWilayah)
+        txtProvinsiToko.setText(response.tokoProvinsi)
         txtKabupatenToko.setText(response.tokoKabupaten)
         txtKecamatanToko.setText(response.tokoKecamatan)
         txtDesaToko.setText(response.tokoDesa)
-        txtNamaSales.setText(response.tokoSales)
+        txtNamaSales.setText(response.tokoPicSales)
         txtAlamatToko.setText(response.tokoAlamat)
         txtStatusToko.setText(response.tokoStatus)
         txtNomorPelangganToko.setText(response.tokoNoPelanggan)
         txtNamaKontakPerson.setText(response.tokoPicName)
         txtNomorKontakPerson.setText(response.tokoPicPhone)
 
-        imgNomorKontakPerson.onClick {
+        cardNoTelepon.onClick {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/+62"+response.tokoPicPhone)))
         }
 
@@ -83,6 +89,42 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
             .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
             .apply(RequestOptions.skipMemoryCacheOf(true))
             .into(findViewById(R.id.imgFotoToko))
+
+        imgKtpToko.onClick {
+            val view = View.inflate(this@DetailTokoActivity, R.layout.itemfoto_toko, null)
+
+            val builder = AlertDialog.Builder(this@DetailTokoActivity)
+            builder.setView(view)
+
+            val dialog = builder.create()
+            dialog.show()
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog.setCancelable(true)
+
+            Glide.with(this@DetailTokoActivity)
+                .load(ApiClient.BASE_URL + response.tokoPicKTP)
+                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+                .apply(RequestOptions.skipMemoryCacheOf(true))
+                .into(view.findViewById(R.id.detailFotoToko))
+        }
+
+        imgFotoToko.onClick {
+            val view = View.inflate(this@DetailTokoActivity, R.layout.itemfoto_toko, null)
+
+            val builder = AlertDialog.Builder(this@DetailTokoActivity)
+            builder.setView(view)
+
+            val dialog = builder.create()
+            dialog.show()
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog.setCancelable(true)
+
+            Glide.with(this@DetailTokoActivity)
+                .load(ApiClient.BASE_URL + response.tokoPhoto)
+                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+                .apply(RequestOptions.skipMemoryCacheOf(true))
+                .into(view.findViewById(R.id.detailFotoToko))
+        }
 
         if (response.tokoMapLat != null && response.tokoMapLong != null){
             imgLokasiToko2.visibility = View.VISIBLE
@@ -111,11 +153,11 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
             val intent = Intent(this@DetailTokoActivity, EditTokoActivity::class.java)
             intent.putExtra("tokoID", response.tokoID)
             intent.putExtra("tokoNama", response.tokoNama)
-            intent.putExtra("tokoWilayah", response.tokoWilayah)
+            intent.putExtra("tokoProvinsi", response.tokoProvinsi)
             intent.putExtra("tokoKabupaten", response.tokoKabupaten)
             intent.putExtra("tokoKecamatan", response.tokoKecamatan)
             intent.putExtra("tokoDesa", response.tokoDesa)
-            intent.putExtra("tokoSales", response.tokoSales)
+            intent.putExtra("tokoSales", response.tokoPicSales)
             intent.putExtra("tokoAlamat", response.tokoAlamat)
             intent.putExtra("tokoStatus", response.tokoStatus)
             intent.putExtra("tokoPicName", response.tokoPicName)
@@ -156,8 +198,6 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
 
     override fun onSuccessDelete(response: String) {
         Toast.makeText(applicationContext, response, Toast.LENGTH_SHORT).show()
-        val intent = Intent(this@DetailTokoActivity, ListTokoActivity::class.java)
-        startActivity(intent)
         finish()
 
     }

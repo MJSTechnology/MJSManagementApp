@@ -19,6 +19,9 @@ data class ResponseLogin(
 	@field:SerializedName("adminEmail")
 	val adminEmail: String? = null,
 
+	@field:SerializedName("adminRoles")
+	val adminRoles: String? = null,
+
 	@field:SerializedName("error_msg")
 	val error_msg: String? = null
 

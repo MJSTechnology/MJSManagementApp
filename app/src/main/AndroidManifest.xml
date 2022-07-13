@@ -22,8 +22,11 @@
         android:theme="@style/Theme.MJSManagementApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.toko.editToko.EditTokoActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ui.toko.editToko.EditMapsTokoActivity"
             android:exported="false" />
@@ -42,7 +45,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
 
         <activity android:name=".ui.toko.addToko.AddTokoActivity" />
         <activity

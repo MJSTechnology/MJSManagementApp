@@ -232,6 +232,7 @@
                     android:textColor="#000"/>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardFotoKtp"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginTop="10dp"
@@ -281,6 +282,7 @@
                     app:cardElevation="0dp">
 
                     <LinearLayout
+                        android:id="@+id/cardFotoToko"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"

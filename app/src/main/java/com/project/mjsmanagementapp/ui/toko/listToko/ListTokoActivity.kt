@@ -13,37 +13,24 @@ import com.project.mjsmanagementapp.adapter.toko.listToko.ListTokoAdapter
 import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
 import com.project.mjsmanagementapp.ui.toko.addToko.AddTokoActivity
 import com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity
-import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivityContract
+import kotlinx.android.synthetic.main.homepage_activity.*
 import kotlinx.android.synthetic.main.tokolist_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
-import retrofit2.Call
-import retrofit2.Response
-
 
 
 class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
-    private var listTokoAdapter : ListTokoAdapter? = null
+    private var listTokoAdapterName : ListTokoAdapter? = null
+    private var listTokoAdapterNoPelanggan : ListTokoAdapter? = null
     private lateinit var presenter: ListTokoActivityPresenter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tokolist_activity)
-        presenter = ListTokoActivityPresenter(this)
-        presenter.getTokoList()
-        presenter.getSearchToko()
 
-        //showDataSearch()
-
-        val linearLayoutManager:LinearLayoutManager = LinearLayoutManager(this)
-        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
-        rvListToko1.layoutManager = linearLayoutManager
-
-        rvListToko1.layoutManager = LinearLayoutManager(this)
-        rvListToko2.layoutManager = LinearLayoutManager(this)
+        getListToko()
 
         btnimgBack.onClick {
-            startActivity<MainActivity>()
             finish()
         }
 
@@ -51,10 +38,33 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
             startActivity<AddTokoActivity>()
         }
 
-
     }
 
-    override fun onSuccessGetList(data: List<ResponseListTokoItem>?) {
+    override fun onResume() {
+        super.onResume()
+        getListToko()
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    fun getListToko(){
+        presenter = ListTokoActivityPresenter(this)
+        presenter.getTokoList(loadingListToko)
+        presenter.getSearchToko(loadingListToko)
+
+        val linearLayoutManager:LinearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+        rvListToko1.layoutManager = linearLayoutManager
+
+        rvListToko1.layoutManager = LinearLayoutManager(this)
+        rvListToko2.layoutManager = LinearLayoutManager(this)
+        rvListToko3.layoutManager = LinearLayoutManager(this)
+    }
+
+    override fun onSuccessGetList(data: List<ResponseListTokoItem>?, totalToko: Int) {
+        txtTokoTotal.setText(totalToko.toString())
 
         rvListToko1.adapter = ListTokoAdapter(data, object : ListTokoAdapter.onClickItem{
             override fun clicked(item: ResponseListTokoItem?) {
@@ -70,7 +80,12 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
     override fun onSuccessSearch(data: List<ResponseListTokoItem>?) {
 
-        listTokoAdapter = ListTokoAdapter(data, object : ListTokoAdapter.onClickItem{
+        listTokoAdapterName = ListTokoAdapter(data, object : ListTokoAdapter.onClickItem{
+            override fun clicked(item: ResponseListTokoItem?) {
+                startActivity<DetailTokoActivity>("detailItem" to item)
+            }
+        })
+        listTokoAdapterNoPelanggan = ListTokoAdapter(data, object : ListTokoAdapter.onClickItem{
             override fun clicked(item: ResponseListTokoItem?) {
                 startActivity<DetailTokoActivity>("detailItem" to item)
             }
@@ -89,10 +104,18 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
                         rvListToko1.visibility = View.VISIBLE
                         rvListToko2.visibility = View.GONE
+                        rvListToko3.visibility = View.GONE
 
                     } else if(action.length > 0){
-                        val filter = data?.filter { it.tokoNama!!.contains("$action", true) }
-                        listTokoAdapter = ListTokoAdapter(filter as List<ResponseListTokoItem>, object : ListTokoAdapter.onClickItem{
+                        val filterNama = data?.filter { it.tokoNama!!.contains("$action", true) }
+                        val filterKodePelanggan = data?.filter { it.tokoNoPelanggan!!.contains("$action", true) }
+                        listTokoAdapterName = ListTokoAdapter(filterNama as List<ResponseListTokoItem>, object : ListTokoAdapter.onClickItem{
+                            override fun clicked(item: ResponseListTokoItem?) {
+                                startActivity<DetailTokoActivity>("detailItem" to item)
+                            }
+                        })
+
+                        listTokoAdapterNoPelanggan = ListTokoAdapter(filterKodePelanggan as List<ResponseListTokoItem>, object : ListTokoAdapter.onClickItem{
                             override fun clicked(item: ResponseListTokoItem?) {
                                 startActivity<DetailTokoActivity>("detailItem" to item)
                             }
@@ -100,11 +123,14 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
                         if (action.isNotEmpty()){
                             rvListToko2.visibility = View.VISIBLE
-                            rvListToko2.adapter = listTokoAdapter
+                            rvListToko3.visibility = View.VISIBLE
+                            rvListToko2.adapter = listTokoAdapterName
+                            rvListToko3.adapter = listTokoAdapterNoPelanggan
                             rvListToko1.visibility = View.GONE
                         }else{
                             rvListToko1.visibility = View.VISIBLE
                             rvListToko2.visibility = View.GONE
+                            rvListToko3.visibility = View.GONE
                         }
 
                     }

@@ -42,6 +42,7 @@ interface ApiInterface {
                  @Field("tokoID") tokoID: String,
                  @Field("tokoPicSales") tokoSales: String,
                  @Field("tokoNama") tokoNama: String,
+                 @Field("tokoProvinsi") tokoProvinsi: String,
                  @Field("tokoKabupaten") tokoKabupaten: String,
                  @Field("tokoKecamatan") tokoKecamatan: String,
                  @Field("tokoDesa") tokoDesa: String,

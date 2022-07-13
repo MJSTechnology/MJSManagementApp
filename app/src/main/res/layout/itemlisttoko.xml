@@ -18,14 +18,31 @@
         android:orientation="vertical"
         android:layout_margin="10dp">
 
-        <TextView
-            android:id="@+id/txtDomisiliToko"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:text="Domisili"
-            android:textColor="@color/color_base"
-            android:textSize="18sp" />
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/txtDomisiliToko"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Domisili"
+                android:textColor="@color/color_base"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtNoPelanggan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="0"
+                android:textColor="@color/color_base"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
 
         <TextView
             android:id="@+id/txtNamaToko"
@@ -46,7 +63,12 @@
             android:layout_alignParentRight="true"
             android:text="Budi Cahyono"
             android:textColor="@color/color_base"
+            android:layout_marginTop="20dp"
             android:textSize="18sp" />
+
+
+
+
 
 
 

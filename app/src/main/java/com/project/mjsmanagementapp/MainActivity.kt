@@ -12,6 +12,8 @@ import com.project.mjsmanagementapp.ui.home.MainActivityContract
 import com.project.mjsmanagementapp.ui.home.MainActivityPresenter
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
 import com.project.mjsmanagementapp.ui.login.LoginActivity
+import com.project.mjsmanagementapp.ui.profile.ProfileActivity
+import com.project.mjsmanagementapp.ui.toko.editToko.EditTokoActivity
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivityPresenter
 
 import kotlinx.android.synthetic.main.homepage_activity.*
@@ -27,6 +29,33 @@ class MainActivity : AppCompatActivity(),MainActivityContract {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.homepage_activity)
 
+        getAttributeHome()
+
+        tokobtn.onClick {
+            startActivity<ListTokoActivity>()
+        }
+
+        txtbtnprofile.onClick {
+            val intent = Intent(this@MainActivity, ProfileActivity::class.java)
+            intent.putExtra("adminID", UserToken.adminID)
+            intent.putExtra("adminName", UserToken.adminName)
+            intent.putExtra("adminEmail", UserToken.adminEmail)
+            intent.putExtra("adminPhoto", UserToken.adminPhoto)
+            intent.putExtra("adminRoles", UserToken.adminRoles)
+            startActivity(intent)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getAttributeHome()
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    fun getAttributeHome(){
         presenter = MainActivityPresenter(this)
         if (UserToken.adminID == null){
             UserToken.clearToken()
@@ -38,17 +67,7 @@ class MainActivity : AppCompatActivity(),MainActivityContract {
 
         UserToken.adminID?.let { presenter.getTotalToko(it) }
 
-        btnLogout.onClick {
-            UserToken.clearToken()
-            startActivity<LoginActivity>()
-            finish()
-        }
-
-        tokobtn.onClick {
-            startActivity<ListTokoActivity>()
-        }
     }
-
 
     override fun onSuccessTotalToko(data: ResponseTotalToko?) {
         txtTotalToko.text = data?.totalToko.toString()

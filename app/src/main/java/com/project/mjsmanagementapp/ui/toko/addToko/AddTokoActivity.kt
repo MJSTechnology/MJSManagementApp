@@ -50,7 +50,6 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
     var kecamatanIdResponseToko : String? = null
     var desaNameResponseToko : String? = null
     var desaIdResponseToko : String? = null
-    var desaResponseToko : String? = null
     var salesResponseToko : String? = null
     var salesResponseId : String? = null
 
@@ -66,7 +65,6 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
         presenter = AddTokoActivityPresenter(this)
 
         imgbtnback.onClick {
-            startActivity<ListTokoActivity>()
             finish()
         }
 
@@ -174,14 +172,6 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
             }
         }
 
-
-
-
-
-
-
-
-
         if (spinnerStatusToko != null){
             val adapterStatus = ArrayAdapter(this,android.R.layout.simple_spinner_item, statusToko)
             spinnerStatusToko.adapter = adapterStatus
@@ -255,7 +245,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
                 Toast.makeText(this@AddTokoActivity,"Tolong Set Lokasi Maps!",Toast.LENGTH_SHORT).show()
 
             } else {
-                presenter.addToko(photoToko, photoKtp, tokoSales.toString(), tokoNama, tokoProvnsi.toString(),tokoKabupaten.toString(), tokoKecamatan.toString(), tokoDesa.toString(), tokoAlamat, tokoStatus.toString(), tokoPicName, tokoPicPhone, tokoMapLat.toString(), tokoMapLong.toString(),progressBar)
+                presenter.addToko(photoToko, photoKtp, tokoSales.toString(), tokoNama.capitalizeWords(), tokoProvnsi.toString(),tokoKabupaten.toString(), tokoKecamatan.toString(), tokoDesa.toString(), tokoAlamat.capitalizeWords(), tokoStatus.toString(), tokoPicName.capitalizeWords(), tokoPicPhone, tokoMapLat.toString(), tokoMapLong.toString(),progressBar)
             }
 
 
@@ -264,6 +254,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
 
     }
 
+    fun String.capitalizeWords(): String = split(" ").joinToString(" ") { it.capitalize() }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -345,9 +336,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
     override fun onSuccessAddToko(response: String?) {
         Log.d("RETRO", "onResponse: " + response.toString())
         Toast.makeText(this, response, Toast.LENGTH_SHORT).show()
-        startActivity<ListTokoActivity>()
         finish()
-
 
     }
 
