@@ -12,6 +12,8 @@ import com.project.mjsmanagementapp.adapter.suplier.listSuplier.ListSuplierAdapt
 import com.project.mjsmanagementapp.adapter.toko.listToko.ListTokoAdapter
 import com.project.mjsmanagementapp.model.suplier.getListSuplier.ResponseListSuplierItem
 import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
+import com.project.mjsmanagementapp.ui.suplier.addSuplier.AddSuplierActivity
+import com.project.mjsmanagementapp.ui.suplier.detailSuplier.DetailSuplierActivity
 import com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity
 import kotlinx.android.synthetic.main.listsuplier_activity.*
 import kotlinx.android.synthetic.main.tokolist_activity.*
@@ -28,6 +30,10 @@ class ListSuplierActivity : AppCompatActivity() , ListSuplierActivityContract{
 
         btnBackImg.onClick {
             finish()
+        }
+
+        btnTambahSuplier.onClick {
+            startActivity<AddSuplierActivity>()
         }
 
         getListSuplier()
@@ -61,7 +67,7 @@ class ListSuplierActivity : AppCompatActivity() , ListSuplierActivityContract{
 
         rvListSuplier1.adapter = ListSuplierAdapter(data, object : ListSuplierAdapter.onClickItem{
             override fun clicked(item: ResponseListSuplierItem?) {
-
+                startActivity<DetailSuplierActivity>("itemDetail" to item)
             }
         })
 
@@ -74,7 +80,7 @@ class ListSuplierActivity : AppCompatActivity() , ListSuplierActivityContract{
     override fun onSuccesGetSearchSuplier(data: List<ResponseListSuplierItem>?) {
         listSuplierAdapterName = ListSuplierAdapter(data, object : ListSuplierAdapter.onClickItem{
             override fun clicked(item: ResponseListSuplierItem?) {
-
+                startActivity<DetailSuplierActivity>("itemDetail" to item)
             }
         })
 
@@ -95,7 +101,7 @@ class ListSuplierActivity : AppCompatActivity() , ListSuplierActivityContract{
                         val filterNama = data?.filter { it.supplierNama!!.contains("$action", true) }
                         listSuplierAdapterName = ListSuplierAdapter(filterNama as List<ResponseListSuplierItem>, object : ListSuplierAdapter.onClickItem{
                             override fun clicked(item: ResponseListSuplierItem?) {
-
+                                startActivity<DetailSuplierActivity>("itemDetail" to item)
                             }
                         })
 

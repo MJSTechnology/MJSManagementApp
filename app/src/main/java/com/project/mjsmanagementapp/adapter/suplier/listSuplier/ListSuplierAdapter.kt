@@ -11,19 +11,19 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class ListSuplierAdapter(val data: List<ResponseListSuplierItem>?, private val click: onClickItem) : RecyclerView.Adapter<ListSuplierAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListSuplierAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.itemlistsuplier, parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ListSuplierAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.onBind(data?.get(position))
         holder.itemView.onClick {
             click.clicked(data?.get(position))
         }
     }
 
-    override fun getItemCount() = data?.size?:0
+    override fun getItemCount() = data?.size ?: 0
 
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         fun onBind(get : ResponseListSuplierItem?){

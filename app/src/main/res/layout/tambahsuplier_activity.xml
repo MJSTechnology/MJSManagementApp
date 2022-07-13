@@ -120,7 +120,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Contact Person"
+                    android:text="Kontak Nama"
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -172,8 +172,17 @@
                     android:hint="No. Telp"
                     android:textSize="15sp"/>
 
+                <ProgressBar
+                    android:id="@+id/loadingAddSuplier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="invisible"
+                    android:layout_marginTop="10dp"
+                    />
+
                 <Button
-                    android:id="@+id/btnTambahToko"
+                    android:id="@+id/btnTambahSuplier"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="30dp"

@@ -1,6 +1,9 @@
 package com.project.mjsmanagementapp.data
 
 
+import com.project.mjsmanagementapp.model.suplier.addSuplier.ResponseAddSuplier
+import com.project.mjsmanagementapp.model.suplier.deleteSuplier.ResponseDeleteSuplier
+import com.project.mjsmanagementapp.model.suplier.getDetailSuplier.ResponseDetailSuplierItem
 import com.project.mjsmanagementapp.model.suplier.getListSuplier.ResponseListSuplierItem
 import com.project.mjsmanagementapp.model.toko.Login.ResponseLogin
 import com.project.mjsmanagementapp.model.toko.addToko.ResponseAddToko
@@ -129,5 +132,24 @@ interface ApiInterface {
 
     @GET("supplier/getListSupplier.php")
     fun getSearchSuplier() : Call<List<ResponseListSuplierItem>>
+
+    @FormUrlEncoded
+    @POST("supplier/getDetailSupplier.php")
+    fun getDetailSuplier(@Field("supplierID") supplierID : String) : Call<ResponseDetailSuplierItem>
+
+    @FormUrlEncoded
+    @POST("supplier/deleteSupplier.php")
+    fun deleteSuplier(@Field("supplierID") supplierID: String) : Call<ResponseDeleteSuplier>
+
+    @FormUrlEncoded
+    @POST("supplier/addSupplier.php")
+    fun addSuplier(@Field("supplierNama") supplierNama: String,
+                   @Field("supplierWilayah") supplierWilayah: String,
+                   @Field("supplierAlamat") supplierAlamat: String,
+                   @Field("supplierPicSupervisorName") supplierPicSupervisorName: String,
+                   @Field("supplierPicSupervisorPhone") supplierPicSupervisorPhone: String,
+                   @Field("supplierPicManagerName") supplierPicManagerName: String,
+                   @Field("supplierPicManagerPhone") supplierPicManagerPhone: String)
+    : Call<ResponseAddSuplier>
 
 }
