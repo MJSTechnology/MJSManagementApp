@@ -131,28 +131,30 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
             }
 
             val progressBar = findViewById<ProgressBar>(R.id.loadingEditToko)
-                presenter.editToko( photoToko, photoKtp,tokoID.toString(), salesIdResponseToko.toString(), tokoNama, provinceResponseToko.toString(),kabupatenResponseToko.toString(), kecamatanResponseToko.toString(), desaResponseToko.toString(),tokoAlamat,statusResponseToko.toString(),tokoPicName,tokoPicPhone,tokoMapLat,tokoMapLong,progressBar)
+                presenter.editToko( photoToko, photoKtp,tokoID.toString(), salesIdResponseToko.toString(), tokoNama.capitalizeWords(), provinceResponseToko.toString(),kabupatenResponseToko.toString(), kecamatanResponseToko.toString(), desaResponseToko.toString(),tokoAlamat.capitalizeWords(),statusResponseToko.toString(),tokoPicName.capitalizeWords(),tokoPicPhone,tokoMapLat,tokoMapLong,progressBar)
 
 
         }
 
     }
 
+    fun String.capitalizeWords(): String = split(" ").joinToString(" ") { it.capitalize() }
 
-    private fun setDataFromIntentExtra() {
+
+    fun setDataFromIntentExtra() {
 
         val intent = intent
-        val tokoNama = intent.getStringExtra("tokoNama")
-        val tokoAlamat = intent.getStringExtra("tokoAlamat")
-        val tokoPicName = intent.getStringExtra("tokoPicName")
-        val tokoPicPhone = intent.getStringExtra("tokoPicPhone")
-        val tokoPicKTP = intent.getStringExtra("tokoPicKTP")
-        val tokoPhoto = intent.getStringExtra("tokoPhoto")
+        val intentTokoNama = intent.getStringExtra("tokoNama")
+        val intentTokoAlamat = intent.getStringExtra("tokoAlamat")
+        val intentTokoPicName = intent.getStringExtra("tokoPicName")
+        val intentTokoPicPhone = intent.getStringExtra("tokoPicPhone")
+        val intentTokoPicKTP = intent.getStringExtra("tokoPicKTP")
+        val intentTokoPhoto = intent.getStringExtra("tokoPhoto")
 
-        edtNamaToko.setText(tokoNama)
-        edtAlamatToko.setText(tokoAlamat)
-        edtNamaKontakPerson.setText(tokoPicName)
-        edtNomorKontakPerson.setText(tokoPicPhone)
+        edtNamaToko.setText(intentTokoNama)
+        edtAlamatToko.setText(intentTokoAlamat)
+        edtNamaKontakPerson.setText(intentTokoPicName)
+        edtNomorKontakPerson.setText(intentTokoPicPhone)
 
         val spinnerTokoStatus = resources.getStringArray(R.array.statusToko)
 
@@ -284,13 +286,13 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
         }
 
         Glide.with(this)
-            .load(ApiClient.BASE_URL + tokoPicKTP)
+            .load(ApiClient.BASE_URL + intentTokoPicKTP)
             .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
             .apply(RequestOptions.skipMemoryCacheOf(true))
             .into(findViewById(R.id.imgKtpToko))
 
         Glide.with(this)
-            .load(ApiClient.BASE_URL + tokoPhoto)
+            .load(ApiClient.BASE_URL + intentTokoPhoto)
             .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
             .apply(RequestOptions.skipMemoryCacheOf(true))
             .into(findViewById(R.id.imgFotoToko))
@@ -383,9 +385,18 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
             listIdSpinnerSales.add(response.get(i)?.adminID.toString())
         }
 
+        val intent = intent
+        val intentTokoPicSales = intent.getStringExtra("tokoPicSales")
+
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listNameSpinnerSales)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerSalesToko.setAdapter(adapter)
+
+        if (intentTokoPicSales != null) {
+            val spinnerPosition = adapter.getPosition(intentTokoPicSales)
+            spinnerSalesToko.setSelection(spinnerPosition)
+        }
+
     }
 
     override fun onErrorGetSales(msg: String?) {
@@ -402,9 +413,17 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
             listIdSpinnerProvince.add(response.get(i)?.id.toString())
         }
 
+        val intent = intent
+        val intentTokoProvinsi = intent.getStringExtra("tokoProvinsi")
+
         val adapterProvince = ArrayAdapter(this, android.R.layout.simple_spinner_item, listNameSpinnerProvince)
         adapterProvince.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerProvinsiToko.setAdapter(adapterProvince)
+
+        if (intentTokoProvinsi != null) {
+            val spinnerPosition = adapterProvince.getPosition(intentTokoProvinsi)
+            spinnerProvinsiToko.setSelection(spinnerPosition)
+        }
     }
 
     override fun onErrorGetProvince(msg: String?) {
@@ -421,9 +440,17 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
             listNameSpinnerKabupaten.add(response.get(i)?.name.toString())
         }
 
+        val intent = intent
+        val intentTokoKabupaten = intent.getStringExtra("tokoKabupaten")
+
         val adapterKabupaten = ArrayAdapter(this, android.R.layout.simple_spinner_item, listNameSpinnerKabupaten)
         adapterKabupaten.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerKabupatenToko.setAdapter(adapterKabupaten)
+
+        if (intentTokoKabupaten != null) {
+            val spinnerPosition = adapterKabupaten.getPosition(intentTokoKabupaten)
+            spinnerKabupatenToko.setSelection(spinnerPosition)
+        }
     }
 
     override fun onErrorGetKabupaten(msg: String?) {
@@ -440,9 +467,17 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
             listNameSpinnerKecataman.add((response.get(i)?.name.toString()))
         }
 
+        val intent = intent
+        val intentTokoKecamatan = intent.getStringExtra("tokoKecamatan")
+
         val adapterKecamatan = ArrayAdapter(this, android.R.layout.simple_spinner_item, listNameSpinnerKecataman)
         adapterKecamatan.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerKecamatanToko.setAdapter(adapterKecamatan)
+
+        if (intentTokoKecamatan != null) {
+            val spinnerPosition = adapterKecamatan.getPosition(intentTokoKecamatan)
+            spinnerKecamatanToko.setSelection(spinnerPosition)
+        }
     }
 
     override fun onErrorGetKecamatan(msg: String?) {
@@ -459,9 +494,17 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
             listNameSpinnerDesa.add(response.get(i)?.name.toString())
         }
 
+        val intent = intent
+        val intentTokoDesa = intent.getStringExtra("tokoDesa")
+
         val adapterDesa = ArrayAdapter(this, android.R.layout.simple_spinner_item, listNameSpinnerDesa)
         adapterDesa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerDesaToko.setAdapter(adapterDesa)
+
+        if (intentTokoDesa != null) {
+            val spinnerPosition = adapterDesa.getPosition(intentTokoDesa)
+            spinnerDesaToko.setSelection(spinnerPosition)
+        }
     }
 
     override fun onErrorGetDesa(msg: String?) {
