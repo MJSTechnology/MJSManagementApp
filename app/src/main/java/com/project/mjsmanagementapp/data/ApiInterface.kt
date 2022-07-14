@@ -3,6 +3,7 @@ package com.project.mjsmanagementapp.data
 
 import com.project.mjsmanagementapp.model.suplier.addSuplier.ResponseAddSuplier
 import com.project.mjsmanagementapp.model.suplier.deleteSuplier.ResponseDeleteSuplier
+import com.project.mjsmanagementapp.model.suplier.editSuplier.ResponseEditSuplierItem
 import com.project.mjsmanagementapp.model.suplier.getDetailSuplier.ResponseDetailSuplierItem
 import com.project.mjsmanagementapp.model.suplier.getListSuplier.ResponseListSuplierItem
 import com.project.mjsmanagementapp.model.toko.Login.ResponseLogin
@@ -130,17 +131,21 @@ interface ApiInterface {
     @GET("supplier/getListSupplier.php")
     fun getSuplier() : Call<List<ResponseListSuplierItem>>
 
+    //SEARH SUPLIER
     @GET("supplier/getListSupplier.php")
     fun getSearchSuplier() : Call<List<ResponseListSuplierItem>>
 
+    //DETAIL SUPLIER
     @FormUrlEncoded
     @POST("supplier/getDetailSupplier.php")
     fun getDetailSuplier(@Field("supplierID") supplierID : String) : Call<ResponseDetailSuplierItem>
 
+    //DELETE SUPLIER
     @FormUrlEncoded
     @POST("supplier/deleteSupplier.php")
     fun deleteSuplier(@Field("supplierID") supplierID: String) : Call<ResponseDeleteSuplier>
 
+    //ADD SUPLIER
     @FormUrlEncoded
     @POST("supplier/addSupplier.php")
     fun addSuplier(@Field("supplierNama") supplierNama: String,
@@ -151,5 +156,18 @@ interface ApiInterface {
                    @Field("supplierPicManagerName") supplierPicManagerName: String,
                    @Field("supplierPicManagerPhone") supplierPicManagerPhone: String)
     : Call<ResponseAddSuplier>
+
+    //EDIT SUPLIER
+    @FormUrlEncoded
+    @POST("supplier/editSupplier.php")
+    fun editSuplier(@Field("supplierID") supplierID: String,
+                    @Field("supplierNama")supplierNama: String,
+                    @Field("supplierWilayah")supplierWilayah: String,
+                    @Field("supplierAlamat")supplierAlamat: String,
+                    @Field("supplierPicSupervisorName")supplierPicSupervisorName: String,
+                    @Field("supplierPicSupervisorPhone")supplierPicSupervisorPhone: String,
+                    @Field("supplierPicManagerName")supplierPicManagerName: String,
+                    @Field("supplierPicManagerPhone")supplierPicManagerPhone: String)
+    : Call<ResponseEditSuplierItem>
 
 }
