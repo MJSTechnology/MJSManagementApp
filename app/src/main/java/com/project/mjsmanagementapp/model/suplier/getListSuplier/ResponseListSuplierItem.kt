@@ -13,4 +13,13 @@ class ResponseListSuplierItem : Serializable{
 
 	@field:SerializedName("supplierProvinsi")
 	val supplierProvinsi: String? = null
+
+	@field:SerializedName("supplierKabupaten")
+	val supplierKabupaten: String? = null
+
+	@field:SerializedName("supplierKecamatan")
+	val supplierKecamatan: String? = null
+
+	@field:SerializedName("supplierDesa")
+	val supplierDesa: String? = null
 }

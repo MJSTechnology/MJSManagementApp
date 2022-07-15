@@ -229,7 +229,7 @@
                         android:layout_margin="5dp">
 
                         <TextView
-                            android:id="@+id/txtDesaToko"
+                            android:id="@+id/txtDesaSuplier"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Desa/Kelurahan Supplier"
@@ -278,7 +278,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Contact Person"
+                    android:text="Nama Kontak"
                     android:paddingTop="10dp"
                     android:textSize="18sp"
                     android:textStyle="bold"

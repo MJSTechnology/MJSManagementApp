@@ -16,6 +16,15 @@ data class ResponseDetailSuplierItem(
 	@field:SerializedName("supplierPicSupervisorName")
 	val supplierPicSupervisorName: String? = null,
 
+	@field:SerializedName("supplierKabupaten")
+	val supplierKabupaten: String? = null,
+
+	@field:SerializedName("supplierKecamatan")
+	val supplierKecamatan: String? = null,
+
+	@field:SerializedName("supplierDesa")
+	val supplierDesa: String? = null,
+
 	@field:SerializedName("supplierNama")
 	val supplierNama: String? = null,
 

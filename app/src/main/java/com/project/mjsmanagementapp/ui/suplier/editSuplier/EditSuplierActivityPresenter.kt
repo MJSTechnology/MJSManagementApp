@@ -17,6 +17,9 @@ class EditSuplierActivityPresenter(val contract: EditSuplierActivityContract) {
     fun editSuplier(supplierID: String,
                     supplierNama: String,
                     supplierProvinsi: String,
+                    supplierKabupaten: String,
+                    supplierKecamatan: String,
+                    supplierDesa: String,
                     supplierAlamat: String,
                     supplierPicSupervisorName: String,
                     supplierPicSupervisorPhone: String,
@@ -24,7 +27,7 @@ class EditSuplierActivityPresenter(val contract: EditSuplierActivityContract) {
                     supplierPicManagerPhone: String,
                     progressBar: ProgressBar){
         progressBar.visibility = View.VISIBLE
-        ApiClient.getService().editSuplier(supplierID, supplierNama, supplierProvinsi, supplierAlamat, supplierPicSupervisorName, supplierPicSupervisorPhone, supplierPicManagerName, supplierPicManagerPhone)
+        ApiClient.getService().editSuplier(supplierID, supplierNama, supplierProvinsi, supplierKabupaten, supplierKecamatan, supplierDesa, supplierAlamat, supplierPicSupervisorName, supplierPicSupervisorPhone, supplierPicManagerName, supplierPicManagerPhone)
             .enqueue(object : retrofit2.Callback<ResponseEditSuplierItem>{
                 override fun onResponse(
                     call: Call<ResponseEditSuplierItem>, response: Response<ResponseEditSuplierItem>

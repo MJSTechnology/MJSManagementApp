@@ -123,9 +123,9 @@ class AddSuplierActivity : AppCompatActivity(), AddSuplierActivityContract{
         btnTambahSuplier.onClick {
             val suplierNama: String = edtNamaSuplier.text.toString().trim() { it <= ' ' }
             val suplierProvinsi: String? = provinceNameResponseSuplier
-            /*val suplierKabupaten: String? = kabupatenNameResponseSuplier
+            val suplierKabupaten: String? = kabupatenNameResponseSuplier
             val suplierKecamatan: String? = kecamatanNameResponseSuplier
-            val suplierDesa: String? = desaNameResponseSuplier*/
+            val suplierDesa: String? = desaNameResponseSuplier
             val suplierAlamat: String = edtAlamatSuplier.text.toString().trim() { it <= ' ' }
             val suplierManagerNama: String = edtNamaManager.text.toString().trim() { it <= ' ' }
             val suplierManagerNomor: String = edtNomorManager.text.toString().trim() { it <= ' ' }
@@ -138,8 +138,14 @@ class AddSuplierActivity : AppCompatActivity(), AddSuplierActivityContract{
             if (suplierNama.isEmpty()) {
                 Toast.makeText(this@AddSuplierActivity, "Tolong Isi Suplier Nama!", Toast.LENGTH_SHORT).show()
 
-            } else if (suplierProvinsi.equals("Wilayah Suplier")) {
-                Toast.makeText(this@AddSuplierActivity, "Tolong Isi Wilayah Suplier!", Toast.LENGTH_SHORT).show()
+            } else if (suplierProvinsi.equals("Provinsi Suplier")) {
+                Toast.makeText(this@AddSuplierActivity, "Tolong Isi Provinsi Suplier!", Toast.LENGTH_SHORT).show()
+            } else if (suplierKabupaten.equals("Kabupaten Suplier")) {
+                Toast.makeText(this@AddSuplierActivity, "Tolong Isi Kabupaten Suplier!", Toast.LENGTH_SHORT).show()
+            } else if (suplierKecamatan.equals("Kecamatan Suplier")) {
+                Toast.makeText(this@AddSuplierActivity, "Tolong Isi Kecamatan Suplier!", Toast.LENGTH_SHORT).show()
+            } else if (suplierDesa.equals("Desa Suplier")) {
+                Toast.makeText(this@AddSuplierActivity, "Tolong Isi Desa Suplier!", Toast.LENGTH_SHORT).show()
             } else if (suplierAlamat.equals("Alamat Suplier")) {
                 Toast.makeText(this@AddSuplierActivity, "Tolong Isi Alamat Suplier!", Toast.LENGTH_SHORT).show()
             } else if (suplierManagerNama.equals("Manager Nama")) {
@@ -151,7 +157,7 @@ class AddSuplierActivity : AppCompatActivity(), AddSuplierActivityContract{
             } else if (suplierSupervisorNomor.equals("Supervisor Nomor")) {
                 Toast.makeText(this@AddSuplierActivity, "Tolong Isi Nomor Supervisor!", Toast.LENGTH_SHORT).show()
             } else {
-                presenter.addSuplier(suplierNama.capitalizeWords(), suplierProvinsi.toString(), suplierAlamat.capitalizeWords(), suplierSupervisorNama.capitalizeWords(), suplierSupervisorNomor, suplierManagerNama.capitalizeWords(), suplierManagerNomor, progressBar)
+                presenter.addSuplier(suplierNama.capitalizeWords(), suplierProvinsi.toString(), suplierKabupaten.toString(), suplierKecamatan.toString(), suplierDesa.toString(), suplierAlamat.capitalizeWords(), suplierSupervisorNama.capitalizeWords(), suplierSupervisorNomor, suplierManagerNama.capitalizeWords(), suplierManagerNomor, progressBar)
             }
         }
     }

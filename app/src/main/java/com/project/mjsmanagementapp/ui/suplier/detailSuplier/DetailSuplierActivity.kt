@@ -13,6 +13,7 @@ import com.project.mjsmanagementapp.model.suplier.getListSuplier.ResponseListSup
 import com.project.mjsmanagementapp.ui.suplier.editSuplier.EditSuplierActivity
 import com.project.mjsmanagementapp.ui.toko.editToko.EditTokoActivity
 import kotlinx.android.synthetic.main.detailsuplier_activity.*
+import kotlinx.android.synthetic.main.detailtoko_activity.*
 import kotlinx.android.synthetic.main.popuphapussuplier.view.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
@@ -52,6 +53,9 @@ class DetailSuplierActivity : AppCompatActivity(), DetailSuplierActivityContract
     override fun onSuccesGetDetailSuplier(response: ResponseDetailSuplierItem) {
         txtNamaSuplier.setText(response.supplierNama)
         txtProvinsiSupplier.setText(response.supplierProvinsi)
+        txtKabupatenSupplier.setText(response.supplierKabupaten)
+        txtKecamatanSupplier.setText(response.supplierKecamatan)
+        txtDesaSuplier.setText(response.supplierDesa)
         txtAlamatSuplier.setText(response.supplierAlamat)
         txtNamaSupervisor.setText(response.supplierPicSupervisorName)
         txtNomorSupervisor.setText(response.supplierPicSupervisorPhone)
@@ -73,6 +77,9 @@ class DetailSuplierActivity : AppCompatActivity(), DetailSuplierActivityContract
             intent.putExtra("suplierID", response.supplierID)
             intent.putExtra("suplierNama", response.supplierNama)
             intent.putExtra("suplierProvinsi", response.supplierProvinsi)
+            intent.putExtra("suplierKabupaten", response.supplierKabupaten)
+            intent.putExtra("suplierKecamatan", response.supplierKecamatan)
+            intent.putExtra("suplierDesa", response.supplierDesa)
             intent.putExtra("suplierAlamat", response.supplierAlamat)
             intent.putExtra("suplierPicSupervisorNama", response.supplierPicSupervisorName)
             intent.putExtra("suplierPicSupervisorNomor", response.supplierPicSupervisorPhone)

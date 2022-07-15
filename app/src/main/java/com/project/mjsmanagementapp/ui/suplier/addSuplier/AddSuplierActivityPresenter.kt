@@ -17,6 +17,9 @@ class AddSuplierActivityPresenter(val contract: AddSuplierActivityContract) {
 
     fun addSuplier(supplierNama: String,
                    supplierProvinsi: String,
+                   supplierKabupaten: String,
+                   supplierKecamatan: String,
+                   supplierDesa: String,
                    supplierAlamat: String,
                    supplierPicSupervisorName: String,
                    supplierPicSupervisorPhone: String,
@@ -24,7 +27,7 @@ class AddSuplierActivityPresenter(val contract: AddSuplierActivityContract) {
                    supplierPicManagerPhone: String,
                    progressBar: ProgressBar){
         progressBar.visibility = View.VISIBLE
-        ApiClient.getService().addSuplier(supplierNama, supplierProvinsi, supplierAlamat, supplierPicSupervisorName, supplierPicSupervisorPhone, supplierPicManagerName, supplierPicManagerPhone)
+        ApiClient.getService().addSuplier(supplierNama, supplierProvinsi,supplierKabupaten, supplierKecamatan, supplierDesa, supplierAlamat, supplierPicSupervisorName, supplierPicSupervisorPhone, supplierPicManagerName, supplierPicManagerPhone)
             .enqueue(object : retrofit2.Callback<ResponseAddSuplier>{
                 override fun onResponse(call: Call<ResponseAddSuplier>, response: Response<ResponseAddSuplier>) {
                     if (response.isSuccessful && response.body()?.status!! == 200){

@@ -66,6 +66,9 @@ class EditSuplierActivity : AppCompatActivity(), EditSuplierActivityContract {
         btnSimpanSuplier.onClick {
             val suplierNama: String = edtNamaSuplier.getText().toString().trim { it <= ' ' }
             val suplierProvinsi: String = provinceResponseProvincies.toString()
+            val suplierKabupaten: String? = kabupatenResponseProvincies
+            val suplierKecamatan: String? = kecamatanResponseProvincies
+            val suplierDesa: String? = desaResponseProvincies
             val suplierAlamat: String = edtAlamatSuplier.getText().toString().trim { it <= ' ' }
             val suplierSupervisorNama: String = edtNamaSupervisor.getText().toString().trim { it <= ' ' }
             val suplierSupervisorNomor: String = edtNomorSupervisor.getText().toString().trim { it <= ' ' }
@@ -73,7 +76,7 @@ class EditSuplierActivity : AppCompatActivity(), EditSuplierActivityContract {
             val suplierManagerNomor: String = edtNomorManager.getText().toString().trim { it <= ' ' }
 
             val progressBar = findViewById<ProgressBar>(R.id.loadingEditSuplier)
-            presenter.editSuplier(suplierID.toString(), suplierNama.capitalizeWords(), suplierProvinsi.capitalizeWords(), suplierAlamat.capitalizeWords(), suplierSupervisorNama.capitalizeWords(), suplierSupervisorNomor, suplierManagerNama.capitalizeWords(), suplierManagerNomor, progressBar)
+            presenter.editSuplier(suplierID.toString(), suplierNama.capitalizeWords(), suplierProvinsi, suplierKabupaten.toString(), suplierKecamatan.toString(), suplierDesa.toString(), suplierAlamat.capitalizeWords(), suplierSupervisorNama.capitalizeWords(), suplierSupervisorNomor, suplierManagerNama.capitalizeWords(), suplierManagerNomor, progressBar)
         }
     }
 
