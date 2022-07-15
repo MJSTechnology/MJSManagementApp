@@ -154,7 +154,6 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
 
         if (spinnerKecamatanToko != null){
 
-
             spinnerKecamatanToko.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                     Log.d("Error", getString(R.string.selected_item) + "" + "" + listNameSpinnerKecamatan[p2])

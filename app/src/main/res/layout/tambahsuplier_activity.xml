@@ -89,18 +89,60 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Domisili Provinsi"
+                    android:text="Provinsi Suplier"
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:paddingTop="10dp"/>
 
-                <EditText
-                    android:id="@+id/edtProvinsiSuplier"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Domisili Provinsi"
-                    android:textSize="15sp"/>
+                 <Spinner
+                     android:id="@+id/spinnerProvinsiSuplier"
+                     android:layout_width="match_parent"
+                     android:layout_height="30dp"/>
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Kabupaten Suplier"
+                     android:textSize="18sp"
+                     android:textColor="@color/black"
+                     android:textStyle="bold"
+                     android:paddingTop="10dp"/>
+
+                 <Spinner
+                     android:id="@+id/spinnerKabupatenSuplier"
+                     android:layout_width="match_parent"
+                     android:layout_height="30dp"/>
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Kecamatan Suplier"
+                     android:textSize="18sp"
+                     android:textColor="@color/black"
+                     android:textStyle="bold"
+                     android:paddingTop="10dp"/>
+
+                 <Spinner
+                     android:id="@+id/spinnerKecamatanSuplier"
+                     android:layout_width="match_parent"
+                     android:layout_height="30dp"/>
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Desa Suplier"
+                     android:textSize="18sp"
+                     android:textColor="@color/black"
+                     android:textStyle="bold"
+                     android:paddingTop="10dp"/>
+
+                 <Spinner
+                     android:id="@+id/spinnerDesaSuplier"
+                     android:layout_width="match_parent"
+                     android:layout_height="30dp"/>
+
+
 
                 <TextView
                     android:layout_width="wrap_content"

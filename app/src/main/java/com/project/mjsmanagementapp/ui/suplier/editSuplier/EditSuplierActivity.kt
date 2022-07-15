@@ -1,5 +1,6 @@
 package com.project.mjsmanagementapp.ui.suplier.editSuplier
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -12,7 +13,10 @@ import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.model.toko.provincies.ResultItem
 import kotlinx.android.synthetic.main.editsuplier_activity.*
 import kotlinx.android.synthetic.main.editsuplier_activity.edtAlamatSuplier
+import kotlinx.android.synthetic.main.editsuplier_activity.edtDomisiliSuplier
 import kotlinx.android.synthetic.main.editsuplier_activity.edtNamaManager
+import kotlinx.android.synthetic.main.editsuplier_activity.edtNamaSuplier
+import kotlinx.android.synthetic.main.editsuplier_activity.edtNomorSupervisor
 import kotlinx.android.synthetic.main.editsuplier_activity.edtNamaSupervisor
 import kotlinx.android.synthetic.main.editsuplier_activity.edtNamaSuplier
 import kotlinx.android.synthetic.main.editsuplier_activity.edtNomorManager
