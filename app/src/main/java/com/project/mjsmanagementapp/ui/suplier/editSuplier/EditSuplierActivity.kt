@@ -8,12 +8,10 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.model.toko.provincies.ResultItem
 import kotlinx.android.synthetic.main.editsuplier_activity.*
 import kotlinx.android.synthetic.main.editsuplier_activity.edtAlamatSuplier
-import kotlinx.android.synthetic.main.editsuplier_activity.edtDomisiliSuplier
 import kotlinx.android.synthetic.main.editsuplier_activity.edtNamaManager
 import kotlinx.android.synthetic.main.editsuplier_activity.edtNamaSuplier
 import kotlinx.android.synthetic.main.editsuplier_activity.edtNomorSupervisor

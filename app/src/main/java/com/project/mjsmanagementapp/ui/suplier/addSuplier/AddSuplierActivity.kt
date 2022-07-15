@@ -138,7 +138,7 @@ class AddSuplierActivity : AppCompatActivity(), AddSuplierActivityContract{
             if (suplierNama.isEmpty()) {
                 Toast.makeText(this@AddSuplierActivity, "Tolong Isi Suplier Nama!", Toast.LENGTH_SHORT).show()
 
-            } else if (suplierWilayah.equals("Wilayah Suplier")) {
+            } else if (suplierProvinsi.equals("Wilayah Suplier")) {
                 Toast.makeText(this@AddSuplierActivity, "Tolong Isi Wilayah Suplier!", Toast.LENGTH_SHORT).show()
             } else if (suplierAlamat.equals("Alamat Suplier")) {
                 Toast.makeText(this@AddSuplierActivity, "Tolong Isi Alamat Suplier!", Toast.LENGTH_SHORT).show()
