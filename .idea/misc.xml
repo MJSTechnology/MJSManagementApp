@@ -6,7 +6,6 @@
         <entry key="../../../../../../layout/custom_preview.xml" value="0.2265625" />
         <entry key="../../../../Library/Android/sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/drawable/ic_add_square.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/ic_addphoto_profile.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_arrowright.xml" value="0.1415" />
         <entry key="app/src/main/res/drawable/ic_logo_homepage.xml" value="0.1415" />
         <entry key="app/src/main/res/drawable/ic_logo_login.xml" value="0.1415" />
@@ -19,8 +18,6 @@
         <entry key="app/src/main/res/layout/activity_edit_toko.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/detailsuplier_activity.xml" value="0.13179347826086957" />
-        <entry key="app/src/main/res/layout/detailtoko_activity.xml" value="0.13179347826086957" />
-        <entry key="app/src/main/res/layout/editsuplier_activity.xml" value="0.12681159420289856" />
         <entry key="app/src/main/res/layout/detailtoko_activity.xml" value="0.23679185232336092" />
         <entry key="app/src/main/res/layout/edittoko_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/homepage_activity.xml" value="0.33852691650390626" />
@@ -31,11 +28,10 @@
         <entry key="app/src/main/res/layout/listtoko_activity.xml" value="0.1913622648819633" />
         <entry key="app/src/main/res/layout/login_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/popupaddtoko.xml" value="0.14175724637681159" />
-        <entry key="app/src/main/res/layout/popuphapussuplier.xml" value="0.10597826086956522" />
         <entry key="app/src/main/res/layout/popuphapustoko.xml" value="0.14175724637681159" />
-        <entry key="app/src/main/res/layout/profile_activity.xml" value="0.12047101449275362" />
+        <entry key="app/src/main/res/layout/profile_activity.xml" value="0.23097826086956522" />
         <entry key="app/src/main/res/layout/splashscreen_activity.xml" value="0.13179347826086957" />
-        <entry key="app/src/main/res/layout/tambahsuplier_activity.xml" value="0.2187347412109375" />
+        <entry key="app/src/main/res/layout/tambahsuplier_activity.xml" value="0.25096130371093756" />
         <entry key="app/src/main/res/layout/tambahtoko_activity.xml" value="0.15624542236328123" />
         <entry key="app/src/main/res/layout/tokolist_activity.xml" value="0.22917081705729164" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1415" />

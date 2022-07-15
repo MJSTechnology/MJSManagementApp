@@ -149,7 +149,7 @@ interface ApiInterface {
     @FormUrlEncoded
     @POST("supplier/addSupplier.php")
     fun addSuplier(@Field("supplierNama") supplierNama: String,
-                   @Field("supplierWilayah") supplierWilayah: String,
+                   @Field("supplierProvinsi") supplierProvinsi: String,
                    @Field("supplierAlamat") supplierAlamat: String,
                    @Field("supplierPicSupervisorName") supplierPicSupervisorName: String,
                    @Field("supplierPicSupervisorPhone") supplierPicSupervisorPhone: String,
@@ -162,7 +162,7 @@ interface ApiInterface {
     @POST("supplier/editSupplier.php")
     fun editSuplier(@Field("supplierID") supplierID: String,
                     @Field("supplierNama")supplierNama: String,
-                    @Field("supplierWilayah")supplierWilayah: String,
+                    @Field("supplierProvinsi")supplierProvinsi: String,
                     @Field("supplierAlamat")supplierAlamat: String,
                     @Field("supplierPicSupervisorName")supplierPicSupervisorName: String,
                     @Field("supplierPicSupervisorPhone")supplierPicSupervisorPhone: String,

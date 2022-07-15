@@ -41,7 +41,7 @@ class EditSuplierActivity : AppCompatActivity(), EditSuplierActivityContract {
 
         btnSimpanSuplier.onClick {
             val suplierNama: String = edtNamaSuplier.getText().toString().trim { it <= ' ' }
-            val suplierWilayah: String = edtDomisiliSuplier.getText().toString().trim { it <= ' ' }
+            val suplierProvinsi: String = edtDomisiliSuplier.getText().toString().trim { it <= ' ' }
             val suplierAlamat: String = edtAlamatSuplier.getText().toString().trim { it <= ' ' }
             val suplierSupervisorNama: String = edtNamaSupervisor.getText().toString().trim { it <= ' ' }
             val suplierSupervisorNomor: String = edtNomorSupervisor.getText().toString().trim { it <= ' ' }
@@ -49,7 +49,7 @@ class EditSuplierActivity : AppCompatActivity(), EditSuplierActivityContract {
             val suplierManagerNomor: String = edtNomorManager.getText().toString().trim { it <= ' ' }
 
             val progressBar = findViewById<ProgressBar>(R.id.loadingEditSuplier)
-            presenter.editSuplier(suplierID.toString(), suplierNama.capitalizeWords(), suplierWilayah.capitalizeWords(), suplierAlamat.capitalizeWords(), suplierSupervisorNama.capitalizeWords(), suplierSupervisorNomor, suplierManagerNama.capitalizeWords(), suplierManagerNomor, progressBar)
+            presenter.editSuplier(suplierID.toString(), suplierNama.capitalizeWords(), suplierProvinsi.capitalizeWords(), suplierAlamat.capitalizeWords(), suplierSupervisorNama.capitalizeWords(), suplierSupervisorNomor, suplierManagerNama.capitalizeWords(), suplierManagerNomor, progressBar)
         }
     }
 
@@ -58,7 +58,7 @@ class EditSuplierActivity : AppCompatActivity(), EditSuplierActivityContract {
     private fun setDataIntentExtra() {
         val intent = intent
         val suplierNama = intent.getStringExtra("suplierNama")
-        val suplierWilayah = intent.getStringExtra("suplierWilayah")
+        val suplierProvinsi = intent.getStringExtra("suplierProvinsi")
         val suplierAlamat = intent.getStringExtra("suplierAlamat")
         val suplierSupervisorNama = intent.getStringExtra("suplierPicSupervisorNama")
         val suplierSupervisorNomor = intent.getStringExtra("suplierPicSupervisorNomor")
@@ -66,7 +66,7 @@ class EditSuplierActivity : AppCompatActivity(), EditSuplierActivityContract {
         val suplierManagerNomor = intent.getStringExtra("suplierPicManagerNomor")
 
         edtNamaSuplier.setText(suplierNama)
-        edtDomisiliSuplier.setText(suplierWilayah)
+        edtDomisiliSuplier.setText(suplierProvinsi)
         edtAlamatSuplier.setText(suplierAlamat)
         edtNamaSupervisor.setText(suplierSupervisorNama)
         edtNomorSupervisor.setText(suplierSupervisorNomor)
