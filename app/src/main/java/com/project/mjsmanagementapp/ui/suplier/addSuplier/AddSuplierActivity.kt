@@ -24,7 +24,7 @@ class AddSuplierActivity : AppCompatActivity(), AddSuplierActivityContract{
 
         btnTambahSuplier.onClick {
             val suplierNama: String = edtNamaSuplier.text.toString().trim() { it <= ' ' }
-            val suplierWilayah: String = edtDomisiliSuplier.text.toString().trim() { it <= ' ' }
+            val suplierProvinsi: String = edtProvinsiSuplier.text.toString().trim() { it <= ' ' }
             val suplierAlamat: String = edtAlamatSuplier.text.toString().trim() { it <= ' ' }
             val suplierManagerNama: String = edtNamaManager.text.toString().trim() { it <= ' ' }
             val suplierManagerNomor: String = edtNomorManager.text.toString().trim() { it <= ' ' }
@@ -37,8 +37,8 @@ class AddSuplierActivity : AppCompatActivity(), AddSuplierActivityContract{
             if (suplierNama.isEmpty()) {
                 Toast.makeText(this@AddSuplierActivity, "Tolong Isi Suplier Nama!", Toast.LENGTH_SHORT).show()
 
-            } else if (suplierWilayah.equals("Wilayah Suplier")) {
-                Toast.makeText(this@AddSuplierActivity, "Tolong Isi Wilayah Suplier!", Toast.LENGTH_SHORT).show()
+            } else if (suplierProvinsi.equals("Provinsi Suplier")) {
+                Toast.makeText(this@AddSuplierActivity, "Tolong Isi Provinsi Suplier!", Toast.LENGTH_SHORT).show()
             } else if (suplierAlamat.equals("Alamat Suplier")) {
                 Toast.makeText(this@AddSuplierActivity, "Tolong Isi Alamat Suplier!", Toast.LENGTH_SHORT).show()
             } else if (suplierManagerNama.equals("Manager Nama")) {
@@ -50,7 +50,7 @@ class AddSuplierActivity : AppCompatActivity(), AddSuplierActivityContract{
             } else if (suplierSupervisorNomor.equals("Supervisor Nomor")) {
                 Toast.makeText(this@AddSuplierActivity, "Tolong Isi Nomor Supervisor!", Toast.LENGTH_SHORT).show()
             } else {
-                presenter.addSuplier(suplierNama.capitalizeWords(), suplierWilayah.capitalizeWords(), suplierAlamat.capitalizeWords(), suplierSupervisorNama.capitalizeWords(), suplierSupervisorNomor, suplierManagerNama.capitalizeWords(), suplierManagerNomor, progressBar)
+                presenter.addSuplier(suplierNama.capitalizeWords(), suplierProvinsi.capitalizeWords(), suplierAlamat.capitalizeWords(), suplierSupervisorNama.capitalizeWords(), suplierSupervisorNomor, suplierManagerNama.capitalizeWords(), suplierManagerNomor, progressBar)
             }
         }
     }

@@ -51,7 +51,7 @@ class DetailSuplierActivity : AppCompatActivity(), DetailSuplierActivityContract
 
     override fun onSuccesGetDetailSuplier(response: ResponseDetailSuplierItem) {
         txtNamaSuplier.setText(response.supplierNama)
-        txtDomisiliSuplier.setText(response.supplierWilayah)
+        txtProvinsiSupplier.setText(response.supplierProvinsi)
         txtAlamatSuplier.setText(response.supplierAlamat)
         txtNamaSupervisor.setText(response.supplierPicSupervisorName)
         txtNomorSupervisor.setText(response.supplierPicSupervisorPhone)
@@ -72,7 +72,7 @@ class DetailSuplierActivity : AppCompatActivity(), DetailSuplierActivityContract
             val intent = Intent(this@DetailSuplierActivity, EditSuplierActivity::class.java)
             intent.putExtra("suplierID", response.supplierID)
             intent.putExtra("suplierNama", response.supplierNama)
-            intent.putExtra("suplierWilayah", response.supplierWilayah)
+            intent.putExtra("suplierProvinsi", response.supplierProvinsi)
             intent.putExtra("suplierAlamat", response.supplierAlamat)
             intent.putExtra("suplierPicSupervisorNama", response.supplierPicSupervisorName)
             intent.putExtra("suplierPicSupervisorNomor", response.supplierPicSupervisorPhone)

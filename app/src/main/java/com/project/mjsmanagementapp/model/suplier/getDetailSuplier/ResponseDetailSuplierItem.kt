@@ -19,8 +19,8 @@ data class ResponseDetailSuplierItem(
 	@field:SerializedName("supplierNama")
 	val supplierNama: String? = null,
 
-	@field:SerializedName("supplierWilayah")
-	val supplierWilayah: String? = null,
+	@field:SerializedName("supplierProvinsi")
+	val supplierProvinsi: String? = null,
 
 	@field:SerializedName("supplierAlamat")
 	val supplierAlamat: String? = null,

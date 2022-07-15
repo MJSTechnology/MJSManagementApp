@@ -63,7 +63,7 @@ class EditSuplierActivity : AppCompatActivity(), EditSuplierActivityContract {
 
         btnSimpanSuplier.onClick {
             val suplierNama: String = edtNamaSuplier.getText().toString().trim { it <= ' ' }
-            val suplierWilayah: String = provinceResponseProvincies.toString()
+            val suplierProvinsi: String = provinceResponseProvincies.toString()
             val suplierAlamat: String = edtAlamatSuplier.getText().toString().trim { it <= ' ' }
             val suplierSupervisorNama: String = edtNamaSupervisor.getText().toString().trim { it <= ' ' }
             val suplierSupervisorNomor: String = edtNomorSupervisor.getText().toString().trim { it <= ' ' }
@@ -71,7 +71,7 @@ class EditSuplierActivity : AppCompatActivity(), EditSuplierActivityContract {
             val suplierManagerNomor: String = edtNomorManager.getText().toString().trim { it <= ' ' }
 
             val progressBar = findViewById<ProgressBar>(R.id.loadingEditSuplier)
-            presenter.editSuplier(suplierID.toString(), suplierNama.capitalizeWords(), suplierWilayah.capitalizeWords(), suplierAlamat.capitalizeWords(), suplierSupervisorNama.capitalizeWords(), suplierSupervisorNomor, suplierManagerNama.capitalizeWords(), suplierManagerNomor, progressBar)
+            presenter.editSuplier(suplierID.toString(), suplierNama.capitalizeWords(), suplierProvinsi.capitalizeWords(), suplierAlamat.capitalizeWords(), suplierSupervisorNama.capitalizeWords(), suplierSupervisorNomor, suplierManagerNama.capitalizeWords(), suplierManagerNomor, progressBar)
         }
     }
 
@@ -198,7 +198,7 @@ class EditSuplierActivity : AppCompatActivity(), EditSuplierActivityContract {
         }
 
         val intent = intent
-        val intentProvinsiProvinsi = intent.getStringExtra("suplierWilayah")
+        val intentProvinsiProvinsi = intent.getStringExtra("suplierProvinsi")
 
         val adapterProvince = ArrayAdapter(this, android.R.layout.simple_spinner_item, listNameSpinnerProvince)
         adapterProvince.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)

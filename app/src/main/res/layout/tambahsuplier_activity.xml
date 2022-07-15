@@ -89,17 +89,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Domisili Suplier"
+                    android:text="Domisili Provinsi"
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:paddingTop="10dp"/>
 
                 <EditText
-                    android:id="@+id/edtDomisiliSuplier"
+                    android:id="@+id/edtProvinsiSuplier"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Domisili Suplier"
+                    android:hint="Domisili Provinsi"
                     android:textSize="15sp"/>
 
                 <TextView

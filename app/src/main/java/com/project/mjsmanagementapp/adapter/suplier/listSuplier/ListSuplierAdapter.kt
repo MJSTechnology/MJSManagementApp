@@ -28,7 +28,7 @@ class ListSuplierAdapter(val data: List<ResponseListSuplierItem>?, private val c
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         fun onBind(get : ResponseListSuplierItem?){
             itemView.txtNamaSuplier.text = get?.supplierNama
-            itemView.txtDomisiliSuplier.text = get?.supplierWilayah
+            itemView.txtDomisiliSuplier.text = get?.supplierProvinsi
         }
     }
 
