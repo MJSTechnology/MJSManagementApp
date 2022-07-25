@@ -22,10 +22,10 @@
         android:theme="@style/Theme.MJSManagementApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ListSubProduk"
+            android:name=".ui.produk.listSubProduk.ListSubProdukActivity"
             android:exported="false" />
         <activity
-            android:name=".ListProduk"
+            android:name=".ui.produk.listProduk.ListProdukActivity"
             android:exported="false" />
         <activity
             android:name=".ui.suplier.editSuplier.EditSuplierActivity"

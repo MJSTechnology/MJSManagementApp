@@ -7,7 +7,7 @@ import com.project.mjsmanagementapp.model.produk.listProduk.ResponseListProdukIt
 import com.project.mjsmanagementapp.model.produk.listSubProduk.ResultItem
 import com.project.mjsmanagementapp.ui.produk.listSubProduk.ListSubProdukContract
 
-class ListSubProduk : AppCompatActivity(),ListSubProdukContract {
+class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.itemlistsubproduk)

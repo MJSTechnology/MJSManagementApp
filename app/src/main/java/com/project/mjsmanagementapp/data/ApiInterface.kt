@@ -180,7 +180,7 @@ interface ApiInterface {
 
 
     //GET LIST PRODUK
-    @GET("produk/getListProduk.php")
+    @GET("product/getListProduct.php")
     fun getListProduk() : Call<List<ResponseListProdukItem>>
 
     // GET LIST SUB PRODUK

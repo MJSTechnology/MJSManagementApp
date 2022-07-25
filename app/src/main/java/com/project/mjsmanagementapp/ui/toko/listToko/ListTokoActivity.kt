@@ -7,13 +7,11 @@ import android.view.inputmethod.EditorInfo
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.project.mjsmanagementapp.MainActivity
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.adapter.toko.listToko.ListTokoAdapter
 import com.project.mjsmanagementapp.model.toko.getListToko.ResponseListTokoItem
 import com.project.mjsmanagementapp.ui.toko.addToko.AddTokoActivity
 import com.project.mjsmanagementapp.ui.toko.detailToko.DetailTokoActivity
-import kotlinx.android.synthetic.main.homepage_activity.*
 import kotlinx.android.synthetic.main.tokolist_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
@@ -74,7 +72,7 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
     }
 
     override fun onErrorGetList(msg: String?) {
-        Toast.makeText(applicationContext, "Error Ya", Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext,msg, Toast.LENGTH_SHORT).show()
 
     }
 

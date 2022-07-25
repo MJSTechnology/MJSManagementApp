@@ -2,25 +2,20 @@ package com.project.mjsmanagementapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.project.mjsmanagementapp.data.UserToken
-import com.project.mjsmanagementapp.model.toko.deleteToko.ResponseDeleteToko
 import com.project.mjsmanagementapp.model.toko.totalToko.ResponseTotalToko
 import com.project.mjsmanagementapp.ui.home.MainActivityContract
 import com.project.mjsmanagementapp.ui.home.MainActivityPresenter
-import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
 import com.project.mjsmanagementapp.ui.login.LoginActivity
+import com.project.mjsmanagementapp.ui.produk.listProduk.ListProdukActivity
 import com.project.mjsmanagementapp.ui.profile.ProfileActivity
 import com.project.mjsmanagementapp.ui.suplier.listSuplier.ListSuplierActivity
-import com.project.mjsmanagementapp.ui.toko.editToko.EditTokoActivity
-import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivityPresenter
-
+import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
 import kotlinx.android.synthetic.main.homepage_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
-import java.util.*
 
 class MainActivity : AppCompatActivity(),MainActivityContract {
 
@@ -38,6 +33,10 @@ class MainActivity : AppCompatActivity(),MainActivityContract {
 
         tokobtn.onClick {
             startActivity<ListTokoActivity>()
+        }
+
+        produkbtn.onClick {
+            startActivity<ListProdukActivity>()
         }
 
         txtbtnprofile.onClick {
