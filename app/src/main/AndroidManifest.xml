@@ -22,6 +22,12 @@
         android:theme="@style/Theme.MJSManagementApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ListSubProduk"
+            android:exported="false" />
+        <activity
+            android:name=".ListProduk"
+            android:exported="false" />
+        <activity
             android:name=".ui.suplier.editSuplier.EditSuplierActivity"
             android:exported="false" />
         <activity

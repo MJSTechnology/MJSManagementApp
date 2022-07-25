@@ -1,6 +1,8 @@
 package com.project.mjsmanagementapp.data
 
 
+import com.project.mjsmanagementapp.model.produk.listProduk.ResponseListProdukItem
+import com.project.mjsmanagementapp.model.produk.listSubProduk.ResponseListSubProduct
 import com.project.mjsmanagementapp.model.suplier.addSuplier.ResponseAddSuplier
 import com.project.mjsmanagementapp.model.suplier.deleteSuplier.ResponseDeleteSuplier
 import com.project.mjsmanagementapp.model.suplier.editSuplier.ResponseEditSuplierItem
@@ -175,5 +177,16 @@ interface ApiInterface {
                     @Field("supplierPicManagerName")supplierPicManagerName: String,
                     @Field("supplierPicManagerPhone")supplierPicManagerPhone: String)
     : Call<ResponseEditSuplierItem>
+
+
+    //GET LIST PRODUK
+    @GET("produk/getListProduk.php")
+    fun getListProduk() : Call<List<ResponseListProdukItem>>
+
+    // GET LIST SUB PRODUK
+    @FormUrlEncoded
+    @POST("product/getListSubProduct.php")
+    fun getListSubProduk(@Field("productID") productID : String) : Call<ResponseListSubProduct>
+
 
 }
