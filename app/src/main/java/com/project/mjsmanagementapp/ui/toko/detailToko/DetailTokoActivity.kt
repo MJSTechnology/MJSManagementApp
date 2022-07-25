@@ -13,7 +13,9 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.signature.ObjectKey
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.data.ApiClient
 import com.project.mjsmanagementapp.data.UserToken
@@ -91,12 +93,14 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
             .load(ApiClient.BASE_URL + response.tokoPicKTP)
             .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
             .apply(RequestOptions.skipMemoryCacheOf(true))
+            .transition(DrawableTransitionOptions.withCrossFade())
             .into(findViewById(R.id.imgKtpToko))
 
         Glide.with(this)
             .load(ApiClient.BASE_URL + response.tokoPhoto)
             .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
             .apply(RequestOptions.skipMemoryCacheOf(true))
+            .transition(DrawableTransitionOptions.withCrossFade())
             .into(findViewById(R.id.imgFotoToko))
 
         imgKtpToko.onClick {

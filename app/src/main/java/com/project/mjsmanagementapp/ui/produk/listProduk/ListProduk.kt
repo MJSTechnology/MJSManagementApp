@@ -1,4 +1,4 @@
-package com.project.mjsmanagementapp.ui.produk.listSubProduk
+package com.project.mjsmanagementapp.ui.produk.listProduk
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

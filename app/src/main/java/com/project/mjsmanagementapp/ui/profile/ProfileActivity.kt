@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.data.ApiClient
@@ -79,7 +80,7 @@ class ProfileActivity : AppCompatActivity() {
             Glide.with(this)
                 .load(ApiClient.BASE_URL + adminPhoto)
                 .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
-                .apply(RequestOptions.skipMemoryCacheOf(true))
+                .placeholder(R.drawable.ic_addphoto_profile)
                 .into(findViewById(R.id.imgProfileKaryawan))
 
             imgProfileKaryawan.onClick {
@@ -96,7 +97,6 @@ class ProfileActivity : AppCompatActivity() {
                 Glide.with(this@ProfileActivity)
                     .load(ApiClient.BASE_URL + adminPhoto)
                     .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
-                    .apply(RequestOptions.skipMemoryCacheOf(true))
                     .into(view.findViewById(R.id.detailFotoToko))
             }
         }
