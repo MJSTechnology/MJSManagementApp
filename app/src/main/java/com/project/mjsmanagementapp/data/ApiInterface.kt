@@ -43,7 +43,7 @@ interface ApiInterface {
 
     // EDIT TOKO
     @FormUrlEncoded
-    @POST("toko/editTokov2.php")
+    @POST("toko/editToko.php")
     fun editToko(@Field("uploaded_file_toko") uploaded_file_toko: String,
                  @Field("uploaded_file_ktp") uploaded_file_ktp: String,
                  @Field("tokoID") tokoID: String,
@@ -76,7 +76,7 @@ interface ApiInterface {
 
     // ADD TOKO
     @FormUrlEncoded
-    @POST("toko/addTokov2.php")
+    @POST("toko/addToko.php")
     fun addToko(@Field("uploaded_file_toko") uploaded_file_toko: String,
                 @Field("uploaded_file_ktp") uploaded_file_ktp: String,
                 @Field("tokoPicSales") tokoSales: String,

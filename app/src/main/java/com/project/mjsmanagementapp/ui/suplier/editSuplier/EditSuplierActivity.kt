@@ -230,7 +230,7 @@ class EditSuplierActivity : AppCompatActivity(), EditSuplierActivityContract {
         }
 
         val intent = intent
-        val intentSupplierKabupaten = intent.getStringExtra("supplierKabupaten")
+        val intentSupplierKabupaten = intent.getStringExtra("suplierKabupaten")
 
         val adapterKabupaten = ArrayAdapter(this, android.R.layout.simple_spinner_item, listNameSpinnerKabupaten)
         adapterKabupaten.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -257,7 +257,7 @@ class EditSuplierActivity : AppCompatActivity(), EditSuplierActivityContract {
         }
 
         val intent = intent
-        val intentSupplierKecamatan = intent.getStringExtra("supplierKecamatan")
+        val intentSupplierKecamatan = intent.getStringExtra("suplierKecamatan")
 
         val adapterKecamatan = ArrayAdapter(this, android.R.layout.simple_spinner_item, listNameSpinnerKecataman)
         adapterKecamatan.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -284,7 +284,7 @@ class EditSuplierActivity : AppCompatActivity(), EditSuplierActivityContract {
         }
 
         val intent = intent
-        val intentSupplierDesa = intent.getStringExtra("supplierDesa")
+        val intentSupplierDesa = intent.getStringExtra("suplierDesa")
 
         val adapterDesa = ArrayAdapter(this, android.R.layout.simple_spinner_item, listNameSpinnerDesa)
         adapterDesa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
