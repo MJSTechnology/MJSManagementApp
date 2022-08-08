@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.adapter.produk.listProduk.ListProdukAdapter
 import com.project.mjsmanagementapp.model.produk.listProduk.ResponseListProdukItem
+import com.project.mjsmanagementapp.ui.produk.addProduk.AddProduk
 import com.project.mjsmanagementapp.ui.suplier.detailSuplier.DetailSuplierActivity
 import kotlinx.android.synthetic.main.listproduk_activity.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
 
 class ListProdukActivity : AppCompatActivity(), ListProdukContract {
@@ -18,6 +20,14 @@ class ListProdukActivity : AppCompatActivity(), ListProdukContract {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.listproduk_activity)
+
+        btnimgBack.onClick {
+            finish()
+        }
+
+        btnTambahProduk.onClick {
+            startActivity<AddProduk>()
+        }
 
         getListToko()
 

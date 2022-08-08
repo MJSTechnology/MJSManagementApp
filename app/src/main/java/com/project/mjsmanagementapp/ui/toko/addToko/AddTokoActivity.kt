@@ -2,6 +2,7 @@ package com.project.mjsmanagementapp.ui.toko.addToko
 
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Base64
@@ -14,6 +15,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.model.toko.picSales.ResultItem
+import com.theartofdev.edmodo.cropper.CropImage
+import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.edittoko_activity.*
 import kotlinx.android.synthetic.main.tambahtoko_activity.*
 import kotlinx.android.synthetic.main.tambahtoko_activity.cardFotoKtp
@@ -275,6 +278,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
         if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.data != null) {
             val filePath = data.data
             try {
+                launchImageCrop(filePath!!)
                 bitmapToko = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
                 imgFotoToko.setImageBitmap(bitmapToko)
             } catch (e: IOException) {
@@ -306,6 +310,15 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
             Toast.makeText(applicationContext,"Lokasi Baru Berhasil Di Set",Toast.LENGTH_SHORT).show()
         }
 
+    }
+
+
+    private fun launchImageCrop(uri: Uri){
+        CropImage.activity(uri)
+            .setGuidelines(CropImageView.Guidelines.ON)
+            .setAspectRatio(1920, 1080)
+            .setCropShape(CropImageView.CropShape.RECTANGLE) // default is rectangle
+            .start(this)
     }
 
 
