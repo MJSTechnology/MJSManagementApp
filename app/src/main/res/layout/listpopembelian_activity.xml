@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btnimgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"/>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                app:cardCornerRadius="8dp"
+                android:backgroundTint="@color/color_base"
+                app:cardElevation="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PT Alam Sari"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="20dp"
+                        android:paddingTop="9dp"
+                        android:paddingLeft="20dp"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="15dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/svListPembelian"
+                        android:layout_width="match_parent"
+                        android:layout_height="37dp"
+                        android:layout_marginRight="40dp"
+                        app:queryHint="Cari No Po" />
+
+                    <ImageView
+                        android:id="@+id/btnAddPembelian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="-40dp"
+                        android:src="@drawable/ic_add_square"
+                        android:layout_alignParentRight="true"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dari"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="18sp"/>
+
+                        <Spinner
+                            android:id="@+id/spinnerStartCalender"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sampai"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="18sp"/>
+
+                        <Spinner
+                            android:id="@+id/spinnerStopCalender"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Jenis Pembayaran"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="18sp"/>
+
+                <Spinner
+                    android:id="@+id/spinnerPembayaran"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/loadingListToko"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvListPoBeli1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="30dp"
+                    tools:listitem="@layout/itemlistpopembelian"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvListPoBeli2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:paddingTop="30dp"
+                    tools:listitem="@layout/itemlistpopembelian"/>
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>
