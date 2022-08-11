@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/txtTanggalPoBeli"
+                    android:id="@+id/txtTanggalPoJual"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -31,18 +31,18 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/txtNamaPic"
+                    android:id="@+id/txtNamaPemilikToko"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:text="Nama PIC"
+                    android:text="Nama Pemilik Toko"
                     android:textColor="@color/color_base"
                     android:textSize="18sp" />
 
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/txtNomorPoBeli"
+                android:id="@+id/txtNomorPoJual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="000"

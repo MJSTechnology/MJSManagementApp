@@ -23,6 +23,7 @@
         <entry key="app/src/main/res/layout/activity_history.xml" value="0.909375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/detailpopembelian_activity.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/detailpopenjualan_activity.xml" value="0.2" />
         <entry key="app/src/main/res/layout/detailsubproduk_activity.xml" value="0.20659637451171878" />
         <entry key="app/src/main/res/layout/detailsuplier_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/detailtoko_activity.xml" value="0.23679185232336092" />
@@ -36,16 +37,19 @@
         <entry key="app/src/main/res/layout/itemfoto_toko.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/itemlistjenisproduk.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/itemlistpopembelian.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/itemlistpopenjualan.xml" value="0.2" />
         <entry key="app/src/main/res/layout/itemlistproduk.xml" value="0.25751064134680707" />
         <entry key="app/src/main/res/layout/itemlistprodukbeli.xml" value="0.22718528595205095" />
         <entry key="app/src/main/res/layout/itemlistsuplier.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/itemlisttoko.xml" value="0.20814361572265633" />
         <entry key="app/src/main/res/layout/listpopembelian_activity.xml" value="0.24292144775390626" />
+        <entry key="app/src/main/res/layout/listpopenjualan_activity.xml" value="0.2" />
         <entry key="app/src/main/res/layout/listproduk_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/listsubproduk_activity.xml" value="0.11270599365234377" />
         <entry key="app/src/main/res/layout/listsuplier_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/listsuplierpembelian_activity.xml" value="0.2" />
         <entry key="app/src/main/res/layout/listtoko_activity.xml" value="0.1913622648819633" />
+        <entry key="app/src/main/res/layout/listtokopenjualan_activity.xml" value="0.2" />
         <entry key="app/src/main/res/layout/login_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/menuproduk_activity.xml" value="0.1" />
         <entry key="app/src/main/res/layout/popupaddsuplier.xml" value="0.13179347826086957" />
@@ -59,8 +63,10 @@
         <entry key="app/src/main/res/layout/splashscreen_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/tamabhpopembelian_activity.xml" value="0.2" />
         <entry key="app/src/main/res/layout/tambahpopembelian_activity.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/tambahpopenjualan_activity.xml" value="0.2" />
         <entry key="app/src/main/res/layout/tambahproduk_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/tambahprodukpobeli_activity.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/tambahprodukpojual_activity.xml" value="0.2" />
         <entry key="app/src/main/res/layout/tambahsubproduk_activity.xml" value="0.2" />
         <entry key="app/src/main/res/layout/tambahsuplier_activity.xml" value="0.25096130371093756" />
         <entry key="app/src/main/res/layout/tambahtoko_activity.xml" value="0.15624542236328123" />

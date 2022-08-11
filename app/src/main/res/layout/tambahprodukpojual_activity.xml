@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="20dp"
                     android:paddingTop="10dp"
-                    android:text="Tambah Produk Beli"
+                    android:text="Tambah Produk Jual"
                     android:textColor="#fff"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -150,7 +150,7 @@
 
 
             <Button
-                android:id="@+id/btnTambahProdukBeli"
+                android:id="@+id/btnTambahProdukJual"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="150dp"

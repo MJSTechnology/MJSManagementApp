@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="20dp"
                     android:paddingTop="10dp"
-                    android:text="Tambah Produk Beli"
+                    android:text="Tambah PO Jual"
                     android:textColor="#fff"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -59,7 +59,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
@@ -82,13 +82,33 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="30dp"
-                android:text="Nama Produk"
+                android:text="Nomor PO"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtNomorPOJual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nomor PO"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Tanggal"
                 android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/spinnerNamaProduk"
+                android:id="@+id/spinnerTanggalPoJual"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
@@ -100,57 +120,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:text="Kode Produk"
+                android:text="Sales"
                 android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/spinnerKodeProduk"
+                android:id="@+id/spinnerSales"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="5dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:text="Jumlah"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/edtJumlahProduk"
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="20dp"
-                    android:hint="Jumlah Produk"
-                    android:textSize="18sp" />
-
-                <Spinner
-                    android:id="@+id/spinnerJenisSatuan"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="20dp" />
-
-            </RelativeLayout>
 
 
             <Button
-                android:id="@+id/btnTambahProdukBeli"
+                android:id="@+id/btnTambahPOJual"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="150dp"
@@ -158,7 +143,6 @@
                 android:backgroundTint="@color/color_base"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginBottom="20dp"
                 android:textColor="@color/white"/>
 
 

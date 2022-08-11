@@ -40,10 +40,9 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/txtNomorPoBeli"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="000"
+                        android:text="Penjualan"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:textSize="20dp"
@@ -70,45 +69,62 @@
                 android:orientation="vertical"
                 android:layout_margin="15dp">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp">
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/txtTanggalPoBeli"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:text="00/00/00"
-                        android:textColor="@color/color_base"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtNamaPic"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:text="Nama Pic"
-                        android:textColor="@color/color_base"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/svListPenjualan"
+                        android:layout_width="match_parent"
+                        android:layout_height="37dp"
+                        android:layout_marginRight="40dp"
+                        app:queryHint="Cari Suplier" />
 
                     <ImageView
-                        android:id="@+id/btnTambahProdukBeli"
+                        android:id="@+id/btnAddTokoJual"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/ic_add_square" />
+                        android:layout_marginLeft="-40dp"
+                        android:src="@drawable/ic_add_square"
+                        android:layout_alignParentRight="true"/>
+                </LinearLayout>
 
-                </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Toko : "
+                        android:textStyle="bold"
+                        android:textSize="18dp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/color_base"/>
+
+                    <TextView
+                        android:id="@+id/txtTokoTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/color_base"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Toko"
+                        android:textColor="@color/color_base"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"/>
+
+                </LinearLayout>
 
                 <ProgressBar
                     android:id="@+id/loadingListToko"
@@ -119,70 +135,31 @@
                     android:visibility="gone"/>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvListProduk"
+                    android:id="@+id/rvListTokoJual1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
-                    tools:listitem="@layout/itemlistprodukpo"/>
+                    tools:listitem="@layout/itemlisttoko"/>
 
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardElevation="10dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="15dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:text="Total Harga :"/>
-
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvListTokoJual2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    android:visibility="gone"
+                    android:paddingTop="20dp"
+                    tools:listitem="@layout/itemlisttoko"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Rp. "
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:textColor="@color/merah_hapus"/>
-
-                    <TextView
-                        android:id="@+id/txtTotalHargaBeli"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="000,00"
-                        android:textColor="@color/merah_hapus"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="5dp"/>
-
-                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvListTokoJual3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:paddingTop="20dp"
+                    tools:listitem="@layout/itemlisttoko"/>
 
 
             </LinearLayout>
+
 
         </androidx.cardview.widget.CardView>
 

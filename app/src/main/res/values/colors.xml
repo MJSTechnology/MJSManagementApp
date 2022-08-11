@@ -10,4 +10,6 @@
     <color name="color_base">#4F9FC2</color>
 <color name="merah_hapus">#E26060</color>
 <color name="backgroundLogin">#4F9FC2</color>
+    <color name="hijau_ok">#699635</color>
+
 </resources>

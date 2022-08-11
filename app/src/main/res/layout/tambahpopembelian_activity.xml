@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="20dp"
                     android:paddingTop="10dp"
-                    android:text="Tambah PO"
+                    android:text="Tambah PO Beli"
                     android:textColor="#fff"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -88,7 +88,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edtNomorPO"
+                android:id="@+id/edtNomorPOBeli"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nomor PO"
@@ -108,7 +108,7 @@
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/spinnerTanggalPo"
+                android:id="@+id/spinnerTanggalPoBeli"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
@@ -135,7 +135,7 @@
 
 
             <Button
-                android:id="@+id/btnTambahPO"
+                android:id="@+id/btnTambahPOBeli"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="150dp"
