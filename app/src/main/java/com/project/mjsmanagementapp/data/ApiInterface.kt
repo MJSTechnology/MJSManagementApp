@@ -2,6 +2,7 @@ package com.project.mjsmanagementapp.data
 
 
 import com.project.mjsmanagementapp.model.produk.addProduk.ResponseAddProduk
+import com.project.mjsmanagementapp.model.produk.getSupplierForProduct.ResponseGetSupplierForProduct
 import com.project.mjsmanagementapp.model.produk.listProduk.ResponseListProdukItem
 import com.project.mjsmanagementapp.model.produk.listSubProduk.ResponseListSubProduct
 import com.project.mjsmanagementapp.model.suplier.addSuplier.ResponseAddSuplier
@@ -180,6 +181,10 @@ interface ApiInterface {
     : Call<ResponseEditSuplierItem>
 
 
+    // GET SPINNER NAMA SUPPLIER BUAT PRODUK
+    @GET("product/getListSupplierForProduct.php")
+    fun getSupplierForProduct() : Call<ResponseGetSupplierForProduct>
+
     //GET LIST PRODUK
     @GET("product/getListProduct.php")
     fun getListProduk() : Call<List<ResponseListProdukItem>>
@@ -192,9 +197,9 @@ interface ApiInterface {
     //ADD PRODUK
     @FormUrlEncoded
     @POST("product/addProduct.php")
-    fun addProduk(@Field("productName") supplierNama: String,
-                  @Field("productSupplier") supplierProvinsi: String,
-                  @Field("productPhoto") supplierKabupaten: String)
+    fun addProduk(@Field("productName") productName: String,
+                  @Field("productSupplier") productSupplier: String,
+                  @Field("productPhoto") productPhoto: String)
             : Call<ResponseAddProduk>
 
 

@@ -28,6 +28,9 @@
             android:name=".ui.produk.listProduk.ListProdukActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.produk.addProduk.AddProdukActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.suplier.editSuplier.EditSuplierActivity"
             android:exported="false" />
         <activity
