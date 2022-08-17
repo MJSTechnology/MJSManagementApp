@@ -2,6 +2,7 @@ package com.project.mjsmanagementapp.data
 
 
 import com.project.mjsmanagementapp.model.produk.addProduk.ResponseAddProduk
+import com.project.mjsmanagementapp.model.produk.getDetailSubProduk.ResponseDetailSubProduk
 import com.project.mjsmanagementapp.model.produk.getSupplierForProduct.ResponseGetSupplierForProduct
 import com.project.mjsmanagementapp.model.produk.listProduk.ResponseListProdukItem
 import com.project.mjsmanagementapp.model.produk.listSubProduk.ResponseListSubProduct
@@ -203,4 +204,9 @@ interface ApiInterface {
             : Call<ResponseAddProduk>
 
 
+    //GET DETAIL SUB PRODUK
+    @FormUrlEncoded
+    @POST("product/getDetailSubProduct.php")
+    fun getDetailSubProduk(@Field("subProductID") subProductID: String)
+    : Call<ResponseDetailSubProduk>
 }
