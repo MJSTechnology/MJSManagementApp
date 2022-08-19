@@ -193,7 +193,7 @@ interface ApiInterface {
     // GET LIST SUB PRODUK
     @FormUrlEncoded
     @POST("product/getListSubProduct.php")
-    fun getListSubProduk(@Field("productID") productID : String) : Call<ResponseListSubProduct>
+    fun getListSubProduk(@Field("productID") productID: String?) : Call<ResponseListSubProduct>
 
     //ADD PRODUK
     @FormUrlEncoded

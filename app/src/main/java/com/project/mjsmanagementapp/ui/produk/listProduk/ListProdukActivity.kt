@@ -1,5 +1,6 @@
 package com.project.mjsmanagementapp.ui.produk.listProduk
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,8 @@ import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.adapter.produk.listProduk.ListProdukAdapter
 import com.project.mjsmanagementapp.model.produk.listProduk.ResponseListProdukItem
 import com.project.mjsmanagementapp.ui.produk.addProduk.AddProdukActivity
+import com.project.mjsmanagementapp.ui.produk.listSubProduk.ListSubProdukActivity
+import com.project.mjsmanagementapp.ui.suplier.detailSuplier.DetailSuplierActivity
 import kotlinx.android.synthetic.main.listproduk_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
@@ -60,7 +63,8 @@ class ListProdukActivity : AppCompatActivity(), ListProdukContract {
 
         rvListProduk1.adapter = ListProdukAdapter(data, object : ListProdukAdapter.onClickItem{
             override fun clicked(item: ResponseListProdukItem?) {
-                Toast.makeText(applicationContext, "msg", Toast.LENGTH_SHORT).show()
+                startActivity<ListSubProdukActivity>("itemDetail" to item)
+
             }
         })
 

@@ -9,7 +9,7 @@ import retrofit2.Response
 
 class ListSubProdukPresenter(val contract: ListSubProdukContract) {
 
-    fun getListSubProduk(productID: String){
+    fun getListSubProduk(productID: String?){
     ApiClient.getService().getListSubProduk(productID)
         .enqueue(object : retrofit2.Callback<ResponseListSubProduct>{
             override fun onResponse(
