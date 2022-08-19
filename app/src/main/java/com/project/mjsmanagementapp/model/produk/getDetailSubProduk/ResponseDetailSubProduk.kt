@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class ResponseDetailSubProduk(
 
 	@field:SerializedName("hargaBeliBox")
-	val hargaBeliBox: Any? = null,
+	val hargaBeliBox: String? = null,
 
 	@field:SerializedName("subProductCode")
 	val subProductCode: String? = null,
@@ -17,19 +17,19 @@ data class ResponseDetailSubProduk(
 	val productID: Int? = null,
 
 	@field:SerializedName("hargaJualTempoPcs")
-	val hargaJualTempoPcs: Any? = null,
+	val hargaJualTempoPcs: String? = null,
 
 	@field:SerializedName("hargaJualTempoWholesale")
-	val hargaJualTempoWholesale: Any? = null,
+	val hargaJualTempoWholesale: String? = null,
 
 	@field:SerializedName("hargaJualCashWholesale")
-	val hargaJualCashWholesale: Any? = null,
+	val hargaJualCashWholesale: String? = null,
 
 	@field:SerializedName("hargaJualCashPcs")
-	val hargaJualCashPcs: Any? = null,
+	val hargaJualCashPcs: String? = null,
 
 	@field:SerializedName("hargaBeliPcs")
-	val hargaBeliPcs: Any? = null,
+	val hargaBeliPcs: String? = null,
 
 	@field:SerializedName("subProductSize")
 	val subProductSize: String? = null,
@@ -38,11 +38,11 @@ data class ResponseDetailSubProduk(
 	val subProductName: String? = null,
 
 	@field:SerializedName("hargaJualCashBox")
-	val hargaJualCashBox: Any? = null,
+	val hargaJualCashBox: String? = null,
 
 	@field:SerializedName("subProductID")
 	val subProductID: Int? = null,
 
 	@field:SerializedName("hargaJualTempoBox")
-	val hargaJualTempoBox: Any? = null
+	val hargaJualTempoBox: String? = null
 )

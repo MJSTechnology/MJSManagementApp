@@ -4,6 +4,10 @@ import com.project.mjsmanagementapp.model.produk.getDetailSubProduk.ResponseDeta
 
 interface DetailSubProdukActivityContract {
 
-    fun onSuccessGetDetailSubProduk(response : ResponseDetailSubProduk);
-    fun onErrorGetDetailSubProduk(msg : String?);
+    fun onSuccessGetDetailSubProduk(response : ResponseDetailSubProduk)
+    fun onErrorGetDetailSubProduk(msg : String?)
+
+    //Delete
+    fun onSuccesDeleteSubProduk(response: String)
+    fun onFailedDeleteSubProduk(response: String)
 }
