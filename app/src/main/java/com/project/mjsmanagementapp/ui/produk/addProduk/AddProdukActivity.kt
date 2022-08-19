@@ -8,6 +8,7 @@ import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.project.mjsmanagementapp.R
@@ -124,18 +125,29 @@ class AddProdukActivity : AppCompatActivity(), AddProdukContract {
     }
 
     override fun onSuccessAddProduk(response: String?) {
-        TODO("Not yet implemented")
+        Log.d("RETRO", "onResponse: " + response.toString())
+        Toast.makeText(this, response, Toast.LENGTH_SHORT).show()
+        finish()
     }
 
     override fun onErrorAddProduk(msg: String?) {
-        TODO("Not yet implemented")
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
     }
 
     override fun onSuccesGetSupplierForProduct(response: List<ResultItem>?) {
-        TODO("Not yet implemented")
+        listSpinnerSupplier = ArrayList()
+        for (i in 0 until response?.size!!) {
+            listSpinnerSupplier.add(response.get(i)?.supplierNama.toString())
+            listSpinnerIdSupplier.add(response.get(i)?.supplierID.toString())
+        }
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listSpinnerSupplier)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerNamaSuplier.setAdapter(adapter)
     }
 
     override fun onErrorGetSupplierForProduct(msg: String?) {
-        TODO("Not yet implemented")
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        Log.d("Error Data", msg.toString())
     }
 }

@@ -2,6 +2,7 @@ package com.project.mjsmanagementapp.ui.produk.addProduk
 
 import android.util.Log
 import android.view.View
+import android.widget.ProgressBar
 import com.project.mjsmanagementapp.data.ApiClient
 import com.project.mjsmanagementapp.model.produk.addProduk.ResponseAddProduk
 import com.project.mjsmanagementapp.model.produk.getSupplierForProduct.ResponseGetSupplierForProduct

@@ -278,7 +278,6 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
         if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.data != null) {
             val filePath = data.data
             try {
-                launchImageCrop(filePath!!)
                 bitmapToko = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
                 imgFotoToko.setImageBitmap(bitmapToko)
             } catch (e: IOException) {
