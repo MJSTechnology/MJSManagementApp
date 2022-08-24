@@ -1,5 +1,6 @@
 package com.project.mjsmanagementapp.ui.produk.listSubProduk
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,9 +13,13 @@ import com.project.mjsmanagementapp.adapter.produk.listSubProduk.ListSubProdukAd
 import com.project.mjsmanagementapp.data.ApiClient
 import com.project.mjsmanagementapp.model.produk.listProduk.ResponseListProdukItem
 import com.project.mjsmanagementapp.model.produk.listSubProduk.ResultItem
+import com.project.mjsmanagementapp.ui.produk.detailSubProduk.DetailSubProdukActivity
+import com.project.mjsmanagementapp.ui.produk.listProduk.ListProdukActivity
 import kotlinx.android.synthetic.main.itemlistsubproduk.view.*
 
 import kotlinx.android.synthetic.main.listsubproduk_activity.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.startActivity
 
 class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
 
@@ -24,6 +29,10 @@ class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
         setContentView(R.layout.listsubproduk_activity)
 
         getListSubProduk()
+
+        btnimgBack.onClick {
+            finish()
+        }
     }
 
     private fun getListSubProduk() {
@@ -52,13 +61,19 @@ class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
         getListSubProduk()
     }
 
-    override fun onSuccessGetListSubProduk(data: List<ResultItem>?) {
+    override fun onPause() {
+        super.onPause()
+    }
 
+    override fun onSuccessGetListSubProduk(data: List<ResultItem>?) {
 
         rvListSubProduk1.adapter = ListSubProdukAdapter(data, object : ListSubProdukAdapter.onClickItem{
             override fun clicked(item: ResultItem?) {
+                //startActivity<DetailSubProdukActivity>("itemDetailSub" to item)
+                val intent = Intent(this@ListSubProdukActivity,DetailSubProdukActivity::class.java);
+                intent.putExtra("itemDetailSub", item?.productID)
+                startActivity(intent)
 
-                Toast.makeText(applicationContext, "msg", Toast.LENGTH_SHORT).show()
             }
         })
     }

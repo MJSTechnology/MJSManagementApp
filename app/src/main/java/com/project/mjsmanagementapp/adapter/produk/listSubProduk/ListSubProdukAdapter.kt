@@ -30,6 +30,7 @@ class ListSubProdukAdapter(val data: List<ResultItem>?, private val click: ListS
         holder.itemView.onClick {
             click.clicked(data?.get(position))
         }
+
     }
 
     override fun getItemCount(): Int = data?.size ?: 0
