@@ -2,6 +2,7 @@ package com.project.mjsmanagementapp.data
 
 
 import com.project.mjsmanagementapp.model.produk.addProduk.ResponseAddProduk
+import com.project.mjsmanagementapp.model.produk.deleteSubProduk.ResponseDeleteSubProduk
 import com.project.mjsmanagementapp.model.produk.getDetailSubProduk.ResponseDetailSubProduk
 import com.project.mjsmanagementapp.model.produk.getSupplierForProduct.ResponseGetSupplierForProduct
 import com.project.mjsmanagementapp.model.produk.listProduk.ResponseListProdukItem
@@ -209,4 +210,11 @@ interface ApiInterface {
     @POST("product/getDetailSubProduct.php")
     fun getDetailSubProduk(@Field("subProductID") subProductID: String)
     : Call<ResponseDetailSubProduk>
+
+
+    //DELETE SUB PRODUK
+    @FormUrlEncoded
+    @POST("product/deleteSubProduct.php")
+    fun deleteSubProduk(@Field("subProductID") subProductID: String)
+    : Call<ResponseDeleteSubProduk>
 }
