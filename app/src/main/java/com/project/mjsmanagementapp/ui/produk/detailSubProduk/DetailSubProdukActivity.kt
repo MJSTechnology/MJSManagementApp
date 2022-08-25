@@ -3,17 +3,13 @@ package com.project.mjsmanagementapp.ui.produk.detailSubProduk
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.model.produk.getDetailSubProduk.ResponseDetailSubProduk
-import com.project.mjsmanagementapp.model.produk.listSubProduk.ResultItem
-import com.project.mjsmanagementapp.model.suplier.getListSuplier.ResponseListSuplierItem
 import com.project.mjsmanagementapp.ui.produk.editSubProduk.EditSubProdukActivity
-import com.project.mjsmanagementapp.ui.produk.listSubProduk.ListSubProdukActivity
-import com.project.mjsmanagementapp.ui.suplier.detailSuplier.DetailSuplierActivityPresenter
-import com.project.mjsmanagementapp.ui.suplier.editSuplier.EditSuplierActivity
 import kotlinx.android.synthetic.main.detailsubproduk_activity.*
 import kotlinx.android.synthetic.main.detailsuplier_activity.*
 import kotlinx.android.synthetic.main.popuphapussubproduk.view.*
@@ -21,7 +17,6 @@ import kotlinx.android.synthetic.main.popuphapussuplier.view.*
 import kotlinx.android.synthetic.main.popuphapussuplier.view.btn_confirmDelete
 import kotlinx.android.synthetic.main.popuphapussuplier.view.edtKonfirmDelete
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.startActivity
 
 class DetailSubProdukActivity : AppCompatActivity(), DetailSubProdukActivityContract {
 
@@ -30,6 +25,11 @@ class DetailSubProdukActivity : AppCompatActivity(), DetailSubProdukActivityCont
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.detailsubproduk_activity)
+        presenter = DetailSubProdukActivityPresenter(this)
+
+        var idSubProduk : String? = intent.getStringExtra("itemDetailSub")
+        idSubProduk?.let { presenter.getDetailSubProduk(it) }
+        Log.d("Tes_ID", idSubProduk.toString())
 
         btnImgBack.onClick {
             finish()
@@ -45,12 +45,11 @@ class DetailSubProdukActivity : AppCompatActivity(), DetailSubProdukActivityCont
     }
 
     private fun getDetailSubProduk() {
-        presenter = DetailSubProdukActivityPresenter(this)
+
         /*val itemDetailItem = intent.getSerializableExtra("itemDetailSub")
         val item = itemDetailItem as ResultItem?
         item?.subProductID?.let { presenter.getDetailSubProduk(it) }*/
-        var idSubProduk : String? = intent.getStringExtra("itemDetailSub")
-        idSubProduk?.let { presenter.getDetailSubProduk(it) }
+
     }
 
     override fun onPause() {

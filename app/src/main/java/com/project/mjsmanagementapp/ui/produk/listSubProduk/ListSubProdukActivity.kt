@@ -13,6 +13,7 @@ import com.project.mjsmanagementapp.adapter.produk.listSubProduk.ListSubProdukAd
 import com.project.mjsmanagementapp.data.ApiClient
 import com.project.mjsmanagementapp.model.produk.listProduk.ResponseListProdukItem
 import com.project.mjsmanagementapp.model.produk.listSubProduk.ResultItem
+import com.project.mjsmanagementapp.ui.produk.addSubProduk.AddSubProdukActivity
 import com.project.mjsmanagementapp.ui.produk.detailSubProduk.DetailSubProdukActivity
 import com.project.mjsmanagementapp.ui.produk.listProduk.ListProdukActivity
 import kotlinx.android.synthetic.main.itemlistsubproduk.view.*
@@ -32,6 +33,18 @@ class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
 
         btnimgBack.onClick {
             finish()
+        }
+
+        btnTambahSubProduk.onClick {
+            presenter = ListSubProdukPresenter(this@ListSubProdukActivity)
+            val itemDetailItem = intent.getSerializableExtra("itemDetail")
+            val item = itemDetailItem as ResponseListProdukItem?
+            presenter.getListSubProduk(item?.productID)
+
+            val inProductID = item?.productID
+            val intent = Intent(this@ListSubProdukActivity, AddSubProdukActivity::class.java)
+            intent.putExtra("produkId", inProductID)
+            startActivity(intent)
         }
     }
 
@@ -53,6 +66,9 @@ class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
         rvListSubProduk1.layoutManager = linearLayoutManager
 
         rvListSubProduk1.layoutManager = LinearLayoutManager(this)
+
+
+
     }
 
 
@@ -71,11 +87,14 @@ class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
             override fun clicked(item: ResultItem?) {
                 //startActivity<DetailSubProdukActivity>("itemDetailSub" to item)
                 val intent = Intent(this@ListSubProdukActivity,DetailSubProdukActivity::class.java);
-                intent.putExtra("itemDetailSub", item?.productID)
+                intent.putExtra("itemDetailSub", item?.subProductID)
                 startActivity(intent)
 
             }
         })
+
+
+
     }
 
     override fun onErrorGetListSubProduk(msg: String?) {

@@ -2,6 +2,7 @@ package com.project.mjsmanagementapp.data
 
 
 import com.project.mjsmanagementapp.model.produk.addProduk.ResponseAddProduk
+import com.project.mjsmanagementapp.model.produk.addSubProduk.ResponseAddSubProduk
 import com.project.mjsmanagementapp.model.produk.deleteSubProduk.ResponseDeleteSubProduk
 import com.project.mjsmanagementapp.model.produk.getDetailSubProduk.ResponseDetailSubProduk
 import com.project.mjsmanagementapp.model.produk.getSupplierForProduct.ResponseGetSupplierForProduct
@@ -217,4 +218,23 @@ interface ApiInterface {
     @POST("product/deleteSubProduct.php")
     fun deleteSubProduk(@Field("subProductID") subProductID: String)
     : Call<ResponseDeleteSubProduk>
+
+    //ADD SUB PRODUK
+    @FormUrlEncoded
+    @POST("product/addSubProduct.php")
+    fun addSubProduk(@Field("productID") productID: String,
+                     @Field("subProductName") subProductName : String,
+                     @Field("subProductSize") subProductSize : String,
+                     @Field("subProductCode") subProductCode : String,
+                     @Field("subProductPhoto") subProductPhoto : String,
+                     @Field("hargaBeliBox") hargaBeliBox: String,
+                     @Field("hargaBeliPcs") hargaBeliPcs: String,
+                     @Field("hargaJualCashWholesale") hargaJualCashWholesale: String,
+                     @Field("hargaJualCashBox") hargaJualCashBox: String,
+                     @Field("hargaJualCashPcs") hargaJualCashPcs: String,
+                     @Field("hargaJualTempoWholesale") hargaJualTempoWholesale: String,
+                     @Field("hargaJualTempoBox") hargaJualTempoBox: String,
+                     @Field("hargaJualTempoPcs") hargaJualTempoPcs: String)
+
+    : Call<ResponseAddSubProduk>
 }
