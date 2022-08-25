@@ -15,6 +15,7 @@ class ListProdukPresenter(val contract: ListProdukContract) {
                     call: Call<List<ResponseListProdukItem>>,
                     response: Response<List<ResponseListProdukItem>>
                 ) {
+
                     if (response.isSuccessful){
                         contract.onSuccessGetList(response.body())
                     }else{

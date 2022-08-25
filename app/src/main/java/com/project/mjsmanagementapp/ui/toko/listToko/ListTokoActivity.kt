@@ -140,7 +140,7 @@ class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
     }
 
     override fun onErrorSearch(msg: String?) {
-        TODO("Not yet implemented")
+        Toast.makeText(this,"Data Tidak Ketemu",Toast.LENGTH_SHORT).show()
     }
 
 

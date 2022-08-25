@@ -2,6 +2,8 @@ package com.project.mjsmanagementapp.ui.produk.listSubProduk
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,16 +17,13 @@ import com.project.mjsmanagementapp.model.produk.listProduk.ResponseListProdukIt
 import com.project.mjsmanagementapp.model.produk.listSubProduk.ResultItem
 import com.project.mjsmanagementapp.ui.produk.addSubProduk.AddSubProdukActivity
 import com.project.mjsmanagementapp.ui.produk.detailSubProduk.DetailSubProdukActivity
-import com.project.mjsmanagementapp.ui.produk.listProduk.ListProdukActivity
-import kotlinx.android.synthetic.main.itemlistsubproduk.view.*
-
 import kotlinx.android.synthetic.main.listsubproduk_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.startActivity
 
 class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
 
     private lateinit var presenter: ListSubProdukPresenter
+    private var listProdukAdapterKode : ListSubProdukAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.listsubproduk_activity)
@@ -66,8 +65,7 @@ class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
         rvListSubProduk1.layoutManager = linearLayoutManager
 
         rvListSubProduk1.layoutManager = LinearLayoutManager(this)
-
-
+        rvListSubProduk2.layoutManager = LinearLayoutManager(this)
     }
 
 
@@ -84,15 +82,63 @@ class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
 
         rvListSubProduk1.adapter = ListSubProdukAdapter(data, object : ListSubProdukAdapter.onClickItem{
             override fun clicked(item: ResultItem?) {
-                //startActivity<DetailSubProdukActivity>("itemDetailSub" to item)
                 val intent = Intent(this@ListSubProdukActivity,DetailSubProdukActivity::class.java);
-                intent.putExtra("itemDetailSub", item?.subProductID)
+                intent.putExtra("itemDetailSub", item?.productID)
                 startActivity(intent)
 
             }
         })
 
+        listProdukAdapterKode = ListSubProdukAdapter(data, object : ListSubProdukAdapter.onClickItem{
+            override fun clicked(item: ResultItem?) {
+                val intent = Intent(this@ListSubProdukActivity,DetailSubProdukActivity::class.java);
+                intent.putExtra("itemDetailSub", item?.productID)
+                startActivity(intent)
+            }
+        })
 
+        rvListSubProduk1.visibility = View.VISIBLE
+        svListSubProduk.imeOptions = EditorInfo.IME_ACTION_SEARCH
+        svListSubProduk.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean = false
+
+            override fun onQueryTextChange(action: String?): Boolean {
+
+                if(action != null){
+
+                    if(action.isEmpty()) {
+
+                        rvListSubProduk1.visibility = View.VISIBLE
+                        rvListSubProduk2.visibility = View.GONE
+
+
+                    } else if(action.length > 0){
+                        val filterCode = data?.filter { it.subProductCode!!.contains("$action", true) }
+                        listProdukAdapterKode = ListSubProdukAdapter(filterCode as List<ResultItem>, object : ListSubProdukAdapter.onClickItem{
+                            override fun clicked(item: ResultItem?) {
+                                val intent = Intent(this@ListSubProdukActivity,DetailSubProdukActivity::class.java);
+                                intent.putExtra("itemDetailSub", item?.subProductID)
+                                startActivity(intent)
+                            }
+                        })
+
+
+
+                        if (action.isNotEmpty()){
+                            rvListSubProduk2.visibility = View.VISIBLE
+                            rvListSubProduk2.adapter = listProdukAdapterKode
+                            rvListSubProduk1.visibility = View.GONE
+                        }else{
+                            rvListSubProduk1.visibility = View.VISIBLE
+                            rvListSubProduk2.visibility = View.GONE
+                        }
+
+                    }
+                }
+
+                return false
+            }
+        })
     }
 
     override fun onErrorGetListSubProduk(msg: String?) {
