@@ -1,8 +1,8 @@
-package com.project.mjsmanagementapp.model.produk.deleteSubProduk
+package com.project.mjsmanagementapp.model.produk.deleteProduk
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseDeleteSubProduk(
+data class ResponseDeleteProduk(
 
 	@field:SerializedName("message")
 	val message: String? = null,

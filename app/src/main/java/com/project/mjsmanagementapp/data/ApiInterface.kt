@@ -3,6 +3,8 @@ package com.project.mjsmanagementapp.data
 
 import com.project.mjsmanagementapp.model.produk.addProduk.ResponseAddProduk
 import com.project.mjsmanagementapp.model.produk.deleteSubProduk.ResponseDeleteSubProduk
+import com.project.mjsmanagementapp.model.produk.editProduk.ResponseEditProduk
+import com.project.mjsmanagementapp.model.produk.editSubProduk.ResponseEditSubProduk
 import com.project.mjsmanagementapp.model.produk.getDetailSubProduk.ResponseDetailSubProduk
 import com.project.mjsmanagementapp.model.produk.getSupplierForProduct.ResponseGetSupplierForProduct
 import com.project.mjsmanagementapp.model.produk.listProduk.ResponseListProdukItem
@@ -137,7 +139,7 @@ interface ApiInterface {
     @GET("supplier/getListSupplier.php")
     fun getSuplier() : Call<List<ResponseListSuplierItem>>
 
-    //SEARH SUPLIER
+    //SEARCH SUPLIER
     @GET("supplier/getListSupplier.php")
     fun getSearchSuplier() : Call<List<ResponseListSuplierItem>>
 
@@ -217,4 +219,31 @@ interface ApiInterface {
     @POST("product/deleteSubProduct.php")
     fun deleteSubProduk(@Field("subProductID") subProductID: String)
     : Call<ResponseDeleteSubProduk>
+
+    // EDIT PRODUK
+    @FormUrlEncoded
+    @POST("product/editProduct.php")
+    fun editProduk (@Field("productID") productID: String,
+                    @Field("productName") productName: String,
+                    @Field("productSupplier") productSupplier: String,
+                    @Field("productPhoto") productPhoto: String) : Call<ResponseEditProduk>
+
+    // EDIT SUB PRODUK
+    @FormUrlEncoded
+    @POST("product/editSubProduct.php")
+    fun editSubProduk (@Field("subProductID") subProductID: String,
+                       @Field("productID") productID: String,
+                       @Field("subProductName") subProductName: String,
+                       @Field("subProductSize") subProductSize: String,
+                       @Field("subProductCode") subProductCode: String,
+                       @Field("subProductPhoto") subProductPhoto: String,
+                       @Field("hargaBeliBox") hargaBeliBox: String,
+                       @Field("hargaBeliPcs") hargaBeliPcs: String,
+                       @Field("hargaJualCashWholesale") hargaJualCashWholesale: String,
+                       @Field("hargaJualCashBox") hargaJualCashBox: String,
+                       @Field("hargaJualCashPcs") hargaJualCashPcs: String,
+                       @Field("hargaJualTempoWholesale") hargaJualTempoWholesale: String,
+                       @Field("hargaJualTempoBox") hargaJualTempoBox: String,
+                       @Field("hargaJualTempoPcs") hargaJualTempoPcs: String) : Call<ResponseEditSubProduk>
+
 }

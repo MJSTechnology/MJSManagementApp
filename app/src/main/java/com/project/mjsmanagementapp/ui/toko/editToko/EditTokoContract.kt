@@ -4,7 +4,6 @@ import com.project.mjsmanagementapp.model.toko.picSales.ResultItem
 
 interface EditTokoContract {
 
-    // Delete Toko
     fun onSuccessEdit(response: String)
     fun onErrorEdit(response: String)
 

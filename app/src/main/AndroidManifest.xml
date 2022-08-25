@@ -22,6 +22,9 @@
         android:theme="@style/Theme.MJSManagementApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.produk.editProduk.EditProdukActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.produk.editSubProduk.EditSubProdukActivity"
             android:exported="false" />
         <activity
