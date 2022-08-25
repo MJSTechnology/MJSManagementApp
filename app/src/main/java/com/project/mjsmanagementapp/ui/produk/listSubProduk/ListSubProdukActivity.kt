@@ -18,13 +18,8 @@ import com.project.mjsmanagementapp.model.produk.listSubProduk.ResultItem
 import com.project.mjsmanagementapp.ui.produk.addSubProduk.AddSubProdukActivity
 import com.project.mjsmanagementapp.ui.produk.detailSubProduk.DetailSubProdukActivity
 import com.project.mjsmanagementapp.ui.produk.editProduk.EditProdukActivity
-import com.project.mjsmanagementapp.ui.produk.listProduk.ListProdukActivity
-import com.project.mjsmanagementapp.ui.toko.editToko.EditTokoActivity
-import kotlinx.android.synthetic.main.itemlistsubproduk.view.*
-
 import kotlinx.android.synthetic.main.listsubproduk_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.startActivity
 
 class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
 
@@ -56,6 +51,18 @@ class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
             intent.putExtra("productName", inProductName)
             intent.putExtra("productSupplier", inProductSupplier)
             intent.putExtra("productPhoto", inProductPhoto)
+            startActivity(intent)
+        }
+
+        btnTambahSubProduk.onClick {
+            presenter = ListSubProdukPresenter(this@ListSubProdukActivity)
+            val itemDetailItem = intent.getSerializableExtra("itemDetail")
+            val item = itemDetailItem as ResponseListProdukItem?
+            presenter.getListSubProduk(item?.productID)
+
+            val inProductID = item?.productID
+            val intent = Intent(this@ListSubProdukActivity, AddSubProdukActivity::class.java)
+            intent.putExtra("produkId", inProductID)
             startActivity(intent)
         }
     }
@@ -91,14 +98,6 @@ class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
     }
 
 
-    override fun onResume() {
-        super.onResume()
-        getListSubProduk()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
 
     override fun onSuccessGetListSubProduk(data: List<ResultItem>?) {
 
@@ -106,7 +105,7 @@ class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
             override fun clicked(item: ResultItem?) {
                 //startActivity<DetailSubProdukActivity>("itemDetailSub" to item)
                 val intent = Intent(this@ListSubProdukActivity,DetailSubProdukActivity::class.java);
-                intent.putExtra("itemDetailSub", item?.productID)
+                intent.putExtra("itemDetailSub", item?.subProductID)
                 startActivity(intent)
 
             }
@@ -115,7 +114,7 @@ class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
         listProdukAdapterKode = ListSubProdukAdapter(data, object : ListSubProdukAdapter.onClickItem{
             override fun clicked(item: ResultItem?) {
                 val intent = Intent(this@ListSubProdukActivity,DetailSubProdukActivity::class.java);
-                intent.putExtra("itemDetailSub", item?.productID)
+                intent.putExtra("itemDetailSub", item?.subProductID)
                 startActivity(intent)
             }
         })

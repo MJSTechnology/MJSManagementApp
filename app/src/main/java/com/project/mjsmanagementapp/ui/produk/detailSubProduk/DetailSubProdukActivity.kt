@@ -33,9 +33,7 @@ class DetailSubProdukActivity : AppCompatActivity(), DetailSubProdukActivityCont
         setContentView(R.layout.detailsubproduk_activity)
         presenter = DetailSubProdukActivityPresenter(this)
 
-        var idSubProduk : String? = intent.getStringExtra("itemDetailSub")
-        idSubProduk?.let { presenter.getDetailSubProduk(it) }
-        Log.d("Tes_ID", idSubProduk.toString())
+
 
         btnImgBack.onClick {
             finish()
@@ -52,9 +50,9 @@ class DetailSubProdukActivity : AppCompatActivity(), DetailSubProdukActivityCont
 
     private fun getDetailSubProduk() {
 
-        /*val itemDetailItem = intent.getSerializableExtra("itemDetailSub")
-        val item = itemDetailItem as ResultItem?
-        item?.subProductID?.let { presenter.getDetailSubProduk(it) }*/
+        var idSubProduk : String? = intent.getStringExtra("itemDetailSub")
+        idSubProduk?.let { presenter.getDetailSubProduk(it) }
+        Log.d("Tes_ID", idSubProduk.toString())
 
     }
 
