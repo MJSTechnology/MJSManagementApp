@@ -7,11 +7,17 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.project.mjsmanagementapp.R
+import com.project.mjsmanagementapp.data.ApiClient
 import com.project.mjsmanagementapp.model.produk.getDetailSubProduk.ResponseDetailSubProduk
 import com.project.mjsmanagementapp.ui.produk.editSubProduk.EditSubProdukActivity
 import kotlinx.android.synthetic.main.detailsubproduk_activity.*
 import kotlinx.android.synthetic.main.detailsuplier_activity.*
+import kotlinx.android.synthetic.main.detailtoko_activity.*
 import kotlinx.android.synthetic.main.popuphapussubproduk.view.*
 import kotlinx.android.synthetic.main.popuphapussuplier.view.*
 import kotlinx.android.synthetic.main.popuphapussuplier.view.btn_confirmDelete
@@ -68,6 +74,31 @@ class DetailSubProdukActivity : AppCompatActivity(), DetailSubProdukActivityCont
         txtRitelTempoBox.setText(response.hargaJualTempoBox)
         txtWholesaleCashBox.setText(response.hargaJualCashWholesale)
         txtWholesaleTempoBox.setText(response.hargaJualTempoWholesale)
+
+        Glide.with(this)
+            .load(ApiClient.BASE_URL + response.subProductPhoto)
+            .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+            .apply(RequestOptions.skipMemoryCacheOf(true))
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(findViewById(R.id.imgSubProduk))
+
+        imgSubProduk.onClick {
+            val view = View.inflate(this@DetailSubProdukActivity, R.layout.itemfoto_subproduk, null)
+
+            val builder = AlertDialog.Builder(this@DetailSubProdukActivity)
+            builder.setView(view)
+
+            val dialog = builder.create()
+            dialog.show()
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog.setCancelable(true)
+
+            Glide.with(this@DetailSubProdukActivity)
+                .load(ApiClient.BASE_URL + response.subProductPhoto)
+                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+                .apply(RequestOptions.skipMemoryCacheOf(true))
+                .into(view.findViewById(R.id.detailFotoSubProduk))
+        }
 
 
         btnEditSubProduk.onClick {

@@ -68,7 +68,6 @@ class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
         rvListSubProduk1.layoutManager = LinearLayoutManager(this)
 
 
-
     }
 
 
@@ -92,7 +91,6 @@ class ListSubProdukActivity : AppCompatActivity(),ListSubProdukContract {
 
             }
         })
-
 
 
     }
