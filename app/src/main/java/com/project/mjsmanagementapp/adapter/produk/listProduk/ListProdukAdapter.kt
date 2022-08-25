@@ -43,6 +43,7 @@ class ListProdukAdapter(val data:List<ResponseListProdukItem>?, private val clic
             Glide.with(itemView.context)
                 .load(ApiClient.BASE_URL + get?.productPhoto)
                 .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+                .apply(RequestOptions.skipMemoryCacheOf(true))
                 .into(itemView.imgProduk)
         }
     }

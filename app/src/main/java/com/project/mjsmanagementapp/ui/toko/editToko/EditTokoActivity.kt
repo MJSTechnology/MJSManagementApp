@@ -142,7 +142,7 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
 
 
     fun setDataFromIntentExtra() {
-
+        presenter = EditTokoPresenter(this)
         val intent = intent
         val intentTokoNama = intent.getStringExtra("tokoNama")
         val intentTokoAlamat = intent.getStringExtra("tokoAlamat")

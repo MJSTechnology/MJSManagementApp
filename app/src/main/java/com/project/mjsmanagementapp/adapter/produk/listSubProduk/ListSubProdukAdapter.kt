@@ -41,6 +41,7 @@ class ListSubProdukAdapter(val data: List<ResultItem>?, private val click: ListS
             Glide.with(itemView.context)
                 .load(ApiClient.BASE_URL + get?.subProductPhoto)
                 .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+                .apply(RequestOptions.skipMemoryCacheOf(true))
                 .into(itemView.imgJenisProduk)
         }
     }

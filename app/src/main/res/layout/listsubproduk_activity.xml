@@ -172,7 +172,7 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/btnEditSubProduk"
+            android:id="@+id/btnEditProduk"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Edit"
