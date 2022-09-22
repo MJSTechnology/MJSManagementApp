@@ -58,27 +58,27 @@ object UserToken {
 
     fun clearToken() {
         UserApp.run {
-            getContext().getSharedPreferences(
+            getContext()?.getSharedPreferences(
                 SESSION_USER,
                 Context.MODE_PRIVATE
-            ).edit().clear().commit()
+            )?.edit()?.clear()?.commit()
         }
     }
 
     private fun commitValue(tag: String, value: String?) {
         val memory = UserApp.getContext()
-            .getSharedPreferences(SESSION_USER, Context.MODE_PRIVATE)
+            ?.getSharedPreferences(SESSION_USER, Context.MODE_PRIVATE)
 
         memory
-            .edit()
-            .putString(tag, value)
-            .apply()
+            ?.edit()
+            ?.putString(tag, value)
+            ?.apply()
     }
 
     private fun getValue(tag: String): String? {
         val memory = UserApp.getContext()
-            .getSharedPreferences(SESSION_USER, Context.MODE_PRIVATE)
+            ?.getSharedPreferences(SESSION_USER, Context.MODE_PRIVATE)
 
-        return memory.getString(tag, "")
+        return memory?.getString(tag, "")
     }
 }

@@ -5,80 +5,39 @@
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.2265625" />
         <entry key="../../../../Library/Android/sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.13179347826086957" />
-        <entry key="../../Documents/sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.1" />
-        <entry key="../../Documents/sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.13768115942028986" />
-        <entry key="../../../../layout/custom_preview.xml" value="0.14178657074340528" />
         <entry key="app/src/main/res/drawable/ic_add_square.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_arrowright.xml" value="0.1415" />
-        <entry key="app/src/main/res/drawable/ic_buyicon.xml" value="0.1275" />
-        <entry key="app/src/main/res/drawable/ic_cameraadd.xml" value="0.1275" />
         <entry key="app/src/main/res/drawable/ic_logo_homepage.xml" value="0.1415" />
         <entry key="app/src/main/res/drawable/ic_logo_login.xml" value="0.1415" />
         <entry key="app/src/main/res/drawable/ic_logoicon.xml" value="0.1415" />
-        <entry key="app/src/main/res/drawable/ic_sellicon.xml" value="0.1275" />
         <entry key="app/src/main/res/drawable/ic_tokobg_homepage.xml" value="0.155" />
-        <entry key="app/src/main/res/drawable/listproduk_activity.xml" value="0.1275" />
         <entry key="app/src/main/res/layout/activity_add_maps_toko.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/activity_add_toko.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/activity_detail_maps_toko.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/activity_edit_maps_toko.xml" value="0.26806819749915084" />
         <entry key="app/src/main/res/layout/activity_edit_toko.xml" value="0.13179347826086957" />
-        <entry key="app/src/main/res/layout/activity_history.xml" value="0.909375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13179347826086957" />
-        <entry key="app/src/main/res/layout/detailpopembelian_activity.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/detailpopenjualan_activity.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/detailsubproduk_activity.xml" value="0.20995635986328126" />
         <entry key="app/src/main/res/layout/detailsuplier_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/detailtoko_activity.xml" value="0.23679185232336092" />
-        <entry key="app/src/main/res/layout/editmenuproduk_activity.xml" value="0.13179347826086957" />
-        <entry key="app/src/main/res/layout/editproduk_activity.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/editsubproduk_activity.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/editsuplier_activity.xml" value="0.1" />
         <entry key="app/src/main/res/layout/edittoko_activity.xml" value="0.13179347826086957" />
-        <entry key="app/src/main/res/layout/historitransaksi_activity.xml" value="0.2292570611581362" />
-        <entry key="app/src/main/res/layout/homepage_activity.xml" value="0.33852691650390626" />
-        <entry key="app/src/main/res/layout/itemfoto_produk.xml" value="0.19947916666666668" />
-        <entry key="app/src/main/res/layout/itemfoto_subproduk.xml" value="0.19947916666666668" />
+        <entry key="app/src/main/res/layout/historitransaksi_activity.xml" value="0.19537037037037036" />
+        <entry key="app/src/main/res/layout/homepage_activity.xml" value="0.24762115478515626" />
         <entry key="app/src/main/res/layout/itemfoto_toko.xml" value="0.14175724637681159" />
-        <entry key="app/src/main/res/layout/itemlistjenisproduk.xml" value="0.13179347826086957" />
-        <entry key="app/src/main/res/layout/itemlistpopembelian.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/itemlistpopenjualan.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/itemlistproduk.xml" value="0.25751064134680707" />
-        <entry key="app/src/main/res/layout/itemlistprodukbeli.xml" value="0.22718528595205095" />
-        <entry key="app/src/main/res/layout/itemlistsubproduk.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/itemlistpopembelian.xml" value="0.19537037037037036" />
         <entry key="app/src/main/res/layout/itemlistsuplier.xml" value="0.13179347826086957" />
+        <entry key="app/src/main/res/layout/itemlistsuplierpembelian.xml" value="0.19947916666666668" />
         <entry key="app/src/main/res/layout/itemlisttoko.xml" value="0.20814361572265633" />
-        <entry key="app/src/main/res/layout/listpopembelian_activity.xml" value="0.24292144775390626" />
-        <entry key="app/src/main/res/layout/listpopenjualan_activity.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/listproduk_activity.xml" value="0.13179347826086957" />
-        <entry key="app/src/main/res/layout/listsubproduk_activity.xml" value="0.11270599365234377" />
-        <entry key="app/src/main/res/layout/listproduk_activity.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/listsubproduk_activity.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/layout/listpopembelian_activity.xml" value="0.19537037037037036" />
         <entry key="app/src/main/res/layout/listsuplier_activity.xml" value="0.13179347826086957" />
-        <entry key="app/src/main/res/layout/listsuplierpembelian_activity.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/listsuplierpembelian_activity.xml" value="0.19537037037037036" />
         <entry key="app/src/main/res/layout/listtoko_activity.xml" value="0.1913622648819633" />
-        <entry key="app/src/main/res/layout/listtokopenjualan_activity.xml" value="0.2" />
         <entry key="app/src/main/res/layout/login_activity.xml" value="0.13179347826086957" />
-        <entry key="app/src/main/res/layout/menuproduk_activity.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/popupaddsuplier.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/popupaddtoko.xml" value="0.14175724637681159" />
-        <entry key="app/src/main/res/layout/popuphapusproduk.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/popuphapussubproduk.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/popuphapussuplier.xml" value="0.19537037037037036" />
         <entry key="app/src/main/res/layout/popuphapustoko.xml" value="0.14175724637681159" />
-        <entry key="app/src/main/res/layout/produklist_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/profile_activity.xml" value="0.23097826086956522" />
         <entry key="app/src/main/res/layout/splashscreen_activity.xml" value="0.13179347826086957" />
-        <entry key="app/src/main/res/layout/tamabhpopembelian_activity.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/tambahpopembelian_activity.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/tambahpopenjualan_activity.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/tambahproduk_activity.xml" value="0.13179347826086957" />
-        <entry key="app/src/main/res/layout/tambahprodukpobeli_activity.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/tambahprodukpojual_activity.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/tambahsubproduk_activity.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/tambahsuplier_activity.xml" value="0.25096130371093756" />
         <entry key="app/src/main/res/layout/tambahtoko_activity.xml" value="0.15624542236328123" />
-        <entry key="app/src/main/res/layout/tokolist_activity.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/tokolist_activity.xml" value="0.22917081705729164" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1415" />
       </map>
     </option>

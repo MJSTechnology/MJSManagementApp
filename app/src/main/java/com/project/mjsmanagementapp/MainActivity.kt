@@ -13,6 +13,7 @@ import com.project.mjsmanagementapp.ui.produk.listProduk.ListProdukActivity
 import com.project.mjsmanagementapp.ui.profile.ProfileActivity
 import com.project.mjsmanagementapp.ui.suplier.listSuplier.ListSuplierActivity
 import com.project.mjsmanagementapp.ui.toko.listToko.ListTokoActivity
+import com.project.mjsmanagementapp.ui.transaksi.MenuTransaksiActivity
 import kotlinx.android.synthetic.main.homepage_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
@@ -26,6 +27,10 @@ class MainActivity : AppCompatActivity(),MainActivityContract {
         setContentView(R.layout.homepage_activity)
 
         getAttributeHome()
+
+        riwayatbtn.onClick {
+            startActivity<MenuTransaksiActivity>()
+        }
 
         suplierbtn.onClick {
             startActivity<ListSuplierActivity>()
