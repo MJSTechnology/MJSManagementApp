@@ -194,14 +194,32 @@
                         android:layout_margin="5dp">
 
                         <TextView
-                            android:id="@+id/txtHargaBeliPerPcs"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Rp. 0"
+                            android:text="Rp"
                             android:textSize="15sp"
                             android:paddingTop="5dp"
                             android:paddingLeft="5dp"/>
+
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_margin="5dp">
+
+                        <TextView
+                            android:id="@+id/txtHargaBeliPerPcs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="15sp"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="30dp"/>
+
+                    </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
 
 
@@ -228,13 +246,29 @@
                         android:layout_margin="5dp">
 
                         <TextView
-                            android:id="@+id/txtHargaBeliPerBox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Rp. 0"
+                            android:text="Rp"
                             android:textSize="15sp"
                             android:paddingTop="5dp"
                             android:paddingLeft="5dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_margin="5dp">
+
+                        <TextView
+                            android:id="@+id/txtHargaBeliPerBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="15sp"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="30dp"/>
+
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -281,13 +315,27 @@
                         android:layout_margin="5dp">
 
                         <TextView
-                            android:id="@+id/txtRitelCashPcs"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Rp. 0"
+                            android:text="Rp"
                             android:textSize="15sp"
                             android:paddingTop="5dp"
                             android:paddingLeft="5dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_margin="5dp">
+                        <TextView
+                            android:id="@+id/txtRitelCashPcs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="15sp"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="30dp"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -315,13 +363,27 @@
                         android:layout_margin="5dp">
 
                         <TextView
-                            android:id="@+id/txtRitelCashBox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Rp. 0"
+                            android:text="Rp"
                             android:textSize="15sp"
                             android:paddingTop="5dp"
                             android:paddingLeft="5dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_margin="5dp">
+                        <TextView
+                            android:id="@+id/txtRitelCashBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="15sp"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="30dp"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -358,13 +420,27 @@
                         android:layout_margin="5dp">
 
                         <TextView
-                            android:id="@+id/txtRitelTempoPcs"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Rp. 0"
+                            android:text="Rp"
                             android:textSize="15sp"
                             android:paddingTop="5dp"
                             android:paddingLeft="5dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_margin="5dp">
+                        <TextView
+                            android:id="@+id/txtRitelTempoPcs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="15sp"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="30dp"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -392,13 +468,27 @@
                         android:layout_margin="5dp">
 
                         <TextView
-                            android:id="@+id/txtRitelTempoBox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Rp. 0"
+                            android:text="Rp"
                             android:textSize="15sp"
                             android:paddingTop="5dp"
                             android:paddingLeft="5dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_margin="5dp">
+                        <TextView
+                            android:id="@+id/txtRitelTempoBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="15sp"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="30dp"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -444,13 +534,27 @@
                         android:layout_margin="5dp">
 
                         <TextView
-                            android:id="@+id/txtWholesaleCashBox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Rp. 0"
+                            android:text="Rp"
                             android:textSize="15sp"
                             android:paddingTop="5dp"
                             android:paddingLeft="5dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_margin="5dp">
+                        <TextView
+                            android:id="@+id/txtWholesaleCashBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="15sp"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="30dp"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -488,13 +592,27 @@
                         android:layout_margin="5dp">
 
                         <TextView
-                            android:id="@+id/txtWholesaleTempoBox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Rp. 0"
+                            android:text="Rp"
                             android:textSize="15sp"
                             android:paddingTop="5dp"
                             android:paddingLeft="5dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_margin="5dp">
+                        <TextView
+                            android:id="@+id/txtWholesaleTempoBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="15sp"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="30dp"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 

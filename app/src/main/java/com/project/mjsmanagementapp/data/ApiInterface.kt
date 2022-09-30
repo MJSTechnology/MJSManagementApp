@@ -3,9 +3,11 @@ package com.project.mjsmanagementapp.data
 
 import com.project.mjsmanagementapp.model.produk.addProduk.ResponseAddProduk
 import com.project.mjsmanagementapp.model.produk.addSubProduk.ResponseAddSubProduk
+import com.project.mjsmanagementapp.model.produk.deleteProduk.ResponseDeleteProduk
 import com.project.mjsmanagementapp.model.produk.deleteSubProduk.ResponseDeleteSubProduk
 import com.project.mjsmanagementapp.model.produk.editProduk.ResponseEditProduk
 import com.project.mjsmanagementapp.model.produk.editSubProduk.ResponseEditSubProduk
+import com.project.mjsmanagementapp.model.produk.getDetailProduk.ResponseDetailProduk
 import com.project.mjsmanagementapp.model.produk.getDetailSubProduk.ResponseDetailSubProduk
 import com.project.mjsmanagementapp.model.produk.getSupplierForProduct.ResponseGetSupplierForProduct
 import com.project.mjsmanagementapp.model.produk.listProduk.ResponseListProdukItem
@@ -209,6 +211,12 @@ interface ApiInterface {
                   @Field("productPhoto") productPhoto: String)
             : Call<ResponseAddProduk>
 
+    //GET DETAIL PRODUK
+    @FormUrlEncoded
+    @POST("product/getDetailProduct.php")
+    fun getDetailProduk(@Field("productID") productID: String)
+            : Call<ResponseDetailProduk>
+
 
     //GET DETAIL SUB PRODUK
     @FormUrlEncoded
@@ -222,6 +230,12 @@ interface ApiInterface {
     @POST("product/deleteSubProduct.php")
     fun deleteSubProduk(@Field("subProductID") subProductID: String)
     : Call<ResponseDeleteSubProduk>
+
+    //DELETE PRODUK
+    @FormUrlEncoded
+    @POST("product/deleteProduct.php")
+    fun deleteProduk(@Field("productID") productID: String)
+            : Call<ResponseDeleteProduk>
 
     //ADD SUB PRODUK
     @FormUrlEncoded

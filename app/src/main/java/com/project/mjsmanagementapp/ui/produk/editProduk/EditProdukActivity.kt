@@ -2,7 +2,6 @@ package com.project.mjsmanagementapp.ui.produk.editProduk
 
 import android.content.Intent
 import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Base64
@@ -11,18 +10,22 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.project.mjsmanagementapp.MainActivity
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.data.ApiClient
 import com.project.mjsmanagementapp.model.produk.getSupplierForProduct.ResultItem
-import com.project.mjsmanagementapp.ui.toko.editToko.EditTokoPresenter
+import com.project.mjsmanagementapp.ui.produk.listProduk.ListProdukActivity
 import kotlinx.android.synthetic.main.editproduk_activity.*
-import kotlinx.android.synthetic.main.edittoko_activity.*
+import kotlinx.android.synthetic.main.popuphapussuplier.view.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import java.io.ByteArrayOutputStream
 import java.io.IOException
+
 
 class EditProdukActivity : AppCompatActivity(), EditProdukContract {
     private lateinit var presenter: EditProdukPresenter
@@ -61,6 +64,29 @@ class EditProdukActivity : AppCompatActivity(), EditProdukContract {
 
             presenter.editProduk(productID.toString(), productName.capitalizeWords(), spinnerIdResponse.toString(), productPhoto)
 
+        }
+
+        btnHapusProduk.onClick {
+            val intent = intent
+            val productID = intent.getStringExtra("productID")
+
+            val view = View.inflate(this@EditProdukActivity, R.layout.popuphapusproduk, null)
+
+            val builder = AlertDialog.Builder(this@EditProdukActivity)
+            builder.setView(view)
+
+            val dialog = builder.create()
+            dialog.show()
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog.setCancelable(true)
+
+            view.btn_confirmDelete.setOnClickListener {
+                if (view.edtKonfirmDelete.text.toString() == "Saya Yakin"){
+                    presenter.deleteProduk(productID.toString())
+                }else{
+                    Toast.makeText(this@EditProdukActivity, "Ketik 'Saya Yakin' untuk menghapus!", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
     }
@@ -137,6 +163,17 @@ class EditProdukActivity : AppCompatActivity(), EditProdukContract {
     }
 
     override fun onErrorEditProduk(response: String) {
+        Toast.makeText(applicationContext, response, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onSuccessDeleteProduk(response: String) {
+        Toast.makeText(applicationContext, response, Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, ListProdukActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
+    }
+
+    override fun onErrorDeleteProduk(response: String) {
         Toast.makeText(applicationContext, response, Toast.LENGTH_SHORT).show()
     }
 

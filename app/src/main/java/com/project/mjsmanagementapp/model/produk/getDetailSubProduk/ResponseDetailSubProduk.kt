@@ -14,7 +14,7 @@ data class ResponseDetailSubProduk(
 	val subProductPhoto: String? = null,
 
 	@field:SerializedName("productID")
-	val productID: Int? = null,
+	val productID: String? = null,
 
 	@field:SerializedName("hargaJualTempoPcs")
 	val hargaJualTempoPcs: String? = null,
@@ -41,7 +41,7 @@ data class ResponseDetailSubProduk(
 	val hargaJualCashBox: String? = null,
 
 	@field:SerializedName("subProductID")
-	val subProductID: Int? = null,
+	val subProductID: String? = null,
 
 	@field:SerializedName("hargaJualTempoBox")
 	val hargaJualTempoBox: String? = null

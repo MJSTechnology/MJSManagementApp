@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.popuphapussuplier.view.*
 import kotlinx.android.synthetic.main.popuphapussuplier.view.btn_confirmDelete
 import kotlinx.android.synthetic.main.popuphapussuplier.view.edtKonfirmDelete
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import java.util.*
 
 class DetailSubProdukActivity : AppCompatActivity(), DetailSubProdukActivityContract {
 
@@ -64,14 +65,14 @@ class DetailSubProdukActivity : AppCompatActivity(), DetailSubProdukActivityCont
         txtNamaSubProduk.setText(response.subProductName)
         txtKodeProduk.setText(response.subProductCode)
         txtSizeProduk.setText(response.subProductSize)
-        txtHargaBeliPerPcs.setText(response.hargaBeliPcs)
-        txtHargaBeliPerBox.setText(response.hargaBeliBox)
-        txtRitelCashPcs.setText(response.hargaJualCashPcs)
-        txtRitelCashBox.setText(response.hargaJualCashBox)
-        txtRitelTempoPcs.setText(response.hargaJualTempoPcs)
-        txtRitelTempoBox.setText(response.hargaJualTempoBox)
-        txtWholesaleCashBox.setText(response.hargaJualCashWholesale)
-        txtWholesaleTempoBox.setText(response.hargaJualTempoWholesale)
+        txtHargaBeliPerPcs.setText(String.format(Locale.getDefault(), "%,d", response.hargaBeliPcs!!.toInt()))
+        txtHargaBeliPerBox.setText(String.format(Locale.getDefault(), "%,d", response.hargaBeliBox!!.toInt()))
+        txtRitelCashPcs.setText(String.format(Locale.getDefault(), "%,d", response.hargaJualCashPcs!!.toInt()))
+        txtRitelCashBox.setText(String.format(Locale.getDefault(), "%,d", response.hargaJualCashBox!!.toInt()))
+        txtRitelTempoPcs.setText(String.format(Locale.getDefault(), "%,d", response.hargaJualTempoPcs!!.toInt()))
+        txtRitelTempoBox.setText(String.format(Locale.getDefault(), "%,d", response.hargaJualTempoBox!!.toInt()))
+        txtWholesaleCashBox.setText(String.format(Locale.getDefault(), "%,d", response.hargaJualCashWholesale!!.toInt()))
+        txtWholesaleTempoBox.setText(String.format(Locale.getDefault(), "%,d", response.hargaJualTempoWholesale!!.toInt()))
 
         Glide.with(this)
             .load(ApiClient.BASE_URL + response.subProductPhoto)

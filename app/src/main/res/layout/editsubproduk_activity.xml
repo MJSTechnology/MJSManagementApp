@@ -113,6 +113,22 @@
                     android:hint="Kode Sub Produk"
                     android:textSize="15sp"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Size Produk"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/edtSizeSubProduk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Size Sub Produk"
+                    android:textSize="15sp"/>
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -418,7 +434,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/btnTambahSubProduk"
+                    android:id="@+id/btnSimpanSubProduk"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="30dp"

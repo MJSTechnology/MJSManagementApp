@@ -3,6 +3,7 @@ package com.project.mjsmanagementapp.ui.produk.editProduk
 import android.util.Log
 import android.view.View
 import com.project.mjsmanagementapp.data.ApiClient
+import com.project.mjsmanagementapp.model.produk.deleteProduk.ResponseDeleteProduk
 import com.project.mjsmanagementapp.model.produk.editProduk.ResponseEditProduk
 import com.project.mjsmanagementapp.model.produk.getSupplierForProduct.ResponseGetSupplierForProduct
 import com.project.mjsmanagementapp.model.produk.getSupplierForProduct.ResultItem
@@ -35,6 +36,27 @@ class EditProdukPresenter (val contract: EditProdukContract) {
             }))
     }
 
+    fun deleteProduk(productID: String){
+        ApiClient.getService().deleteProduk(productID)
+            .enqueue((object : retrofit2.Callback<ResponseDeleteProduk>{
+                override fun onResponse(
+                    call: Call<ResponseDeleteProduk>,
+                    response: Response<ResponseDeleteProduk>
+                ) {
+                    if (response.isSuccessful && response.body()?.status == 200){
+                        contract.onSuccessDeleteProduk(response.body()?.message ?: "")
+                    }else{
+                        contract.onErrorDeleteProduk(response.body()?.message ?: "")
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseDeleteProduk>, t: Throwable) {
+                    contract.onErrorDeleteProduk(t.localizedMessage)
+                    Log.d("Error", "Error Delete")
+                }
+
+            }))
+    }
 
 
     fun getSupplierForProduct(){
