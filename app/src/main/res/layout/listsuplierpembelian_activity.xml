@@ -75,7 +75,7 @@
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.SearchView
-                        android:id="@+id/svListPembelian"
+                        android:id="@+id/svListPembelianSuplier"
                         android:layout_width="match_parent"
                         android:layout_height="37dp"
                         android:layout_marginRight="40dp"

@@ -41,4 +41,33 @@ class ListBuyCategorySuplierActivityPresenter(val contract: ListBuyCategorySupli
             })
     }
 
+
+
+    fun getSearchListBuySuplier(progressBar: ProgressBar){
+        progressBar.visibility = View.VISIBLE
+
+        ApiClient.getService().getSearchListBuyCategorySuplier()
+            .enqueue(object : retrofit2.Callback<List<ResponseListTrcBuyCategorySuplierItem>>{
+                override fun onResponse(
+                    call: Call<List<ResponseListTrcBuyCategorySuplierItem>>,
+                    response: Response<List<ResponseListTrcBuyCategorySuplierItem>>) {
+                    if (response.isSuccessful){
+                        contract.onSuccesGetSearchListBuySuplier(response.body())
+                        progressBar.visibility = View.GONE
+                    }else{
+                        contract.onFailedGetSearchListBuySuplier(response.message())
+                        Log.d("Error Data: ", "Error Search")
+                    }
+                }
+
+                override fun onFailure(
+                    call: Call<List<ResponseListTrcBuyCategorySuplierItem>>, t: Throwable) {
+                    contract.onFailedGetSearchListBuySuplier(t.localizedMessage)
+                    Log.d("Error", t.localizedMessage)
+                    progressBar.visibility = View.GONE
+                }
+            })
+
+    }
+
 }

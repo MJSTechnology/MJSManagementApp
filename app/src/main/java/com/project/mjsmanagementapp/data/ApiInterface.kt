@@ -276,5 +276,8 @@ interface ApiInterface {
     @GET("transaction_buy/getListTrcBuyCategoryBySupplier.php")
     fun getListTrcBuyCategorySuplier(): Call<List<ResponseListTrcBuyCategorySuplierItem>>
 
+    @GET("transaction_buy/getListTrcBuyCategoryBySupplier.php")
+    fun getSearchListBuyCategorySuplier(): Call<List<ResponseListTrcBuyCategorySuplierItem>>
+
 
 }
