@@ -2,6 +2,7 @@ package com.project.mjsmanagementapp.ui.produk.listSubProduk
 
 import android.util.Log
 import com.project.mjsmanagementapp.data.ApiClient
+import com.project.mjsmanagementapp.model.produk.getDetailProduk.ResponseDetailProduk
 import com.project.mjsmanagementapp.model.produk.listSubProduk.ResponseListSubProduct
 import com.project.mjsmanagementapp.model.produk.listSubProduk.ResultItem
 import retrofit2.Call
@@ -29,5 +30,28 @@ class ListSubProdukPresenter(val contract: ListSubProdukContract) {
             }
 
         })
+    }
+
+    fun getDetailProduk(productID: String){
+        ApiClient.getService().getDetailProduk(productID)
+            .enqueue(object : retrofit2.Callback<ResponseDetailProduk>{
+                override fun onResponse(
+                    call: Call<ResponseDetailProduk>,
+                    response: Response<ResponseDetailProduk>
+                ) {
+                    if(response.isSuccessful){
+                        response.body()?.let { contract.onSuccessGetDetailProduk(it) }
+                    }else{
+                        contract.onErrorGetDetailProduk(response.message())
+                        Log.d("Error :", "Error Data")
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseDetailProduk>, t: Throwable) {
+                    contract.onErrorGetDetailProduk(t.localizedMessage)
+                    Log.d("Error : ", t.localizedMessage)
+                }
+
+            })
     }
 }

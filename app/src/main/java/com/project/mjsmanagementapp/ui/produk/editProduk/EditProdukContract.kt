@@ -7,6 +7,9 @@ interface EditProdukContract {
     fun onSuccessEditProduk(response: String)
     fun onErrorEditProduk(response: String)
 
+    fun onSuccessDeleteProduk(response: String)
+    fun onErrorDeleteProduk(response: String)
+
     fun onSuccesGetSupplierForProduct(response: List<ResultItem>?)
     fun onErrorGetSupplierForProduct(msg: String?)
 }
