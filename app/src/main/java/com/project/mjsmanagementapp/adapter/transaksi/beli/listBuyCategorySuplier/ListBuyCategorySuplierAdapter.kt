@@ -5,8 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.project.mjsmanagementapp.R
-import com.project.mjsmanagementapp.adapter.transaksi.beli.listBuyCategory.ListBuyCategoryAdapter
-import com.project.mjsmanagementapp.model.transaksi.beli.getListTrcBuyCategory.ResponseListTrcBuyCategoryItem
 import com.project.mjsmanagementapp.model.transaksi.beli.getListTrcBuyCategorySuplier.ResponseListTrcBuyCategorySuplierItem
 import kotlinx.android.synthetic.main.itemlistsuplierpembelian.view.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
