@@ -1,8 +1,8 @@
-package com.project.mjsmanagementapp.model.transaksi.beli.getListTrcBuyCategory
+package com.project.mjsmanagementapp.model.transaksi.beli.getListTrcBuyKategori
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseListTrcBuyCategoryItem(
+data class ResponseListTrcBuyKategoriItem(
 
 	@field:SerializedName("trcBuyCategoryID")
 	val trcBuyCategoryID: String? = null,
@@ -17,5 +17,8 @@ data class ResponseListTrcBuyCategoryItem(
 	val trcBuyCategoryPic: String? = null,
 
 	@field:SerializedName("trcBuyCategorySupplier")
-	val trcBuyCategorySupplier: String? = null
+	val trcBuyCategorySupplier: String? = null,
+
+	@field:SerializedName("trcBuyCategoryPayment")
+	val trcBuyCategoryPayment: String? = null
 )

@@ -30,15 +30,6 @@
                     android:textColor="@color/color_base"
                     android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/txtNamaPic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:text="Nama PIC"
-                    android:textColor="@color/color_base"
-                    android:textSize="18sp" />
-
             </RelativeLayout>
 
             <TextView

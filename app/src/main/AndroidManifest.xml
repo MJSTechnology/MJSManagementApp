@@ -22,6 +22,9 @@
         android:theme="@style/Theme.MJSManagementApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.transaksi.beli.listBuyKategori.ListBuyKategoriActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.transaksi.beli.listBuyCategorySuplier.ListBuyCategorySuplierActivity"
             android:exported="false" />
         <activity
