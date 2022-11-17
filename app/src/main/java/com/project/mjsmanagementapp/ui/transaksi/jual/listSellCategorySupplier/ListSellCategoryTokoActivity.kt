@@ -5,7 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.mjsmanagementapp.R
-import com.project.mjsmanagementapp.adapter.transaksi.jual.ListSellCategoryTokoAdapter
+import com.project.mjsmanagementapp.adapter.transaksi.jual.listSellCategoryToko.ListSellCategoryTokoAdapter
 import com.project.mjsmanagementapp.model.transaksi.jual.getListTrcSellCategoryToko.ResponseListTrcSellCategoryTokoItem
 import kotlinx.android.synthetic.main.listtokopenjualan_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
