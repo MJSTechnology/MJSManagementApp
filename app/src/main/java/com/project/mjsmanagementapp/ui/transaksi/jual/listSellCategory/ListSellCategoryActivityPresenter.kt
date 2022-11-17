@@ -11,23 +11,19 @@ import retrofit2.Response
 
 class ListSellCategoryActivityPresenter(val contract: ListSellCategoryActivityContract) {
 
-    fun getListSellCategory(progressBar: ProgressBar, trcSellCategoryTokoID: String){
+    fun getListSellCategory(trcSellCategoryTokoID: String?){
 
-        progressBar.visibility = View.VISIBLE
+        //progressBar.visibility = View.VISIBLE
 
         ApiClient.getService().getListTrcSellCategory(trcSellCategoryTokoID)
             .enqueue(object : retrofit2.Callback<ResponseListTrcSellCategory>{
-                override fun onResponse(
-                    call: Call<ResponseListTrcSellCategory>,
-                    response: Response<ResponseListTrcSellCategory>
-                ) {
+                override fun onResponse(call: Call<ResponseListTrcSellCategory>, response: Response<ResponseListTrcSellCategory>) {
                     if (response.isSuccessful){
-
-                        contract.onSuccesGetListSellCategory(response.body())
-                        progressBar.visibility = View.GONE
+                        contract.onSuccesGetListSellCategory(response.body()?.result as List<ResultItem>?)
+                        //progressBar.visibility = View.GONE
                     }else{
                         contract.onErrorGetListSellCategory(response.message())
-                        progressBar.visibility = View.GONE
+                        //progressBar.visibility = View.GONE
                     }
                 }
 
@@ -37,7 +33,7 @@ class ListSellCategoryActivityPresenter(val contract: ListSellCategoryActivityCo
                 ) {
                     contract.onErrorGetListSellCategory(t.localizedMessage)
                     Log.d("Error", "Error Data")
-                    progressBar.visibility = View.GONE
+                    //progressBar.visibility = View.GONE
                 }
             })
     }

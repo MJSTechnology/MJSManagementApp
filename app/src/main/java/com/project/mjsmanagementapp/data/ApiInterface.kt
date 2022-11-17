@@ -285,10 +285,6 @@ interface ApiInterface {
                        @Field("hargaJualTempoPcs") hargaJualTempoPcs: String) : Call<ResponseEditSubProduk>
 
 
-    // GET LIST TRANSAKSI BELI BY CATEGORY
-    @GET("transaction_buy/getListTrcBuyCategory.php")
-    fun getListTrcBuyCategory(): Call<List<ResponseListTrcBuyCategoryItem>>
-
     @GET("transaction_buy/getListTrcBuyCategoryBySupplier.php")
     fun getListTrcBuyCategorySuplier(): Call<List<ResponseListTrcBuyCategorySuplierItem>>
 
@@ -299,5 +295,15 @@ interface ApiInterface {
     @POST("transaction_buy/getListTrcBuyCategory.php")
     fun getListTrcBuyKategori(@Field("trcBuyCategorySupplierID") trcBuyCategorySupplierID: String?)
     : Call<ResponseListTrcBuyKategori>
+
+    @GET("transaction_sell/getListTrcSellCategoryByToko.php")
+    fun getListTrcSellCategoryToko(): Call<List<ResponseListTrcSellCategoryTokoItem>>
+
+    @GET("transaction_sell/getListTrcSellCategoryByToko.php")
+    fun getSearchListTrcSellCategoryToko(): Call<List<ResponseListTrcSellCategoryTokoItem>>
+
+    @FormUrlEncoded
+    @POST("transaction_sell/getListTrcSellCategory.php")
+    fun getListTrcSellCategory(@Field("trcSellCategoryTokoID") trcSellCategoryTokoID : String?) : Call<ResponseListTrcSellCategory>
 
 }

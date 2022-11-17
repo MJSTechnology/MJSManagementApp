@@ -31,7 +31,7 @@
             android:name=".ui.transaksi.MenuTransaksiActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.transaksi.beli.listBuyCategory.ListBuyCategoryActivity"
+            android:name=".ui.transaksi.jual.listSellCategory.ListSellCategoryActiity"
             android:exported="false" />
         <activity
             android:name=".ui.produk.editProduk.EditProdukActivity"

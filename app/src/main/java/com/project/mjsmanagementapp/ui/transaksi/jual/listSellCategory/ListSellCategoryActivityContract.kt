@@ -5,6 +5,6 @@ import com.project.mjsmanagementapp.model.transaksi.jual.getListSellCategory.Res
 
 interface ListSellCategoryActivityContract {
 
-    fun onSuccesGetListSellCategory(data: ResponseListTrcSellCategory?)
+    fun onSuccesGetListSellCategory(data: List<ResultItem>?)
     fun onErrorGetListSellCategory(msg: String)
 }

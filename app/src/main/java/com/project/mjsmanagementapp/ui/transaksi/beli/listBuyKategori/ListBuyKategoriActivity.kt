@@ -51,7 +51,7 @@ class ListBuyKategoriActivity : AppCompatActivity(), ListBuyKategoriActivityCont
 //        Log.d( "getListBuyKategoriID: ",item?.trcBuyCategorySupplierID.toString())
 
         val intent = intent
-        val supplierID = intent.getStringExtra("buySupplierID")
+        val supplierID = intent.getStringExtra("buySuplierID")
         presenter.getListBuyKategori(supplierID)
 
         val linearLayoutManager = LinearLayoutManager(this)

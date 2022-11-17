@@ -28,8 +28,11 @@
         <entry key="app/src/main/res/layout/itemfoto_toko.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/itemlistpopembelian.xml" value="0.19537037037037036" />
         <entry key="app/src/main/res/layout/itemlistsuplier.xml" value="0.13179347826086957" />
+        <entry key="app/src/main/res/layout/itemlistsuplierpembelian.xml" value="0.19537037037037036" />
         <entry key="app/src/main/res/layout/itemlisttoko.xml" value="0.20814361572265633" />
         <entry key="app/src/main/res/layout/listpopembelian_activity.xml" value="0.19537037037037036" />
+        <entry key="app/src/main/res/layout/listpopenjualan_activity.xml" value="0.19537037037037036" />
+        <entry key="app/src/main/res/layout/listproduk_activity.xml" value="0.1" />
         <entry key="app/src/main/res/layout/listsubproduk_activity.xml" value="0.1" />
         <entry key="app/src/main/res/layout/listsuplier_activity.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/listtoko_activity.xml" value="0.1913622648819633" />
