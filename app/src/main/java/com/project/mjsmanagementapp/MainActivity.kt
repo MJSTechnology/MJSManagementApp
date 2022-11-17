@@ -18,7 +18,11 @@ import kotlinx.android.synthetic.main.homepage_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
 
-class MainActivity : AppCompatActivity(),MainActivityContract {
+class
+
+
+
+MainActivity : AppCompatActivity(),MainActivityContract {
 
 
     private lateinit var presenter: MainActivityPresenter

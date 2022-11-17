@@ -31,6 +31,8 @@ import com.project.mjsmanagementapp.model.toko.picSales.ResponsePicSales
 import com.project.mjsmanagementapp.model.toko.provincies.ResponseProvincies
 import com.project.mjsmanagementapp.model.transaksi.beli.getListTrcBuyCategorySuplier.ResponseListTrcBuyCategorySuplierItem
 import com.project.mjsmanagementapp.model.transaksi.beli.getListTrcBuyKategori.ResponseListTrcBuyKategori
+import com.project.mjsmanagementapp.model.transaksi.jual.getListSellCategory.ResponseListTrcSellCategory
+import com.project.mjsmanagementapp.model.transaksi.jual.getListTrcSellCategoryToko.ResponseListTrcSellCategoryTokoItem
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -281,6 +283,11 @@ interface ApiInterface {
                        @Field("hargaJualTempoWholesale") hargaJualTempoWholesale: String,
                        @Field("hargaJualTempoBox") hargaJualTempoBox: String,
                        @Field("hargaJualTempoPcs") hargaJualTempoPcs: String) : Call<ResponseEditSubProduk>
+
+
+    // GET LIST TRANSAKSI BELI BY CATEGORY
+    @GET("transaction_buy/getListTrcBuyCategory.php")
+    fun getListTrcBuyCategory(): Call<List<ResponseListTrcBuyCategoryItem>>
 
     @GET("transaction_buy/getListTrcBuyCategoryBySupplier.php")
     fun getListTrcBuyCategorySuplier(): Call<List<ResponseListTrcBuyCategorySuplierItem>>

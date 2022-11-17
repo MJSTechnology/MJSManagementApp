@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.project.mjsmanagementapp.MainActivity
 import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.ui.transaksi.beli.listBuyCategorySuplier.ListBuyCategorySuplierActivity
+import com.project.mjsmanagementapp.ui.transaksi.jual.listSellCategorySupplier.ListSellCategoryTokoActivity
 import kotlinx.android.synthetic.main.historitransaksi_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
@@ -20,6 +21,10 @@ class MenuTransaksiActivity : AppCompatActivity() {
 
         btnPembelian.onClick {
             startActivity<ListBuyCategorySuplierActivity>()
+        }
+
+        btnPenjualan.onClick {
+            startActivity<ListSellCategoryTokoActivity>()
         }
     }
 }
