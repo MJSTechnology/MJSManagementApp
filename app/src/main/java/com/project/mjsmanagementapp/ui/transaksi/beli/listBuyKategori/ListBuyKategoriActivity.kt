@@ -1,5 +1,6 @@
 package com.project.mjsmanagementapp.ui.transaksi.beli.listBuyKategori
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +13,8 @@ import com.project.mjsmanagementapp.R
 import com.project.mjsmanagementapp.adapter.transaksi.beli.listBuyKategori.ListBuyKategoriAdapter
 import com.project.mjsmanagementapp.model.transaksi.beli.getListTrcBuyCategorySuplier.ResponseListTrcBuyCategorySuplierItem
 import com.project.mjsmanagementapp.model.transaksi.beli.getListTrcBuyKategori.ResponseListTrcBuyKategoriItem
+import com.project.mjsmanagementapp.ui.produk.detailSubProduk.DetailSubProdukActivity
+import com.project.mjsmanagementapp.ui.transaksi.beli.DetailPOBuy.DetailPOBuyActivity
 import kotlinx.android.synthetic.main.listpopembelian_activity.*
 import kotlinx.android.synthetic.main.listpopembelian_activity.btnimgBack
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -46,9 +49,6 @@ class ListBuyKategoriActivity : AppCompatActivity(), ListBuyKategoriActivityCont
 
     private fun getListBuyKategori(){
         presenter = ListBuyKategoriActivityPresenter(this)
-//        val itemDetailItem = intent.getSerializableExtra("itemDetail")
-//        val item = itemDetailItem as ResponseListTrcBuyCategorySuplierItem?
-//        Log.d( "getListBuyKategoriID: ",item?.trcBuyCategorySupplierID.toString())
 
         val intent = intent
         val supplierID = intent.getStringExtra("buySuplierID")
@@ -66,13 +66,17 @@ class ListBuyKategoriActivity : AppCompatActivity(), ListBuyKategoriActivityCont
     override fun onSuccessGetListTrcBuyKategori(response: List<ResponseListTrcBuyKategoriItem>?) {
         rvListPoBeli1.adapter = ListBuyKategoriAdapter(response, object : ListBuyKategoriAdapter.onClickItem{
             override fun clicked(item: ResponseListTrcBuyKategoriItem?) {
-                //INTENT KE LAYOUT DETAIL NOTA PEMBELIAN
+                val intent = Intent(this@ListBuyKategoriActivity, DetailPOBuyActivity::class.java);
+                intent.putExtra("itemDetailPO", item?.trcBuyCategoryID)
+                startActivity(intent)
             }
         })
 
         listPoBuyKategoriAdapterKode = ListBuyKategoriAdapter(response, object : ListBuyKategoriAdapter.onClickItem{
             override fun clicked(item: ResponseListTrcBuyKategoriItem?) {
-                //INTENT KE LAYOUT DETAIL NOTA PEMBELIAN
+                val intent = Intent(this@ListBuyKategoriActivity, DetailPOBuyActivity::class.java);
+                intent.putExtra("itemDetailPO", item?.trcBuyCategoryID)
+                startActivity(intent)
             }
         })
 
@@ -90,7 +94,9 @@ class ListBuyKategoriActivity : AppCompatActivity(), ListBuyKategoriActivityCont
                         val filterCode = response?.filter { it.trcBuyCategoryNota!!.contains("$action", true) }
                         listPoBuyKategoriAdapterKode = ListBuyKategoriAdapter(filterCode as List<ResponseListTrcBuyKategoriItem>, object : ListBuyKategoriAdapter.onClickItem{
                             override fun clicked(item: ResponseListTrcBuyKategoriItem?) {
-                                //INTENT KE LAYOUT DETAIL NOTA PEMBELIAN
+                                val intent = Intent(this@ListBuyKategoriActivity, DetailPOBuyActivity::class.java);
+                                intent.putExtra("itemDetailPO", item?.trcBuyCategoryID)
+                                startActivity(intent)
                             }
                         })
 

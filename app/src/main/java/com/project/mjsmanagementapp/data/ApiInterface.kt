@@ -29,6 +29,9 @@ import com.project.mjsmanagementapp.model.toko.kabupaten.ResponseKabupaten
 import com.project.mjsmanagementapp.model.toko.kecamatan.ResponseKecamatan
 import com.project.mjsmanagementapp.model.toko.picSales.ResponsePicSales
 import com.project.mjsmanagementapp.model.toko.provincies.ResponseProvincies
+import com.project.mjsmanagementapp.model.transaksi.beli.addPOBuyCategory.ResponseAddPOBuyCategory
+import com.project.mjsmanagementapp.model.transaksi.beli.getDetailPOBuy.ResponseDetailPOBuy
+import com.project.mjsmanagementapp.model.transaksi.beli.getDetailPOBuy.ResultItem
 import com.project.mjsmanagementapp.model.transaksi.beli.getListTrcBuyCategorySuplier.ResponseListTrcBuyCategorySuplierItem
 import com.project.mjsmanagementapp.model.transaksi.beli.getListTrcBuyKategori.ResponseListTrcBuyKategori
 import com.project.mjsmanagementapp.model.transaksi.jual.getListSellCategory.ResponseListTrcSellCategory
@@ -306,4 +309,15 @@ interface ApiInterface {
     @POST("transaction_sell/getListTrcSellCategory.php")
     fun getListTrcSellCategory(@Field("trcSellCategoryTokoID") trcSellCategoryTokoID : String?) : Call<ResponseListTrcSellCategory>
 
+    @FormUrlEncoded
+    @POST("transaction_buy/addTrcBuyCategory.php")
+    fun addPOBuyCategory(@Field("trcBuyCategoryNota") trcBuyCategoryNota: String,
+                         @Field("trcBuyCategorySupplier") trcBuyCategorySupplier: String,
+                         @Field("trcBuyCategoryPic") trcBuyCategoryPic: String,
+                         @Field("trcBuyCategoryPayment") trcBuyCategoryPayment: String,
+                         @Field("trcBuyCategoryTanggal") trcBuyCategoryTanggal: String) : Call<ResponseAddPOBuyCategory>
+
+    @FormUrlEncoded
+    @POST("transaction_buy/getListTrcBuy.php")
+    fun getDetailPOBuy(@Field("trcBuyCategoryID") trcBuyCategoryID : String?) : Call<ResponseDetailPOBuy>
 }

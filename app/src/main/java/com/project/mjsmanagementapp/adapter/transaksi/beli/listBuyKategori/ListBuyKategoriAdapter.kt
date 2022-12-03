@@ -32,6 +32,8 @@ class ListBuyKategoriAdapter(val data: List<ResponseListTrcBuyKategoriItem>?, va
             itemView.txtNomorPoBeli.text = get?.trcBuyCategoryNota
             itemView.txtTanggalPoBeli.text = get?.trcBuyCategoryTanggal
             itemView.txtJenisPayment.text = get?.trcBuyCategoryPayment
+            itemView.txtNamaPIC.text = get?.trcBuyCategoryPic
+
         }
     }
 

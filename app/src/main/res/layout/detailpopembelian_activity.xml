@@ -43,7 +43,7 @@
                         android:id="@+id/txtNomorPoBeli"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="000"
+                        android:text="Detail Nota"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:textSize="20dp"
@@ -70,53 +70,13 @@
                 android:orientation="vertical"
                 android:layout_margin="15dp">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp">
-
-                    <TextView
-                        android:id="@+id/txtTanggalPoBeli"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:text="00/00/00"
-                        android:textColor="@color/color_base"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtNamaPic"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:text="Nama Pic"
-                        android:textColor="@color/color_base"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/btnTambahProdukBeli"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/ic_add_square" />
-
-                </RelativeLayout>
-
                 <ProgressBar
                     android:id="@+id/loadingListToko"
-                    android:layout_width="wrap_content"
+                    android:layout_width="2dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvListProduk"

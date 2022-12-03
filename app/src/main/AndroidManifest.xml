@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.project.mjsmanagementapp">
+    package="com.project.mjsmanagementapp" >
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -20,7 +20,10 @@
         android:roundIcon="@drawable/logoicon2"
         android:supportsRtl="true"
         android:theme="@style/Theme.MJSManagementApp"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true" >
+        <activity
+            android:name=".ui.transaksi.beli.DetailPOBuy.DetailPOBuyActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.transaksi.beli.listBuyKategori.ListBuyKategoriActivity"
             android:exported="false" />
@@ -94,7 +97,7 @@
         <activity android:name=".ui.toko.addToko.AddTokoActivity" />
         <activity
             android:name=".ui.splashScreen.SplashScreenActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
