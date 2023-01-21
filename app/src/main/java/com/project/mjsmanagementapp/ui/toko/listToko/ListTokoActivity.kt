@@ -19,8 +19,10 @@ import org.jetbrains.anko.startActivity
 
 class ListTokoActivity : AppCompatActivity(), ListTokoActivityContract {
 
+    //penampung data dari adapter
     private var listTokoAdapterName : ListTokoAdapter? = null
     private var listTokoAdapterNoPelanggan : ListTokoAdapter? = null
+
     private lateinit var presenter: ListTokoActivityPresenter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

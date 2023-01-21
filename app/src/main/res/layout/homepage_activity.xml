@@ -319,131 +319,131 @@
         app:layout_constraintTop_toBottomOf="@+id/riwayatbtn" />
 
 
-    <TextView
-        android:id="@+id/txtusermanajemen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="User Manajemen"
-        android:textColor="#4F9FC2"
-        android:textSize="23dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/suplierbtn"
-        app:layout_constraintTop_toBottomOf="@+id/suplierbtn" />
+<!--    <TextView-->
+<!--        android:id="@+id/txtusermanajemen"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:text="User Manajemen"-->
+<!--        android:textColor="#4F9FC2"-->
+<!--        android:textSize="23dp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/suplierbtn"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/suplierbtn" />-->
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/absenbtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
-        app:layout_constraintStart_toStartOf="@+id/txtusermanajemen"
-        app:layout_constraintTop_toBottomOf="@+id/txtusermanajemen">
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/absenbtn"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:cardCornerRadius="10dp"-->
+<!--        app:cardElevation="5dp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/txtusermanajemen"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txtusermanajemen">-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/ic_absenbg_homepage" />
+<!--            <ImageView-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:background="@drawable/ic_absenbg_homepage" />-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
-    </androidx.cardview.widget.CardView>
+<!--    </androidx.cardview.widget.CardView>-->
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Absen"
-        android:textColor="#4F9FC2"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/absenbtn"
-        app:layout_constraintStart_toStartOf="@+id/absenbtn"
-        app:layout_constraintTop_toBottomOf="@+id/absenbtn" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:text="Absen"-->
+<!--        android:textColor="#4F9FC2"-->
+<!--        android:textSize="15dp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/absenbtn"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/absenbtn"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/absenbtn" />-->
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/gajibtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
-        app:layout_constraintStart_toEndOf="@+id/absenbtn"
-        app:layout_constraintTop_toBottomOf="@+id/txtusermanajemen">
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/gajibtn"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginStart="40dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:cardCornerRadius="10dp"-->
+<!--        app:cardElevation="5dp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/absenbtn"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txtusermanajemen">-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/ic_gajibg_homepage" />
+<!--            <ImageView-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:background="@drawable/ic_gajibg_homepage" />-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
-    </androidx.cardview.widget.CardView>
+<!--    </androidx.cardview.widget.CardView>-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textColor="#4F9FC2"
-        android:textSize="15dp"
-        android:text="Gaji"
-        app:layout_constraintEnd_toEndOf="@+id/gajibtn"
-        app:layout_constraintStart_toStartOf="@+id/gajibtn"
-        app:layout_constraintTop_toBottomOf="@+id/gajibtn"/>
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:textColor="#4F9FC2"-->
+<!--        android:textSize="15dp"-->
+<!--        android:text="Gaji"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/gajibtn"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/gajibtn"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/gajibtn"/>-->
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/pajakbtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
-        app:layout_constraintStart_toEndOf="@+id/gajibtn"
-        app:layout_constraintTop_toBottomOf="@+id/txtusermanajemen">
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/pajakbtn"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginStart="40dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:cardCornerRadius="10dp"-->
+<!--        app:cardElevation="5dp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/gajibtn"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txtusermanajemen">-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/ic_pajakbg_homepage" />
+<!--            <ImageView-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:background="@drawable/ic_pajakbg_homepage" />-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
-    </androidx.cardview.widget.CardView>
+<!--    </androidx.cardview.widget.CardView>-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textColor="#4F9FC2"
-        android:textSize="15dp"
-        android:text="Pajak"
-        app:layout_constraintEnd_toEndOf="@+id/pajakbtn"
-        app:layout_constraintStart_toStartOf="@+id/pajakbtn"
-        app:layout_constraintTop_toBottomOf="@+id/pajakbtn"/>
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:textColor="#4F9FC2"-->
+<!--        android:textSize="15dp"-->
+<!--        android:text="Pajak"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/pajakbtn"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/pajakbtn"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/pajakbtn"/>-->
     
 
 

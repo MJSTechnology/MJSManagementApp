@@ -83,7 +83,7 @@
                 android:layout_height="150dp"
                 android:layout_marginTop="30dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_addphoto_profile"/>
+                android:src="@drawable/ic_camera"/>
 
             <TextView
                 android:id="@+id/textView5"
@@ -213,7 +213,7 @@
                 android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="50dp"
                 android:text="Logout"
                 android:backgroundTint="#E26060"
                 android:layout_marginRight="20dp"

@@ -42,7 +42,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
 
     private lateinit var presenter: AddTokoActivityPresenter
 
-
+    //variable penampung data stringnya
     var listSpinnerSales: MutableList<String> = ArrayList()
     var listSpinnerIdSales: MutableList<String> = ArrayList()
     var listNameSpinnerProvincies: MutableList<String> = ArrayList()
@@ -54,10 +54,11 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
     var listIdSpinnerDesa: MutableList<String> = ArrayList()
     var listNameSpinnerDesa: MutableList<String> = ArrayList()
 
-
+    //penampung gambarnya
     private var bitmapToko: Bitmap? = null
     private var bitmapKtp: Bitmap? = null
 
+    //variable penampung data dari response
     var statusResponseToko : String? = null
     var provincieNamesResponseToko : String? = null
     var provinciesIdResponseToko : String? = null
@@ -105,9 +106,11 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
 
             presenter.getPicSales()
 
+            //onclick
             spinnerNamaSales.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     Log.d("Error", getString(R.string.selected_item) + "" + "" + listSpinnerSales[position])
+                    //set data spinner dan set location indexnya
                     salesResponseToko = listSpinnerSales[position]
                     salesResponseId = listSpinnerIdSales[position]
                 }
@@ -275,19 +278,26 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
+
+        //buat ngecek result permission dari request code yg dihasilkan dari onActivityResult
         if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.data != null) {
             val filePath = data.data
             try {
+
+                //buat set gambar dari data ke widget
                 bitmapToko = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
                 imgFotoToko.setImageBitmap(bitmapToko)
             } catch (e: IOException) {
                 e.printStackTrace()
             }
         }
+
+        //buat ngecek result permission dari request code yg dihasilkan dari onActivityResult
         if (requestCode == 2 && resultCode == RESULT_OK && data != null && data.data != null) {
             val filePath = data.data
             try {
 
+                //buat set gambar dari data ke widget
                 bitmapKtp = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
                 imgKtpToko.setImageBitmap(bitmapKtp)
             } catch (e: IOException) {
@@ -312,6 +322,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
     }
 
 
+    //function buat crop gambar
     private fun launchImageCrop(uri: Uri){
         CropImage.activity(uri)
             .setGuidelines(CropImageView.Guidelines.ON)
@@ -321,7 +332,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
     }
 
 
-
+    //intent ke directory buat pilih gambar
     private fun selectedImageToko() {
         // ini untuk select gambar
         val intent = Intent(Intent.ACTION_PICK)
@@ -332,7 +343,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
     }
 
 
-
+    //intent ke directory buat pilih gambar
     private fun selectedImageKtp() {
         // ini untuk select gambar
         val intent = Intent(Intent.ACTION_PICK)
@@ -342,7 +353,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
     }
 
 
-
+    //buat format penamaan gambar dan compress gambar
     fun getStringImageToko(bmp: Bitmap): String {
         val baos = ByteArrayOutputStream()
         bmp.compress(Bitmap.CompressFormat.JPEG, 10, baos)
@@ -350,6 +361,7 @@ class AddTokoActivity : AppCompatActivity(), AddTokoActivityContract {
         return Base64.encodeToString(imageBytes, Base64.DEFAULT)
     }
 
+    //buat format penamaan gambar dan compress gambar
     fun getStringImageKtp(bmp: Bitmap): String {
         val baos = ByteArrayOutputStream()
         bmp.compress(Bitmap.CompressFormat.JPEG, 10, baos)

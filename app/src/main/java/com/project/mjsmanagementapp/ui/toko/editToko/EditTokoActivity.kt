@@ -99,7 +99,6 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
         val tokoOldMapLong = intent.getStringExtra("tokoMapLong")
 
         btnSimpanToko.onClick{
-
             val tokoNama: String = edtNamaToko.getText().toString().trim { it <= ' ' }
             val tokoAlamat: String = edtAlamatToko.getText().toString().trim { it <= ' ' }
             val tokoPicName: String = edtNamaKontakPerson.getText().toString().trim { it <= ' ' }
@@ -110,6 +109,7 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
             val tokoMapLat: String
             val tokoMapLong: String
 
+            //set location baru
             if (tokoNewMapLat != null && tokoNewMapLong != null){
                 tokoMapLat = tokoNewMapLat.toString()
                 tokoMapLong = tokoNewMapLong.toString()
@@ -139,7 +139,6 @@ class EditTokoActivity : AppCompatActivity(), EditTokoContract {
     }
 
     fun String.capitalizeWords(): String = split(" ").joinToString(" ") { it.capitalize() }
-
 
     fun setDataFromIntentExtra() {
         presenter = EditTokoPresenter(this)

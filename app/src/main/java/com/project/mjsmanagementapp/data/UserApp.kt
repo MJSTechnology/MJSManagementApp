@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.facebook.stetho.Stetho
 
-
+//Buat bantu nampung data dan disimpen di key/value
 class UserApp : Application(){
     override fun onCreate() {
         super.onCreate()

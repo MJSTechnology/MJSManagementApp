@@ -24,22 +24,30 @@ import java.util.*
 
 class AddMapsTokoActivity : AppCompatActivity(), OnMapReadyCallback {
 
+    //buat gps sekarang
     private lateinit var currentLocation : Location
+
+    //buat tanda merah di maps
     private lateinit var fusedLocationProvider : FusedLocationProviderClient
+
+    //permission code, cari aja di gugel
     private val permissionCode = 101
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_maps_toko)
 
+        //deklarasiin
         fusedLocationProvider = LocationServices.getFusedLocationProviderClient(this)
         fetchLocation()
 
 
     }
 
+    //Buat nandain
     private fun fetchLocation() {
 
+        //cek permission
         if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) !=
                 PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                 this, android.Manifest.permission.ACCESS_COARSE_LOCATION
@@ -51,6 +59,7 @@ class AddMapsTokoActivity : AppCompatActivity(), OnMapReadyCallback {
             return
         }
 
+        //set location tanda merah ke maps
         val task = fusedLocationProvider.lastLocation
         task.addOnSuccessListener { location ->
             if(location != null){
@@ -64,7 +73,7 @@ class AddMapsTokoActivity : AppCompatActivity(), OnMapReadyCallback {
                     finish()
                 }
 
-
+                //naro lokasi mapsnya di widgetnya di layout
                 val supportMapFragment = (supportFragmentManager.findFragmentById(R.id.myMap) as
                         SupportMapFragment?)!!
                 supportMapFragment.getMapAsync(this)
@@ -72,17 +81,26 @@ class AddMapsTokoActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+
+    //naro info di maps pas titik merah di klik
     override fun onMapReady(googleMap: GoogleMap) {
+        //nampilin latlong
         val latLng = LatLng(currentLocation.latitude, currentLocation.longitude)
+        //ngambil address
         val makerOptions = MarkerOptions().position(latLng).title("Lokasi anda saat ini")
             .snippet(getTheAddress(currentLocation.latitude, currentLocation.longitude))
+        //animasi kamera di google mapsnya
         googleMap?.animateCamera(CameraUpdateFactory.newLatLng(latLng))
+        //zoom kamera defaultnya
         googleMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 20f))
+        //ngeset semua infonya
         googleMap?.addMarker(makerOptions)
     }
 
+    //buat ngambil latlong
     private fun getTheAddress(latitude: Double, longitude: Double): String? {
         var retVal = ""
+        //pemetaan mapnya
         val geocoder = Geocoder(this, Locale.getDefault())
         try {
             val addresses = geocoder.getFromLocation(latitude, longitude, 1)
@@ -94,6 +112,7 @@ class AddMapsTokoActivity : AppCompatActivity(), OnMapReadyCallback {
         return retVal
     }
 
+    //buat bantu ngecek permission nya
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,

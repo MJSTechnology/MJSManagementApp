@@ -29,9 +29,6 @@ class ListBuyKategoriActivity : AppCompatActivity(), ListBuyKategoriActivityCont
 
         getListBuyKategori()
 
-        btnAddPembelian.onClick {
-            //INTENT KE ADD PO PEMBELIAN
-        }
 
         btnimgBack.onClick {
             finish()

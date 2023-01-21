@@ -69,7 +69,7 @@ class ProfileActivity : AppCompatActivity() {
 
         if (adminPhoto == null || adminPhoto == ""){
             Glide.with(this)
-                .load(R.drawable.ic_addphoto_profile)
+                .load(R.drawable.ic_camera)
                 .into(findViewById(R.id.imgProfileKaryawan))
 
             imgProfileKaryawan.onClick {
@@ -80,7 +80,7 @@ class ProfileActivity : AppCompatActivity() {
             Glide.with(this)
                 .load(ApiClient.BASE_URL + adminPhoto)
                 .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
-                .placeholder(R.drawable.ic_addphoto_profile)
+                .placeholder(R.drawable.ic_camera)
                 .into(findViewById(R.id.imgProfileKaryawan))
 
             imgProfileKaryawan.onClick {

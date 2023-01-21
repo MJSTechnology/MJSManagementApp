@@ -16,11 +16,7 @@ class LoginActivityPresenter(val contract: LoginActivtyContract) {
         progressBar.visibility = View.VISIBLE
         ApiClient.getService().loginUser(adminEmail, adminPassword)
             .enqueue(object : retrofit2.Callback<ResponseLogin> {
-                override fun onResponse(
-                        call: Call<ResponseLogin>,
-                        response: Response<ResponseLogin>
-                ) {
-
+                override fun onResponse(call: Call<ResponseLogin>, response: Response<ResponseLogin>) {
                     val user: ResponseLogin? = response.body()
                     if (user?.error_msg == null) {
                         currentUser = response.body()

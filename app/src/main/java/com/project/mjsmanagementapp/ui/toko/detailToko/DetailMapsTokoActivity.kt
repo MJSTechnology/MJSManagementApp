@@ -52,6 +52,7 @@ class DetailMapsTokoActivity : AppCompatActivity(), OnMapReadyCallback {
             return
         }
 
+        //set tanda merah di lokasi saat ini nya
         val task = fusedLocationProvider.lastLocation
         task.addOnSuccessListener { location ->
             if (location != null) {

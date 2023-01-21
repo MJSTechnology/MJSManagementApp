@@ -12,6 +12,7 @@ object UserToken {
     private const val ADMIN_EMAIL = "adminEmail"
     private const val ADMIN_ROLES = "adminRoles"
 
+    //getter setter
     var adminName: String?
         get() {
             return getValue(ADMIN_NAME)
@@ -55,16 +56,16 @@ object UserToken {
             commitValue(ADMIN_ROLES, value)
         }
 
-
+    //buat logout (destroy semua setter getter)
     fun clearToken() {
         UserApp.run {
-            getContext()?.getSharedPreferences(
-                SESSION_USER,
+            getContext()?.getSharedPreferences(SESSION_USER,
                 Context.MODE_PRIVATE
             )?.edit()?.clear()?.commit()
         }
     }
 
+    //buat nyimpen data di memori (data lokal) dan ngeset di getter setter
     private fun commitValue(tag: String, value: String?) {
         val memory = UserApp.getContext()
             ?.getSharedPreferences(SESSION_USER, Context.MODE_PRIVATE)
@@ -75,6 +76,7 @@ object UserToken {
             ?.apply()
     }
 
+    //buat get data di memori (data lokal) ngeget di getter setter
     private fun getValue(tag: String): String? {
         val memory = UserApp.getContext()
             ?.getSharedPreferences(SESSION_USER, Context.MODE_PRIVATE)

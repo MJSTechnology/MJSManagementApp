@@ -85,10 +85,12 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
         txtNamaKontakPerson.setText(response.tokoPicName)
         txtNomorKontakPerson.setText(response.tokoPicPhone)
 
+
         cardNoTelepon.onClick {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/+62"+response.tokoPicPhone)))
         }
 
+        //set gambar dari database
         Glide.with(this)
             .load(ApiClient.BASE_URL + response.tokoPicKTP)
             .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
@@ -96,6 +98,7 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
             .transition(DrawableTransitionOptions.withCrossFade())
             .into(findViewById(R.id.imgKtpToko))
 
+        //set gambar dari database
         Glide.with(this)
             .load(ApiClient.BASE_URL + response.tokoPhoto)
             .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
@@ -103,6 +106,7 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
             .transition(DrawableTransitionOptions.withCrossFade())
             .into(findViewById(R.id.imgFotoToko))
 
+        //pop up alert dialog image
         imgKtpToko.onClick {
             val view = View.inflate(this@DetailTokoActivity, R.layout.itemfoto_toko, null)
 
@@ -121,6 +125,7 @@ class DetailTokoActivity : AppCompatActivity(), DetailTokoActivityContract {
                 .into(view.findViewById(R.id.detailFotoToko))
         }
 
+        //pop up alert dialog image
         imgFotoToko.onClick {
             val view = View.inflate(this@DetailTokoActivity, R.layout.itemfoto_toko, null)
 

@@ -78,11 +78,22 @@
                     android:layout_marginTop="10dp"
                     android:visibility="gone" />
 
+                <TextView
+                    android:id="@+id/txtNamaProduk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="List Produk :"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_base"
+                    android:textSize="20sp"/>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvListProduk"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="20dp"
+                    android:paddingTop="10dp"
                     tools:listitem="@layout/itemlistprodukpo"/>
 
 
@@ -92,59 +103,59 @@
         </androidx.cardview.widget.CardView>
 
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardElevation="10dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:cardElevation="10dp"-->
+<!--            app:cardCornerRadius="8dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_marginRight="10dp">-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="15dp"
-                android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_margin="15dp"-->
+<!--                android:orientation="vertical">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:text="Total Harga :"/>
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:text="Total Harga :"/>-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_marginTop="5dp">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Rp. "
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:textColor="@color/merah_hapus"/>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Rp. "-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textSize="20sp"-->
+<!--                        android:textColor="@color/merah_hapus"/>-->
 
-                    <TextView
-                        android:id="@+id/txtTotalHargaBeli"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="000,00"
-                        android:textColor="@color/merah_hapus"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="5dp"/>
+<!--                    <TextView-->
+<!--                        android:id="@+id/txtTotalHargaBeli"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="000,00"-->
+<!--                        android:textColor="@color/merah_hapus"-->
+<!--                        android:textSize="20sp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_marginLeft="5dp"/>-->
 
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
-        </androidx.cardview.widget.CardView>
+<!--        </androidx.cardview.widget.CardView>-->
 
     </LinearLayout>
 </ScrollView>

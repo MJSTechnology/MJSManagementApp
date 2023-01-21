@@ -81,13 +81,13 @@
                         android:layout_marginRight="40dp"
                         app:queryHint="Cari Suplier" />
 
-                    <ImageView
-                        android:id="@+id/btnAddSuplierBeli"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="-40dp"
-                        android:src="@drawable/ic_add_square"
-                        android:layout_alignParentRight="true"/>
+<!--                    <ImageView-->
+<!--                        android:id="@+id/btnAddSuplierBeli"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="-40dp"-->
+<!--                        android:src="@drawable/ic_add_square"-->
+<!--                        android:layout_alignParentRight="true"/>-->
                 </LinearLayout>
 
                 <LinearLayout

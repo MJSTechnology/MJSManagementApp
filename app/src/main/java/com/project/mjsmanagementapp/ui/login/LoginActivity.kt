@@ -48,6 +48,7 @@ class LoginActivity : AppCompatActivity(), LoginActivtyContract {
 
     override fun onSuccessLogin(data: ResponseLogin?) {
 
+        //Buat nyimpen data login di UserToken
         UserToken.adminName = data?.adminName
         UserToken.adminEmail = data?.adminEmail
         UserToken.adminID = data?.adminID.toString()

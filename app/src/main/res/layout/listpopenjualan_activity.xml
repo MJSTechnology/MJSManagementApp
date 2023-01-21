@@ -83,13 +83,13 @@
                         android:layout_marginRight="40dp"
                         app:queryHint="Cari No Po" />
 
-                    <ImageView
-                        android:id="@+id/btnAddPenjualan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="-40dp"
-                        android:src="@drawable/ic_add_square"
-                        android:layout_alignParentRight="true"/>
+<!--                    <ImageView-->
+<!--                        android:id="@+id/btnAddPenjualan"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="-40dp"-->
+<!--                        android:src="@drawable/ic_add_square"-->
+<!--                        android:layout_alignParentRight="true"/>-->
                 </LinearLayout>
 
                 <LinearLayout
@@ -103,18 +103,18 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Dari"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            android:textSize="18sp"/>
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Dari"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:textSize="18sp"/>-->
 
-                        <Spinner
-                            android:id="@+id/spinnerStartCalender"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+<!--                        <Spinner-->
+<!--                            android:id="@+id/spinnerStartCalender"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content" />-->
 
                     </LinearLayout>
 
@@ -124,35 +124,35 @@
                         android:orientation="vertical"
                         android:layout_marginLeft="20dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Sampai"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            android:textSize="18sp"/>
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Sampai"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:textSize="18sp"/>-->
 
-                        <Spinner
-                            android:id="@+id/spinnerStopCalender"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+<!--                        <Spinner-->
+<!--                            android:id="@+id/spinnerStopCalender"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content" />-->
 
                     </LinearLayout>
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Jenis Pembayaran"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18sp"/>
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:text="Jenis Pembayaran"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="18sp"/>-->
 
-                <Spinner
-                    android:id="@+id/spinnerPembayaran"
-                    android:layout_width="170dp"
-                    android:layout_height="wrap_content" />
+<!--                <Spinner-->
+<!--                    android:id="@+id/spinnerPembayaran"-->
+<!--                    android:layout_width="170dp"-->
+<!--                    android:layout_height="wrap_content" />-->
 
                 <ProgressBar
                     android:id="@+id/loadingListPoJual"
